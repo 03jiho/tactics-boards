@@ -110,6 +110,8 @@ export interface Team {
   accentColor: string;
   /** 구단 엠블럼 이미지 경로(public/ 기준). 없으면 이니셜 배지로 대체된다. */
   crestUrl?: string;
+  /** 이 클럽 소속 한국 선수 이름(있는 경우). 홈 화면의 한국 선수 소속 클럽 필터에 사용된다. */
+  koreanPlayer?: string;
   shortSummary: string;
   tactical: TacticalDetail;
   players: PlayerPosition[];

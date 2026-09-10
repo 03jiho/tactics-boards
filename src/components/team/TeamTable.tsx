@@ -21,6 +21,7 @@ export function TeamTable({ teams }: { teams: Team[] }) {
                 <Link href={`/teams/${team.id}`} className="flex items-center gap-2.5 font-medium text-zinc-900 hover:underline dark:text-zinc-50">
                   <TeamBadge team={team} sizeClassName="h-7 w-7" textSizeClassName="text-xs" />
                   {team.name}
+                  {team.koreanPlayer && <span aria-label="한국 선수 소속">🇰🇷</span>}
                 </Link>
               </td>
               <td className="px-4 py-3 text-zinc-600 dark:text-zinc-300">{team.league}</td>

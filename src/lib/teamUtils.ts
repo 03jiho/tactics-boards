@@ -2,6 +2,8 @@ import type { FormationId, Team, TeamSortKey } from "@/types/football";
 
 export interface TeamFilterOptions {
   formationId?: FormationId | "all";
+  league?: string | "all";
+  koreanOnly?: boolean;
   query?: string;
   sortKey?: TeamSortKey;
 }
@@ -24,12 +26,20 @@ const SORT_COMPARATORS: Record<TeamSortKey, (a: Team, b: Team) => number> = {
 
 export function filterAndSortTeams(
   teams: Team[],
-  { formationId = "all", query = "", sortKey = "name" }: TeamFilterOptions,
+  {
+    formationId = "all",
+    league = "all",
+    koreanOnly = false,
+    query = "",
+    sortKey = "name",
+  }: TeamFilterOptions,
 ): Team[] {
   const filtered = teams.filter((team) => {
     const formationMatches =
       formationId === "all" || team.primaryFormationId === formationId;
-    return formationMatches && matchesQuery(team, query);
+    const leagueMatches = league === "all" || team.league === league;
+    const koreanMatches = !koreanOnly || Boolean(team.koreanPlayer);
+    return formationMatches && leagueMatches && koreanMatches && matchesQuery(team, query);
   });
 
   return [...filtered].sort(SORT_COMPARATORS[sortKey]);

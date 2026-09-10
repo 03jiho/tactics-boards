@@ -177,6 +177,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#DC052D",
     crestUrl: "/badges/bayern-munich.svg",
+    koreanPlayer: "김민재",
     shortSummary:
       "더블 피봇의 안정감을 바탕으로 공격형 미드필더가 자유롭게 위치를 바꾸는 팀. 김민재가 최근 3경기 연속 선발로 나서며 주전 센터백으로 자리잡았다.",
     tactical: {
@@ -999,6 +1000,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-3-3",
     accentColor: "#C39E6D",
     crestUrl: "/badges/lafc.svg",
+    koreanPlayer: "손흥민",
     shortSummary:
       "2025년 12월 부임한 도스 산투스 체제. 손흥민-부앙가의 '흥부 듀오'가 공격의 절대적 중심이다.",
     tactical: {
@@ -1074,6 +1076,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-3-3",
     accentColor: "#00539F",
     crestUrl: "/badges/fc-porto.svg",
+    koreanPlayer: "황인범",
     shortSummary:
       "인내심 있는 빌드업과 트리거 기반 하이프레스를 겸비한 팀. 로우블록 공략을 위해 황인범을 더블 피봇 로테이션 자원으로 영입했다.",
     tactical: {
@@ -1445,6 +1448,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "3-4-2-1",
     accentColor: "#004D9D",
     crestUrl: "/badges/schalke-04.svg",
+    koreanPlayer: "황희찬",
     shortSummary:
       "2부 우승 후 1부로 승격한 첫 시즌. 마감일 막판 황희찬이 임대로 합류해 전방 로테이션에 새 변수를 더했다.",
     tactical: {
@@ -1521,6 +1525,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-4-2",
     accentColor: "#CB3524",
     crestUrl: "/badges/atletico-madrid.svg",
+    koreanPlayer: "이강인",
     shortSummary:
       "통산 800경기를 넘긴 시메오네 체제. 기본 4-4-2에서 빌드업 시 4-3-3, 비소유 시 5-3-2로 유동적이며, 이강인이 새 창조 자원으로 합류했다.",
     tactical: {
@@ -1749,6 +1754,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-3-1-2",
     accentColor: "#E2001A",
     crestUrl: "/badges/fc-midtjylland.svg",
+    koreanPlayer: "조규성·홍현석",
     shortSummary:
       "측면 미드필더 없는 좁은 다이아몬드형 4-3-1-2를 구사하는 7경기 무패팀. 조규성과 홍현석, 두 명의 한국 선수가 함께 뛰는 독특한 스쿼드 구성이 특징이다.",
     tactical: {
@@ -1824,6 +1830,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "3-5-2",
     accentColor: "#EA1D25",
     crestUrl: "/badges/mainz-05.svg",
+    koreanPlayer: "이재성",
     shortSummary:
       "2025년 12월 부임한 피셔 체제. 아미리와 이재성이 이끄는 중앙 더블 10번 콤비네이션이 공격의 핵심이다.",
     tactical: {
@@ -1899,6 +1906,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#018A42",
     crestUrl: "/badges/celtic.svg",
+    koreanPlayer: "양현준",
     shortSummary:
       "로저스→낸시→오닐로 이어진 감독 교체 소동 끝에 안정을 찾은 팀. 양현준의 개인 기량이 공격의 핵심 변수지만, 그는 현재 아시안게임 대표팀 차출로 레인저스전 등 주요 경기에 결장 중이다.",
     tactical: {

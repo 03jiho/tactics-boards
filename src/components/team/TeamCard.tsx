@@ -21,9 +21,17 @@ export function TeamCard({ team }: { team: Team }) {
       <p className="line-clamp-2 text-sm text-zinc-500 dark:text-zinc-400">
         {team.shortSummary}
       </p>
-      <span className="mt-auto inline-flex w-fit items-center rounded-full bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
-        {team.primaryFormationId}
-      </span>
+      <div className="mt-auto flex flex-wrap items-center gap-2">
+        <span className="inline-flex w-fit items-center rounded-full bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+          {team.primaryFormationId}
+        </span>
+        {team.koreanPlayer && (
+          <span className="inline-flex w-fit items-center gap-1 rounded-full bg-sky-50 px-2.5 py-1 text-xs font-medium text-sky-700 dark:bg-sky-900/40 dark:text-sky-300">
+            <span aria-hidden>🇰🇷</span>
+            {team.koreanPlayer}
+          </span>
+        )}
+      </div>
     </Link>
   );
 }

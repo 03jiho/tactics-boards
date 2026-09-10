@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FormationFilterBar } from "@/components/formation/FormationFilterBar";
+import { LeagueFilterBar } from "@/components/formation/LeagueFilterBar";
 import { TeamCard } from "@/components/team/TeamCard";
 import { TeamTable } from "@/components/team/TeamTable";
 import { TeamListControls, type TeamListView } from "@/components/team/TeamListControls";
@@ -29,6 +30,8 @@ export function HomeTeamExplorer({ teams, formations }: HomeTeamExplorerProps) {
   const [query, setQuery] = useState("");
   const [sortKey, setSortKey] = useState<TeamSortKey>("name");
   const [view, setView] = useState<TeamListView>("card");
+  const [league, setLeague] = useState<string | "all">("all");
+  const [koreanOnly, setKoreanOnly] = useState(false);
 
   const countByFormation = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -38,9 +41,22 @@ export function HomeTeamExplorer({ teams, formations }: HomeTeamExplorerProps) {
     return counts;
   }, [teams]);
 
+  const { leagues, countByLeague, koreanPlayerCount } = useMemo(() => {
+    const counts: Record<string, number> = {};
+    let korean = 0;
+    for (const team of teams) {
+      counts[team.league] = (counts[team.league] ?? 0) + 1;
+      if (team.koreanPlayer) korean += 1;
+    }
+    const orderedLeagues = Object.keys(counts).sort(
+      (a, b) => counts[b] - counts[a] || a.localeCompare(b, "ko"),
+    );
+    return { leagues: orderedLeagues, countByLeague: counts, koreanPlayerCount: korean };
+  }, [teams]);
+
   const visibleTeams = useMemo(
-    () => filterAndSortTeams(teams, { formationId, query, sortKey }),
-    [teams, formationId, query, sortKey],
+    () => filterAndSortTeams(teams, { formationId, league, koreanOnly, query, sortKey }),
+    [teams, formationId, league, koreanOnly, query, sortKey],
   );
 
   function handleSelectFormation(next: FormationId | "all") {
@@ -62,6 +78,16 @@ export function HomeTeamExplorer({ teams, formations }: HomeTeamExplorerProps) {
         selected={formationId}
         onSelect={handleSelectFormation}
         countByFormation={countByFormation}
+      />
+
+      <LeagueFilterBar
+        leagues={leagues}
+        selected={league}
+        onSelect={setLeague}
+        countByLeague={countByLeague}
+        koreanPlayerCount={koreanPlayerCount}
+        koreanOnly={koreanOnly}
+        onToggleKoreanOnly={() => setKoreanOnly((prev) => !prev)}
       />
 
       <TeamListControls
