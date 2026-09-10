@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tactics Board — 해외축구 전술 분석 웹앱
 
-## Getting Started
+포메이션별로 해당 전술을 사용하는 팀과 감독을 탐색하고, 팀 상세 페이지에서 공 소유/미소유 시 포메이션 변화를 2D 핏치 보드로 확인할 수 있는 웹 서비스입니다.
 
-First, run the development server:
+**배포 링크: https://tactics-board-cyan.vercel.app**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 주요 기능
+
+- **포메이션 선택 및 팀 리스트업**: 4-3-3, 4-2-3-1, 3-4-2-1, 4-4-2, 3-5-2, 5-3-2, 4-3-1-2 등 포메이션별 필터, 팀명·리그·감독명 검색 및 정렬, 카드/테이블 뷰 전환
+- **팀 상세 페이지**: 감독·포메이션 요약, 공 소유 시/미소유 시 전술 설명, 핵심 선수 및 전술적 역할, 관전 포인트
+- **포메이션 보드**: 축구장 배경 위에 등번호·이름이 표시된 선수 토큰을 배치하고, 공 소유/미소유 탭 전환 시 선수 위치가 실시간으로 이동
+- **구단 엠블럼**: 26개 클럽의 실제 엠블럼 이미지를 통일된 크기로 표시
+
+현재 프리미어리그 빅6, 라리가·세리에A·분데스리가·리그앙 주요 클럽, 그리고 손흥민·이강인·김민재 등 한국 선수들이 소속된 해외 클럽까지 총 26개 팀의 감독·선발 명단·전술 데이터를 다루고 있습니다. 데이터는 웹 리서치를 기반으로 하며, 이적/감독 교체 등에 따라 실제와 달라질 수 있습니다.
+
+## 기술 스택
+
+- **프레임워크**: Next.js 16 (App Router) + TypeScript
+- **스타일링**: Tailwind CSS v4
+- **시각화**: 별도 라이브러리 없이 순수 SVG로 구현한 포메이션 보드
+- **데이터**: `src/data`에 정의된 TypeScript 기반 구조화 데이터(Formation, Team, TacticalDetail, PitchCoordinate)
+
+## 프로젝트 구조
+
+```
+src/
+├── app/                      # 라우트 (홈, 팀 상세)
+├── components/
+│   ├── formation/            # 포메이션 필터
+│   ├── team/                 # 팀 카드/테이블/배지
+│   ├── home/                 # 홈 화면 오케스트레이터
+│   ├── pitch/                # SVG 포메이션 보드
+│   ├── team-detail/          # 팀 상세 페이지 섹션
+│   └── layout/                # 헤더/푸터
+├── data/                     # 포메이션·팀·좌표 템플릿 데이터
+├── lib/                      # 필터/정렬, 선수 명단 빌더
+└── types/                    # 도메인 타입 정의
+public/badges/                # 구단 엠블럼 이미지
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 시작하기
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+[http://localhost:3000](http://localhost:3000) 에서 확인할 수 있습니다.
 
-## Learn More
+빌드 및 타입 체크:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 배포
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[Vercel](https://vercel.com)에 배포되어 있으며, `main`/`master` 브랜치에 변경 사항을 반영한 뒤 `vercel --prod`로 재배포할 수 있습니다.
