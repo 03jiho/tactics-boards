@@ -46,14 +46,6 @@ export const TEAMS: Team[] = [
       },
       keyPlayers: [
         {
-          playerId: "mci-cherki",
-          name: "라얀 셰르키",
-          number: 10,
-          role: "자유로운 창조적 공격수",
-          description:
-            "2025-26 시즌 팀 최우수 선수. 중앙 공격형 미드필더 지역에서 자유롭게 움직이며 찬스메이킹을 전담한다.",
-        },
-        {
           playerId: "mci-haaland",
           name: "엘링 홀란",
           number: 9,
@@ -61,11 +53,19 @@ export const TEAMS: Team[] = [
           description: "여전히 고정된 최전방이지만, 짧게 내려와 센터백을 끌어내는 움직임이 늘어난 것이 마레스카 체제의 변화다.",
         },
         {
-          playerId: "mci-fernandez",
-          name: "엔초 페르난데스",
-          number: 17,
-          role: "더블 피봇(주전)",
-          description: "첼시에서 구단 역대 최고 이적료로 영입된 미드필더로, 앤더슨과 함께 더블 피봇 주전으로 자리잡았다. 아유브 부아디가 로테이션 자원으로 뒤를 받친다.",
+          playerId: "mci-cherki",
+          name: "라얀 셰르키",
+          number: 10,
+          role: "자유로운 창조적 공격수",
+          description:
+            "중앙 공격형 미드필더 지역에서 자유롭게 움직이며 찬스메이킹을 전담하는 마레스카 체제의 핵심 크리에이터. 2025-26 시즌 팀 최우수 선수는 오라일리였다.",
+        },
+        {
+          playerId: "mci-anderson",
+          name: "엘리엇 앤더슨",
+          number: 5,
+          role: "전천후 볼란치",
+          description: "로드리가 수행하던 백라인 보호·연계·빌드업·롱패스까지 전천후로 소화하는 더블 피봇 자원으로, 엔초 페르난데스와 로테이션한다.",
         },
       ],
       tacticalHighlights: [
@@ -511,11 +511,11 @@ export const TEAMS: Team[] = [
           description: "무리뉴 체제에서 깊은 빌드업 관여보다 골문 근처 침투와 마무리에 집중하도록 역할이 재편된 팀의 가장 큰 전술적 변화 지점.",
         },
         {
-          playerId: "rma-tchouameni",
-          name: "오렐리앵 추아메니",
-          number: 14,
-          role: "더블 피봇 앵커",
-          description: "더블 피봇의 앵커로 벨링엄이 전진할 수 있는 수비적 여유를 제공한다(발베르데·카마빙가와 로테이션 경쟁).",
+          playerId: "rma-valverde",
+          name: "페데리코 발베르데",
+          number: 8,
+          role: "더블 피봇(주전)",
+          description: "카마빙가와 함께 더블 피봇 주전으로 뛰며 벨링엄이 전진할 수 있는 수비적 여유를 제공한다. 오렐리앵 추아메니가 로테이션으로 경쟁한다.",
         },
         {
           playerId: "rma-fullbacks",
@@ -1270,13 +1270,7 @@ export const TEAMS: Team[] = [
           playerId: "che-neto",
           name: "페드로 네투",
           role: "오른쪽 윙백",
-          description: "3-2-5 구조 완성의 핵심으로, 공격 시 최종지역까지 전진해 폭과 오버로드를 동시에 제공한다.",
-        },
-        {
-          playerId: "che-hato",
-          name: "요렐 하토",
-          role: "왼쪽 윙백",
-          description: "현재 왼쪽 윙백 주전이나, 아탈란타에서 영입된 마르코 팔레스트라가 부상에서 복귀하면 이 자리를 두고 주전 경쟁이 예상된다.",
+          description: "3-2-5 구조 완성의 핵심으로, 공격 시 최종지역까지 전진해 폭과 오버로드를 동시에 제공한다. 아탈란타에서 영입된 마르코 팔레스트라가 부상에서 복귀하면 이 자리를 두고 주전 경쟁이 예상된다.",
         },
       ],
       tacticalHighlights: [
@@ -1291,10 +1285,10 @@ export const TEAMS: Team[] = [
       { id: "che-04", name: "웨슬리 포파나 / 조시 아챔퐁" },
       { id: "che-05", name: "막상스 라크루아" },
       { id: "che-03", name: "레비 콜윌" },
-      { id: "che-02", name: "페드로 네투" },
+      { id: "che-02", name: "페드로 네투 / 마르코 팔레스트라" },
       { id: "che-06", name: "로메오 라비아" },
       { id: "che-08", name: "모이세스 카이세도" },
-      { id: "che-07", name: "요렐 하토" },
+      { id: "che-07", name: "요렐 하토 / 펩 차바리아" },
       { id: "che-10", name: "콜 파머" },
       { id: "che-11", name: "모건 로저스" },
       { id: "che-09", name: "주앙 페드루" },
