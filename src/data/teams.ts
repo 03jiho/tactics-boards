@@ -80,11 +80,11 @@ export const TEAMS: Team[] = [
     players: buildPlayers("4-2-3-1", [
       { id: "mci-01", name: "잔루이지 돈나룸마", number: 1 },
       { id: "mci-02", name: "마테우스 누네스 / 압두코디르 후사노프", number: 27 },
-      { id: "mci-04", name: "후벤 디아스", number: 3 },
       { id: "mci-05", name: "마크 게히", number: 6 },
+      { id: "mci-04", name: "후벤 디아스", number: 3 },
       { id: "mci-03", name: "니코 오라일리 / 요슈코 그바르디올", number: 33 },
-      { id: "mci-06", name: "엔소 페르난데스", number: 17 },
       { id: "mci-08", name: "엘리엇 앤더슨", number: 5 },
+      { id: "mci-06", name: "엔소 페르난데스", number: 17 },
       { id: "mci-07", name: "안투안 세메뇨 / 일리만 은디아예", number: 42 },
       { id: "mci-10", name: "라얀 셰르키", number: 10 },
       { id: "mci-11", name: "제레미 도쿠 / 일리만 은디아예", number: 11 },
@@ -949,21 +949,21 @@ export const TEAMS: Team[] = [
     tactical: {
       inPossession: {
         summary: "위아가 오른쪽 풀백으로 내려가고 압델리가 후방 진행을 담당하는, 재편 초기의 실험적인 구조다.",
-        buildUpDescription: "정교한 빌드업 패턴보다 구지의 침투 스피드를 활용한 직선적 전개를 우선한다. 원래 미드필더인 콩도그비아를 센터백으로 기용하는 실험도 있었으나 현재는 부상으로 결장 중이다.",
+        buildUpDescription: "위아가 오른쪽 풀백에서 안쪽으로 좁혀 들어가 빌드업 인원을 늘리고, 스루패스보다 제3자 콤비네이션으로 상대 압박 라인을 끊어 구이리의 침투로를 여는 것이 릴 시절부터 이어진 원칙이다. 원래 미드필더인 콩도그비아를 센터백으로 기용하는 실험도 있었으나 현재는 부상으로 결장 중이다.",
         keyPoints: [
           "위아의 풀백 전환",
           "압델리의 후방 진행",
-          "구지를 향한 직선적 종패스",
+          "구이리를 향한 직선적 종패스",
         ],
       },
       outOfPossession: {
-        summary: "호이비에르가 여전히 후방 스크린을 담당하나, 재정 긴축에 따른 스쿼드 축소로 뎁스가 얇아졌다.",
-        defensiveShapeDescription: "중간~높은 라인의 압축된 블록을 기본으로 한다.",
-        pressingDescription: "감독·스쿼드가 동시에 바뀐 재건 초기라 세부 압박 데이터는 아직 충분히 쌓이지 않았다.",
+        summary: "제네시오 감독이 부임 직후부터 요구한 것은 '능동적인 하이프레싱 블록'으로, 볼 손실 직후 곧바로 되찾는 것을 원칙으로 삼는다.",
+        defensiveShapeDescription: "라인을 높게 끌어올려 수비와 미드필드 사이 간격을 좁히고, 상대의 느린 전개를 트리거 삼아 팀 전체가 동시에 전진하며 압박 강도를 높인다.",
+        pressingDescription: "릴 시절부터 이어온 원칙으로, 볼 근처 선수들이 즉각 협력 압박(카운터프레싱)을 가해 상대의 역습 전환 자체를 차단하는 것이 핵심이나, 재정 긴축에 따른 스쿼드 축소로 뎁스는 얇아졌다.",
         keyPoints: [
-          "호이비에르의 커버 셰도잉",
-          "챔피언스리그 수익 상실에 따른 뎁스 축소",
-          "감독·스쿼드 동시 재편에 따른 초기 기복",
+          "부임 직후 천명한 하이프레스 원칙",
+          "간격을 좁히는 높은 백라인",
+          "볼 손실 직후 발동되는 협력 압박",
         ],
       },
       keyPlayers: [
@@ -989,7 +989,7 @@ export const TEAMS: Team[] = [
         },
       ],
       tacticalHighlights: [
-        "구지의 등 뒤 공간 침투",
+        "구이리의 등 뒤 공간 침투",
         "위아의 윙어→풀백 역할 전환",
         "긴축 재정 이후 스쿼드 뎁스 재건 과정",
       ],
@@ -1014,14 +1014,14 @@ export const TEAMS: Team[] = [
     name: "로스앤젤레스 FC",
     league: "MLS",
     country: "미국",
-    manager: "마르크 도스 산투스",
+    manager: "마크 도스 산토스",
     primaryFormationId: "4-3-3",
     accentColor: "#C39E6D",
     crestUrl: "/badges/lafc.svg",
     koreanPlayer: "손흥민",
     tacticalStyle: { lineHeight: -0.1, width: 0.2, wingerTuck: 0.5, fullbackInvert: -0.5, anchorDrop: 0.2, falseNine: 0.7 },
     shortSummary:
-      "2025년 12월 부임한 도스 산투스 체제. 손흥민-부앙가의 '흥부 듀오'가 공격의 절대적 중심이다.",
+      "2025년 12월 부임한 도스 산토스 체제. 손흥민-부앙가의 '흥부 듀오'가 공격의 절대적 중심이다.",
     tactical: {
       inPossession: {
         summary: "슈아니에르가 중원에서 템포를 조절하는 가운데, 손흥민이 최전방에서 처져 내려와 연결 고리를 형성한다.",
@@ -1035,7 +1035,7 @@ export const TEAMS: Team[] = [
       outOfPossession: {
         summary: "탈취 직후 수 초 이내 강한 재압박으로 미드블록에서 턴오버를 노린다.",
         defensiveShapeDescription: "중원 트랩으로 상대를 유도한 뒤 손흥민과 부앙가의 스피드로 전환을 노린다.",
-        pressingDescription: "볼 상실 즉시 조직적인 재압박을 가하는 것이 도스 산투스 체제의 핵심 원칙이다.",
+        pressingDescription: "볼 상실 즉시 조직적인 재압박을 가하는 것이 도스 산토스 체제의 핵심 원칙이다.",
         keyPoints: [
           "탈취 직후 즉각적인 재압박",
           "손흥민-부앙가 듀오의 전환 스피드",
@@ -1048,7 +1048,7 @@ export const TEAMS: Team[] = [
           name: "손흥민",
           number: 7,
           role: "자유로운 창조자(스트라이커)",
-          description: "명목상 최전방 스트라이커지만 중앙과 측면 하프스페이스를 오가며 볼을 연결하는 창조자로, 현재 리그 도움왕이다.",
+          description: "도스 산토스 감독이 'PSG의 공격수는 누구도 고정된 프로필에 묶이지 않는다'는 철학을 본떠 좌우 채널과 중앙을 자유롭게 오가도록 설계한 핵심 자원으로, 현재 리그 도움왕이다.",
         },
         {
           playerId: "laf-bouanga",
@@ -1067,10 +1067,10 @@ export const TEAMS: Team[] = [
       ],
       tacticalHighlights: [
         "손흥민-부앙가의 '흥부' 듀오 콤비네이션(2025년 연속 득점 MLS 기록 보유)",
-        "손흥민의 처지는 움직임과 포지션 유동성",
+        "PSG를 벤치마킹해 도입한 '포지션 비고정' 원칙(손흥민·부앙가의 좌우 채널 스위치)",
         "탈취 직후 재압박 강도",
       ],
-      reportSummary: "손흥민과 부앙가의 개인 기량과 조합력이 공격의 절대적 중심인 팀으로, 도스 산투스 체제의 유연한 포메이션 운용이 뒷받침한다.",
+      reportSummary: "손흥민과 부앙가의 개인 기량과 조합력이 공격의 절대적 중심인 팀으로, 도스 산토스 체제의 유연한 포메이션 운용이 뒷받침한다.",
     },
     players: buildPlayers("4-3-3", [
       { id: "laf-01", name: "위고 요리스", number: 1 },
@@ -1096,17 +1096,17 @@ export const TEAMS: Team[] = [
     accentColor: "#00539F",
     crestUrl: "/badges/fc-porto.svg",
     koreanPlayer: "황인범",
-    tacticalStyle: { lineHeight: 0.3, width: 0, wingerTuck: 0.4, fullbackInvert: 0.4, anchorDrop: 0.5, falseNine: 0.1 },
+    tacticalStyle: { lineHeight: 0.3, width: 0, wingerTuck: 0.4, fullbackInvert: 0.4, anchorDrop: 0.5, falseNine: -0.2 },
     shortSummary:
       "인내심 있는 빌드업과 트리거 기반 하이프레스를 겸비한 팀. 로우블록 공략을 위해 황인범을 더블 피봇 로테이션 자원으로 영입했다.",
     tactical: {
       inPossession: {
-        summary: "피봇이 센터백 사이로 내려가 수적 우위를 만들고, 짧은 조합 플레이로 인내심 있게 전진한다.",
-        buildUpDescription: "풀백이 안쪽으로 좁혀 들어가고 측면 공격수가 넓게 벌어졌다가 안쪽으로 커팅인하는 패턴을 반복한다.",
+        summary: "프로홀트가 백라인 사이로 내려가 데 제르비식 2-3 구조로 후방 인원을 늘리지만, 전방까지 이어지는 세밀한 연결은 약해 조금만 막혀도 안드레 실바를 겨냥한 롱볼로 급격히 전환하는 실리적인 팀이다.",
+        buildUpDescription: "풀백이 안쪽으로 좁혀 들어가 빌드업 숫자를 늘리는 구조 자체는 데 제르비 사단 출신다운 설계이지만, 3선에서 2선으로 이어지는 디테일이 부족해 길이 막히면 안드레 실바의 제공권을 노리는 직선적인 롱볼로 우회하는 경우가 잦다.",
         keyPoints: [
-          "피봇의 백라인 합류",
-          "풀백의 인버트 무브",
-          "측면 공격수의 커팅인",
+          "피봇(프로홀트)의 백라인 합류로 만드는 후방 우위",
+          "막히면 곧장 안드레 실바를 겨냥한 롱볼로 전환",
+          "우승 시즌에도 리그 득점 3위에 그친 빈약한 공격 마무리",
         ],
       },
       outOfPossession: {
@@ -1144,10 +1144,10 @@ export const TEAMS: Team[] = [
       ],
       tacticalHighlights: [
         "프로홀트의 좌우 위치 이동을 통한 압박 회피",
-        "레스트 디펜스 원칙",
+        "타이틀을 차지한 25-26시즌에도 팀 득점은 리그 3위, 14경기 4실점의 탄탄한 수비가 우승의 실질적 원동력",
         "황인범 등판 시 로우블록 공략 패턴 변화",
       ],
-      reportSummary: "인내심 있는 빌드업과 트리거 기반 하이프레스를 겸비한 팀으로, 로테이션 자원인 황인범이 등판할 경우 로우블록 공략력이 강화된다.",
+      reportSummary: "표면적으로는 데 제르비 사단의 후방 빌드업 구조(풀백 인버트, 피봇의 백라인 합류)를 표방하지만, 실제로는 안드레 실바를 겨냥한 롱볼 의존도가 높고 수비 조직력으로 승점을 쌓는 실리적인 팀이다. 로테이션 자원인 황인범이 등판할 경우 로우블록 공략력이 보완된다.",
     },
     players: buildPlayers("4-3-3", [
       { id: "por-01", name: "디오구 코스타", number: 99 },
@@ -1161,7 +1161,7 @@ export const TEAMS: Team[] = [
       { id: "por-07", name: "윌리엄 고메스", number: 7 },
       { id: "por-11", name: "페페", number: 11 },
       { id: "por-09", name: "안드레 실바", number: 19 },
-    ], { lineHeight: 0.3, width: 0, wingerTuck: 0.4, fullbackInvert: 0.4, anchorDrop: 0.5, falseNine: 0.1 }),
+    ], { lineHeight: 0.3, width: 0, wingerTuck: 0.4, fullbackInvert: 0.4, anchorDrop: 0.5, falseNine: -0.2 }),
   },
 
   // ───────────────────────── 3-4-2-1 ─────────────────────────
@@ -1711,7 +1711,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "5-3-2",
     accentColor: "#005999",
     crestUrl: "/badges/getafe.svg",
-    tacticalStyle: { lineHeight: -0.8, width: -0.4, fullbackInvert: -0.3, anchorDrop: -0.2, falseNine: -0.5 },
+    tacticalStyle: { lineHeight: -0.3, width: -0.4, fullbackInvert: -0.3, anchorDrop: -0.2, falseNine: -0.5 },
     shortSummary:
       "2028년까지 재계약한 보르달라스 체제. 라리가에서 가장 직선적인 축구를 구사하며, 최근 경기는 5-3-2에 가깝다(전통적 정체성은 4-4-2).",
     tactical: {
@@ -1726,11 +1726,11 @@ export const TEAMS: Team[] = [
       },
       outOfPossession: {
         summary: "몸싸움 기반의 고강도 대인 압박으로 상대의 리듬을 끊는다.",
-        defensiveShapeDescription: "두 스트라이커가 상대 센터백을 함께 묶어두는 '스플릿 프레스' 후 볼이 풀백에 가면 협공한다.",
+        defensiveShapeDescription: "박스 앞이 아닌 미드필드에 '버스'를 세우는 것이 특징 — 상대 백라인에서 미드필더로 공이 넘어가는 순간 곧바로 강하게 압박한다.",
         pressingDescription: "파울을 감수하고서라도 전개 속도를 늦추는 실리적 운영이 특징이다.",
         keyPoints: [
-          "두 스트라이커의 스플릿 프레스",
-          "낮고 좁은 블록으로 박스 주변 공간 최소화",
+          "박스가 아닌 미드필드에서 시작되는 두 줄 수비 압박",
+          "측면 돌파 시 테라츠·모히카 등이 내려와 상대 풀백의 오버래핑 차단",
           "세트피스 수비 시 피지컬 매치업 활용",
         ],
       },
@@ -1776,7 +1776,7 @@ export const TEAMS: Team[] = [
       { id: "get-07", name: "요한 모히카", number: 22 },
       { id: "get-09", name: "에네스 위날", number: 19 },
       { id: "get-11", name: "마르틴 사트리아노", number: 10 },
-    ], { lineHeight: -0.8, width: -0.4, fullbackInvert: -0.3, anchorDrop: -0.2, falseNine: -0.5 }),
+    ], { lineHeight: -0.3, width: -0.4, fullbackInvert: -0.3, anchorDrop: -0.2, falseNine: -0.5 }),
   },
 
   // ───────────────────────── 4-3-1-2 ─────────────────────────
@@ -1800,7 +1800,7 @@ export const TEAMS: Team[] = [
         keyPoints: [
           "오버래핑 풀백의 폭 제공",
           "중앙 10번의 투톱 연결",
-          "빠른 전환 지향",
+          "세트피스를 핵심 무기로 삼는 전담 훈련 체계(헤더·롱스로인 능력 중심 영입)",
         ],
       },
       outOfPossession: {
@@ -1838,7 +1838,7 @@ export const TEAMS: Team[] = [
       ],
       tacticalHighlights: [
         "조규성-주의 투톱 롤 분담(홀드업 vs 침투)",
-        "다이아몬드 중원의 중앙 봉쇄력",
+        "툴베르 특유의 세트피스 특화 전술 — 유소년부터 1군까지 매일 세트피스 공격 루틴을 훈련하며, 조규성처럼 공중볼에 강한 자원을 선호한다",
         "홍현석의 로테이션 경쟁 구도",
       ],
       reportSummary: "측면 미드필더 없이 다이아몬드 중원과 오버래핑 풀백만으로 폭과 밀집도를 모두 확보하는 팀으로, 두 명의 한국 선수가 공존하는 스쿼드 구성이 흥미롭다.",
@@ -1881,11 +1881,11 @@ export const TEAMS: Team[] = [
         ],
       },
       outOfPossession: {
-        summary: "전임 헨릭센 감독의 대인 압박 기조를 계승하나 실행력은 기복이 있다.",
-        defensiveShapeDescription: "리그 하위권의 태클 수치가 보여주듯 압박 마무리 디테일이 부족하다는 평가다.",
+        summary: "우니온 베를린 시절 '짠물 수비'로 명성을 쌓은 피셔 특유의 조직적 수비와 윙백을 활용한 역습이 근간이나, 아직 팀에 완전히 녹아들지 못했다.",
+        defensiveShapeDescription: "탄탄한 블록으로 실점을 최소화했던 피셔의 과거와 달리, 현재는 조직력이 자리잡는 과정이라 리그 하위권 태클 수치가 보여주듯 수비 디테일이 아직 부족하다.",
         pressingDescription: "세트피스 공수 양면에서의 위협이 오히려 실점·득점에 큰 영향을 미친다.",
         keyPoints: [
-          "대인 지향 압박의 실행력 기복",
+          "피셔 특유의 역습 지향 수비 철학이 정착되는 과정",
           "세트피스 비중이 큰 득실점 패턴",
           "백3 재정비 속도",
         ],
