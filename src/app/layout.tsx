@@ -14,9 +14,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://tactics-board-cyan.vercel.app";
+const title = "Tactics Board | 해외축구 전술 분석";
+const description =
+  "포메이션별 팀·감독을 탐색하고 전술 상세와 포지션 시각화를 확인하는 서비스";
+
 export const metadata: Metadata = {
-  title: "Tactics Board | 해외축구 전술 분석",
-  description: "포메이션별 팀·감독을 탐색하고 전술 상세와 포지션 시각화를 확인하는 서비스",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: "Tactics Board",
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
