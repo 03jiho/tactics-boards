@@ -1,4 +1,5 @@
 import { PITCH_TEMPLATES, type PositionTemplate } from "@/data/pitchTemplates";
+import { splitNameLines } from "@/lib/playerLabel";
 import type { FormationId, PitchCoordinate, PlayerPosition, TacticalStyle } from "@/types/football";
 
 export interface RosterEntry {
@@ -92,20 +93,26 @@ function applyTacticalStyle(
  * 보이는 그대로 계산하려면 y에 이 배율을 곱해서 비교해야 한다.
  */
 const VIEW_Y_SCALE = 1.5;
+/** 토큰 원(반지름 4.2) + 이름 한 줄 + 포지션 라벨이 차지하는 기본 세로 공간을 덮는 최소 간격. */
+const BASE_TOKEN_DISTANCE = 11;
 /**
- * 최소 화면 간격. 토큰 원(반지름 4.2)뿐 아니라 원 아래에 붙는 이름·포지션 라벨(최대 원 중심
- * 기준 +10.4까지 내려감, PlayerToken.tsx)까지 고려해야, 위아래로 겹친 토큰의 이름표가 아래
- * 토큰의 원과 겹치는 것도 방지된다(10.4 + 반지름 4.2 = 14.6 이상 필요).
+ * 이름표가 길수록(특히 "선수A / 선수B" 로테이션 표기) 좌우로 넓게 퍼져 옆 토큰과 겹치기 쉽다.
+ * 이름 문자 수에 비례해 최소 간격에 여유를 더하되, 지나치게 벌어지지 않도록 상한을 둔다.
  */
-const MIN_TOKEN_DISTANCE = 15;
+function estimateLabelPadding(name: string): number {
+  const longestLine = Math.max(...splitNameLines(name).map((line) => line.length));
+  return clamp((longestLine - 4) * 1.1, 0, 10);
+}
 
 /**
  * 전술 스타일 보정을 거친 좌표들이 서로 너무 가까워져 화면에서 토큰이 겹치는 것을 막는다.
  * 겹치는 쌍을 반복적으로 서로 밀어내는 단순한 완화(relaxation) 방식으로, 이미 충분히 떨어진
- * 좌표는 건드리지 않고 최소 간격보다 가까운 경우에만 밀어낸다.
+ * 좌표는 건드리지 않고 최소 간격보다 가까운 경우에만 밀어낸다. 최소 간격은 두 토큰의 이름
+ * 길이에 따라 달라진다(estimateLabelPadding).
  */
-function resolveOverlaps(coords: PitchCoordinate[]): PitchCoordinate[] {
+function resolveOverlaps(coords: PitchCoordinate[], names: string[]): PitchCoordinate[] {
   const points = coords.map((c) => ({ x: c.x, y: c.y * VIEW_Y_SCALE }));
+  const paddings = names.map(estimateLabelPadding);
   const clampPoint = (p: { x: number; y: number }) => {
     p.x = clamp(p.x, 3, 97);
     p.y = clamp(p.y, 3 * VIEW_Y_SCALE, 97 * VIEW_Y_SCALE);
@@ -116,14 +123,15 @@ function resolveOverlaps(coords: PitchCoordinate[]): PitchCoordinate[] {
     let movedAny = false;
     for (let i = 0; i < points.length; i += 1) {
       for (let j = i + 1; j < points.length; j += 1) {
+        const minDistance = BASE_TOKEN_DISTANCE + paddings[i] + paddings[j];
         const dx = points[j].x - points[i].x;
         const dy = points[j].y - points[i].y;
         const distance = Math.hypot(dx, dy);
 
-        if (distance >= MIN_TOKEN_DISTANCE) continue;
+        if (distance >= minDistance) continue;
         movedAny = true;
 
-        const push = (MIN_TOKEN_DISTANCE - distance) / 2;
+        const push = (minDistance - distance) / 2;
         const [ux, uy] = distance > 0.001 ? [dx / distance, dy / distance] : [1, 0];
         points[i].x -= ux * push;
         points[i].y -= uy * push;
@@ -161,11 +169,14 @@ export function buildPlayers(
   }
 
   const roles = template.map(classifySlot);
+  const names = roster.map((entry) => entry.name);
   const inPossessionCoords = resolveOverlaps(
     template.map((slot, index) => applyTacticalStyle(slot.inPossession, style, roles[index], "in")),
+    names,
   );
   const outOfPossessionCoords = resolveOverlaps(
     template.map((slot, index) => applyTacticalStyle(slot.outOfPossession, style, roles[index], "out")),
+    names,
   );
 
   return template.map((slot, index) => ({

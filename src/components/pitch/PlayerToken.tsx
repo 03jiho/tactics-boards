@@ -1,3 +1,5 @@
+import { splitNameLines } from "@/lib/playerLabel";
+
 interface PlayerTokenProps {
   x: number;
   y: number;
@@ -6,6 +8,9 @@ interface PlayerTokenProps {
   positionLabel: string;
   accentColor: string;
 }
+
+const NAME_LINE_HEIGHT = 2.6;
+const NAME_FIRST_LINE_Y = 7.4;
 
 /**
  * 핏치 위에 놓이는 바둑알 형태의 선수 토큰.
@@ -19,6 +24,9 @@ export function PlayerToken({
   positionLabel,
   accentColor,
 }: PlayerTokenProps) {
+  const nameLines = splitNameLines(name);
+  const positionLabelY = NAME_FIRST_LINE_Y + nameLines.length * NAME_LINE_HEIGHT;
+
   return (
     <g
       className="transition-transform duration-700 ease-out"
@@ -40,20 +48,23 @@ export function PlayerToken({
       >
         {number}
       </text>
+      {nameLines.map((line, index) => (
+        <text
+          key={index}
+          y={NAME_FIRST_LINE_Y + index * NAME_LINE_HEIGHT}
+          textAnchor="middle"
+          fontSize={2.6}
+          fontWeight={700}
+          fill="white"
+          stroke="rgba(0,0,0,0.55)"
+          strokeWidth={0.5}
+          paintOrder="stroke"
+        >
+          {line}
+        </text>
+      ))}
       <text
-        y={7.4}
-        textAnchor="middle"
-        fontSize={2.6}
-        fontWeight={700}
-        fill="white"
-        stroke="rgba(0,0,0,0.55)"
-        strokeWidth={0.5}
-        paintOrder="stroke"
-      >
-        {name}
-      </text>
-      <text
-        y={10.4}
+        y={positionLabelY}
         textAnchor="middle"
         fontSize={2.1}
         fill="white"
