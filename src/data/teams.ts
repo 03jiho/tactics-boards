@@ -24,13 +24,13 @@ export const TEAMS: Team[] = [
     tactical: {
       inPossession: {
         summary:
-          "왼쪽 풀백 오라일리가 인버트해 후벤 디아스·게히와 함께 백3를 형성하고, 엔소·앤더슨 중 한 명이 그 앞으로 내려가 3-2-5 구조를 완성한다. 셰르키는 중앙에서 자유롭게 움직이며 세메뇨·도쿠 두 측면 자원과 연계한다.",
+          "왼쪽 풀백 오라일리가 인버트해 후벤 디아스·게히와 함께 백3를 형성하면, 앤더슨이 그 앞을 커버하는 동안 엔소는 한 칸 더 높은 위치까지 전진해 2-3-5에 가까운 구조를 완성한다. 셰르키는 중앙에서 자유롭게 움직이며 세메뇨·도쿠 두 측면 자원과 연계한다.",
         buildUpDescription:
-          "오라일리의 인버트로 만든 3백 위에서 짧은 패스와 위치 교환으로 상대 1차 압박 라인을 돌파하며, 홀란이 짧게 내려와 센터백을 끌어내는 움직임도 늘었다.",
+          "오라일리의 인버트로 만든 3백 위에서 앤더슨이 라인 사이 공간을 지키며 짧은 패스로 상대 1차 압박 라인을 돌파하고, 엔소는 더 높은 위치까지 전진해 침투와 마무리에 가담한다. 홀란이 짧게 내려와 센터백을 끌어내는 움직임도 늘었다.",
         keyPoints: [
           "오라일리의 인버트 타이밍 — 3-2-5 빌드업 구조",
+          "앤더슨은 커버, 엔소는 전진 — 비대칭 더블 피봇 롤 분담",
           "셰르키의 중앙 연계 플레이",
-          "세메뇨-도쿠 두 측면 공격 자원의 폭",
         ],
       },
       outOfPossession: {
@@ -59,14 +59,14 @@ export const TEAMS: Team[] = [
           number: 10,
           role: "자유로운 창조적 공격수",
           description:
-            "중앙 공격형 미드필더 지역에서 자유롭게 움직이며 찬스메이킹을 전담하는 마레스카 체제의 핵심 크리에이터. 2025-26 시즌 팀 최우수 선수는 오라일리였다.",
+            "중앙 공격형 미드필더 지역에서 자유롭게 움직이며 찬스메이킹을 전담하는 마레스카 체제의 핵심 크리에이터.",
         },
         {
           playerId: "mci-anderson",
           name: "엘리엇 앤더슨",
           number: 5,
           role: "전천후 볼란치",
-          description: "로드리가 수행하던 백라인 보호·연계·빌드업·롱패스까지 전천후로 소화하는 더블 피봇 자원으로, 엔소 페르난데스와 로테이션한다.",
+          description: "로드리가 수행하던 백라인 보호·연계·빌드업·롱패스까지 전천후로 소화하는 더블 피봇 자원으로, 한 칸 더 높은 위치까지 전진하는 엔소 페르난데스와 비대칭적인 역할을 나눠 맡는다.",
         },
       ],
       tacticalHighlights: [
@@ -180,28 +180,28 @@ export const TEAMS: Team[] = [
     accentColor: "#DC052D",
     crestUrl: "/badges/bayern-munich.svg",
     koreanPlayer: "김민재",
-    tacticalStyle: { lineHeight: 0.8, width: 0.3, wingerTuck: 0.3, fullbackInvert: -0.4, anchorDrop: 0.7, falseNine: 0.3 },
+    tacticalStyle: { lineHeight: 0.8, width: 0.3, wingerTuck: -0.3, fullbackInvert: 0.4, anchorDrop: 0.7, falseNine: 0.3 },
     shortSummary:
       "더블 피봇의 안정감을 바탕으로 공격형 미드필더가 자유롭게 위치를 바꾸는 팀. 김민재가 최근 3경기 연속 선발로 나서며 주전 센터백으로 자리잡았다.",
     tactical: {
       inPossession: {
         summary:
-          "키미히가 센터백 사이로 내려가 백3~4를 만들고, 데이비스가 오버랩으로 폭을 더한다.",
+          "키미히가 센터백 사이로 내려가거나 파블로비치와 위치를 바꾸며 백3~4를 만들고, 케인이 3선까지 처져 상대 센터백을 끌어낸 뒤 그 뒷공간을 향한 롱패스로 압박을 무력화한다.",
         buildUpDescription:
-          "무시알라·케인의 중앙 콤비 플레이로 측면보다 중앙 돌파를 우선하며, 케인이 짧게 내려와 연계한다.",
+          "케인이 중앙 미드필더와 수비 라인 사이까지 내려와 마크맨을 끌어내면, 무시알라와 윙어들이 그 뒷공간을 공략한다. 데이비스 등 풀백은 폭을 넓히기보다 안쪽 하프스페이스로 언더래핑하고, 폭은 양쪽 윙어가 넓게 벌려 담당한다.",
         keyPoints: [
           "키미히의 백라인 합류 타이밍",
-          "데이비스의 오버래핑",
-          "무시알라-케인의 중앙 콤비 플레이",
+          "케인의 처짐과 뒷공간을 향한 롱패스",
+          "풀백의 언더래핑을 통한 하프스페이스 공략",
         ],
       },
       outOfPossession: {
-        summary: "명확한 구조의 고강도 대인 압박으로, 최대 4명이 상대 최종수비라인까지 전진하는 게겐프레싱을 구사한다.",
-        defensiveShapeDescription: "두 줄의 4-2 블록이 간격을 좁게 유지하고, 측면 공격형 미드필더가 상대 풀백까지 내려와 커버한다.",
+        summary: "단순 지역방어가 아닌, 전원이 각자의 마크맨을 끝까지 따라붙는 대인 압박(맨마킹)을 기본 축으로 하는 강도 높은 게겐프레싱을 구사한다.",
+        defensiveShapeDescription: "전방 4명이 상대 센터백까지 강하게 압박해 롱볼을 유도하고, 수비수까지도 자신의 마크맨을 끝까지 쫓아 내려가는 대인 방어 원칙을 유지한다.",
         pressingDescription: "볼 탈취 즉시 빠르게 재공격으로 전환한다.",
         keyPoints: [
           "전방 4인의 협공 압박",
-          "더블 피봇의 이중 커버",
+          "전원의 대인 마크(맨마킹) 원칙",
           "탈취 직후 재공격 전환 속도",
         ],
       },
@@ -248,7 +248,7 @@ export const TEAMS: Team[] = [
       { id: "bay-10", name: "자말 무시알라", number: 10 },
       { id: "bay-11", name: "루이스 디아스", number: 14 },
       { id: "bay-09", name: "해리 케인", number: 9 },
-    ], { lineHeight: 0.8, width: 0.3, wingerTuck: 0.3, fullbackInvert: -0.4, anchorDrop: 0.7, falseNine: 0.3 }),
+    ], { lineHeight: 0.8, width: 0.3, wingerTuck: -0.3, fullbackInvert: 0.4, anchorDrop: 0.7, falseNine: 0.3 }),
   },
   {
     id: "manchester-united",
@@ -270,11 +270,11 @@ export const TEAMS: Team[] = [
         keyPoints: [
           "풀백의 인버트 타이밍",
           "쿠냐의 최전방/왼쪽 배치에 따른 전술 색깔 변화",
-          "더블 피봇의 빌드업 연계",
+          "탈취 직후 브루누를 거치는 속공이 정교한 구조적 빌드업보다 두드러지는 득점 루트",
         ],
       },
       outOfPossession: {
-        summary: "상시 하이프레스보다 절제된 4-4-2/4-4-1-1 미드블록을 기본으로 한다.",
+        summary: "높은 압박보다 낮은 4-4-2/4-4-1-1 블록으로 내려앉아 공간을 최소화한 뒤 빠른 역습을 노리는 '포지션 기반 역습 축구'가 캐릭 체제의 근본 정체성이며, 상대에 따라 전술을 유동적으로 바꾸는 실용주의 성향이 강하다.",
         defensiveShapeDescription: "측면 유도 후 윙어·풀백이 협공하는 트랩 방식을 사용한다.",
         pressingDescription: "깊고 촘촘한 블록 상대로는 중앙 공간 창출에 어려움을 겪는다는 평가가 있다.",
         keyPoints: [
@@ -307,7 +307,7 @@ export const TEAMS: Team[] = [
         },
       ],
       tacticalHighlights: [
-        "풀백의 인버트 타이밍",
+        "낮은 블록 후 브루누발 속공이라는 실리적 승리 공식",
         "쿠냐의 최전방/왼쪽 배치에 따른 전술 변화",
         "측면 유도 후 협공하는 미드블록 트랩",
       ],
@@ -413,17 +413,17 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#132257",
     crestUrl: "/badges/tottenham.svg",
-    tacticalStyle: { lineHeight: 0.3, width: 0.1, wingerTuck: 0.5, fullbackInvert: -0.4, anchorDrop: 0.3, falseNine: 0.1 },
+    tacticalStyle: { lineHeight: 0.3, width: 0.1, wingerTuck: 0.5, fullbackInvert: -0.4, anchorDrop: 0.3, falseNine: 0.5 },
     shortSummary:
       "2026년 3월 부임한 데 제르비 체제. '압박 유인' 후 라인 브레이킹 패스로 전개하는 조직적인 축구가 특징이다.",
     tactical: {
       inPossession: {
-        summary: "짧은 패스로 상대를 끌어들인 뒤 등 뒤 공간으로 종패스를 찔러 넣는 '압박 유인'이 핵심 원칙이다.",
-        buildUpDescription: "빌드업 시 풀백 한 명이 좁혀 들어가거나 미드필더가 내려와 백3 형태를 만들고, 페르난데스가 자유로운 10번 역할을 맡는다.",
+        summary: "골키퍼와 센터백이 볼을 오래 소유하며 상대의 전방 압박을 최대한 끌어들인 뒤, 등 뒤 공간으로 종패스를 찔러 넣는 '압박 유인'이 핵심 원칙이다.",
+        buildUpDescription: "빌드업 시 풀백 한 명이 좁혀 들어가거나 미드필더가 내려와 백3 형태를 만드는 동안, 페르난데스와 최전방 마르무시가 동시에 중앙 미드필더와 수비 라인 사이까지 내려와 마치 두 명의 폴스나인처럼 패스 길을 연다 — 상대 센터백이 따라 나오면 뒷공간을, 나오지 않으면 열리는 중원을 공략하는 이지선다 구조다.",
         keyPoints: [
           "압박 유인 후 라인 브레이킹 패스",
+          "페르난데스-마르무시의 동시 처짐(더블 폴스나인)이 만드는 이지선다",
           "포로·로버트슨의 오버래핑 폭",
-          "페르난데스의 자유로운 연결 플레이",
         ],
       },
       outOfPossession: {
@@ -433,7 +433,7 @@ export const TEAMS: Team[] = [
         keyPoints: [
           "약속된 압박 트리거",
           "풀백의 폭 제공으로 윙어의 좁은 플레이 유도",
-          "신규 영입생 다수로 인한 초기 기복",
+          "상대가 압박에 반응하지 않고 완전히 내려앉는 로우블록을 택하면 고전하는 경향",
         ],
       },
       keyPlayers: [
@@ -441,7 +441,7 @@ export const TEAMS: Team[] = [
           playerId: "tot-fernandes",
           name: "마테우스 페르난데스",
           role: "자유로운 10번(로테이션)",
-          description: "더블 피봇과 전방을 잇는 자유로운 10번으로 구상되지만, 최근 노팅엄 포레스트전에서는 벤치로 밀려나는 등 아직 완전한 주전은 아니다.",
+          description: "더블 피봇과 전방을 잇는 자유로운 10번이자, 최전방 자원과 동시에 처지며 상대 센터백에게 이지선다를 강요하는 데 제르비 빌드업의 핵심 축. 다만 최근 노팅엄 포레스트전에서는 벤치로 밀려나는 등 아직 완전한 주전은 아니다.",
         },
         {
           playerId: "tot-bentancur",
@@ -475,7 +475,7 @@ export const TEAMS: Team[] = [
       { id: "tot-10", name: "마테우스 페르난데스", number: 18 },
       { id: "tot-11", name: "마티스 텔", number: 11 },
       { id: "tot-09", name: "오마르 마르무시", number: 22 },
-    ], { lineHeight: 0.3, width: 0.1, wingerTuck: 0.5, fullbackInvert: -0.4, anchorDrop: 0.3, falseNine: 0.1 }),
+    ], { lineHeight: 0.3, width: 0.1, wingerTuck: 0.5, fullbackInvert: -0.4, anchorDrop: 0.3, falseNine: 0.5 }),
   },
   {
     id: "real-madrid",
@@ -492,7 +492,7 @@ export const TEAMS: Team[] = [
     tactical: {
       inPossession: {
         summary: "더블 피봇(발베르데-카마빙가 또는 추아메니)이 벨링엄에게 볼을 공급하고, 벨링엄은 후방 빌드업보다 골문 근처 마무리에 집중한다.",
-        buildUpDescription: "쿠쿠레야·둠프리스(또는 알렉산더-아놀드·카레라스)가 폭과 오버랩을 제공하는 동안, 벨링엄은 딥라잉 플레이메이커에서 전진 배치된 10번으로 역할이 바뀌었다.",
+        buildUpDescription: "오른쪽에서는 둠프리스 또는 알렉산더-아놀드가 적극적으로 오버랩해 폭을 담당하고, 왼쪽에서는 쿠쿠레야 또는 카레라스가 상대적으로 신중하게 밸런스를 잡는 무리뉴 특유의 비대칭 풀백 운용 속에서, 벨링엄은 딥라잉 플레이메이커에서 전진 배치된 10번으로 역할이 바뀌었다.",
         keyPoints: [
           "벨링엄의 역할 변화(깊은 진행형 → 전진 배치형 10번)",
           "더블 피봇의 안정적 볼 순환",
@@ -500,11 +500,11 @@ export const TEAMS: Team[] = [
         ],
       },
       outOfPossession: {
-        summary: "벨링엄이 중원이 아닌 전방 유닛에 가담해 압박하면서, 팀 전체의 회수 대형이 더 높고 압축적으로 변화했다.",
-        defensiveShapeDescription: "전방부터 압축된 블록으로 상대 진영에 가깝게 볼을 되찾는 것을 목표로 한다.",
-        pressingDescription: "벨링엄의 전방 압박 가담으로 더블 피봇의 커버 부담이 커졌으며, 풀백이 전진할 때 파트너의 밸런스가 중요해졌다.",
+        summary: "벨링엄이 전방 유닛까지 가담해 압박하지만, 무리뉴 특유의 실리주의에 따라 블록 높이는 상대 전력별로 달라진다 — 약팀 상대로는 점유율을 쥐고 높은 지역에서 볼을 되찾으려 하고, 진짜 강팀을 만나면 라인을 내려 선 수비 후 역습에 집중한다.",
+        defensiveShapeDescription: "전방부터 압축된 블록으로 상대 진영에 가깝게 볼을 되찾는 것을 목표로 하되, 원정이나 강팀전에는 주저 없이 라인을 낮춘다.",
+        pressingDescription: "벨링엄의 전방 압박 가담으로 더블 피봇의 커버 부담이 커지지만, 무리뉴는 이길 확률이 가장 높은 방식을 택하는 실리주의자답게 상대에 따라 하이프레스와 선 수비 후 역습을 유연하게 오간다.",
         keyPoints: [
-          "벨링엄의 압박 가담 위치 변화",
+          "상대 전력에 따라 완전히 달라지는 압박 강도",
           "더블 피봇의 커버 범위",
           "풀백 전진 시의 밸런스 유지",
         ],
@@ -533,7 +533,7 @@ export const TEAMS: Team[] = [
         },
       ],
       tacticalHighlights: [
-        "4-3-3에서 4-2-3-1 더블 피봇으로의 시스템 전환",
+        "상대 전력에 따라 전술을 완전히 바꾸는 무리뉴의 실리주의",
         "벨링엄의 역할 재정의",
         "풀백 4자리(좌우) 모두에서 벌어지는 주전 경쟁",
       ],
@@ -567,8 +567,8 @@ export const TEAMS: Team[] = [
       "2026년 7월 부임한 필리페 루이스 체제. 5연승으로 리그 선두를 달리는 강한 시작을 보였고, 브루너 등 신예의 돌파구가 돋보인다.",
     tactical: {
       inPossession: {
-        summary: "자카리아-카마라 더블 피봇이 볼을 순환시키는 가운데, 골로빈이 중앙 10번에서 템포를 조율한다.",
-        buildUpDescription: "반데르송과 나지뉴가 폭을 담당하는 동안 쿨리발리·아클리우슈가 브루너 뒤에서 위치를 교환한다.",
+        summary: "조르제 제수스식 포지션 플레이를 기반으로 자카리아-카마라 더블 피봇이 짧은 패스로 볼을 순환시키고, 좁고 유기적인 공격 구조 속에서 골로빈·아클리우슈가 위치를 바꿔가며 수직적으로 전진한다.",
+        buildUpDescription: "반데르송과 나지뉴가 폭을 전담하는 동안 골로빈·아클리우슈·쿨리발리는 좁게 서서 브루너 주변에서 위치를 교환하며 하프스페이스를 두텁게 채운다.",
         keyPoints: [
           "더블 피봇 중심의 중앙 빌드업",
           "아클리우슈의 좌우 겸용 창조 역할",
@@ -576,9 +576,9 @@ export const TEAMS: Team[] = [
         ],
       },
       outOfPossession: {
-        summary: "포코뇰리 시절의 유연한 다단계 수비 시스템 기조를 이어가되, 필리페 루이스 특유의 조직력이 더해졌다.",
+        summary: "스승 디에고 시메오네의 영향을 받은 적극적인 압박으로 탈취 직후 곧바로 빠른 역습을 노리며, 필요 시 포코뇰리 시절 유산인 임시 백5 전환도 병행한다.",
         defensiveShapeDescription: "필요 시 미드필더가 백라인에 합류해 임시 백5를 형성한다.",
-        pressingDescription: "새 감독 부임 후 5연승을 달리며 리그 선두에 오를 만큼 초반 조직력이 안정적이다.",
+        pressingDescription: "공을 잃으면 즉각적이고 조직적인 재압박(카운터프레싱)으로 짧은 시간 안에 볼을 되찾아 빠른 역습으로 전환하려 한다.",
         keyPoints: [
           "임시 백5 형성 타이밍",
           "풀백의 측면 압박 가담",
@@ -609,7 +609,7 @@ export const TEAMS: Team[] = [
       ],
       tacticalHighlights: [
         "브루너의 돌파형 침투와 득점력",
-        "아클리우슈-골로빈의 위치 교환",
+        "조르제 제수스-디에고 시메오네 사사 스타일: 포지션 플레이 + 즉각 재압박의 융합",
         "신임 감독 체제의 빠른 안정화(5연승)",
       ],
       reportSummary: "감독 교체 직후 5연승으로 순항 중인 팀으로, 브루너의 브레이크아웃과 자카리아-카마라 더블 피봇의 안정감이 핵심이다. 미나미노(전방십자인대 파열)·발로군(부상)은 장기 결장 중이며, 포그바·파티는 아직 주전급으로 통합되지 않았다.",
@@ -715,15 +715,15 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-3-3",
     accentColor: "#DD0741",
     crestUrl: "/badges/rb-leipzig.svg",
-    tacticalStyle: { lineHeight: 0.7, width: 0.25, wingerTuck: -0.5, fullbackInvert: -0.3, anchorDrop: 0.7, falseNine: 0.4 },
+    tacticalStyle: { lineHeight: 0.7, width: 0.25, wingerTuck: 0.4, fullbackInvert: -0.3, anchorDrop: 0.7, falseNine: 0.4 },
     shortSummary:
       "2026시즌 부임한 데미첼리스 체제. 빌드업 시 4-3-3, 비소유 시 4-1-4-1로 전환하며 통제된 점유를 지향한다.",
     tactical: {
       inPossession: {
-        summary: "자이발트가 센터백 사이로 내려가 임시 3백을 형성, 풀백이 전진해 계단식 패스 라인을 만든다.",
-        buildUpDescription: "중앙 수적 우위를 만든 뒤 가속하는 통제된 점유를 우선하며, 예전의 무작정 수직 전환보다 조직력을 강조한다.",
+        summary: "데미첼리스 특유의 포지션 무관 유동성 아래, 라움·바쿠 같은 풀백이 극단적으로 높고 넓게 전진하는 동안 누사·은쿤쿠 등 전방 자원은 안쪽으로 좁혀 중앙과 하프스페이스를 과부하시킨다.",
+        buildUpDescription: "자이발트가 센터백 사이로 내려가는 등 경기 중에도 포메이션을 수차례 바꿀 만큼 유동적이며, 크로스보다 좁은 지역에서의 콤비네이션과 박스 진입을 우선하는 점유 지향적 빌드업을 추구한다.",
         keyPoints: [
-          "자이발트의 임시 3백 형성",
+          "경기 중에도 포메이션을 수시로 바꾸는 유동성",
           "라움의 오버래핑 타이밍",
           "중앙 수적 우위 형성",
         ],
@@ -750,8 +750,8 @@ export const TEAMS: Team[] = [
           playerId: "rbl-nusa",
           name: "안토니오 누사",
           number: 7,
-          role: "와이드 자원",
-          description: "중앙 오버로드로 수비를 안쪽으로 끌어들인 뒤 측면 1대1 고립을 활용한다.",
+          role: "인사이드 와이드 자원",
+          description: "측면 대신 안쪽으로 좁혀 중앙 과부하에 가담하고, 폭은 오버래핑하는 라움·바쿠에게 맡기는 데미첼리스식 좁은 공격 구조의 핵심 자원.",
         },
         {
           playerId: "rbl-nkunku",
@@ -762,8 +762,8 @@ export const TEAMS: Team[] = [
         },
       ],
       tacticalHighlights: [
+        "포지션에 얽매이지 않는 데미첼리스식 유동적 전술 운용",
         "자이발트의 임시 3백 형성",
-        "라움의 오버래핑 타이밍",
         "터치라인으로 유도하는 협공 압박",
       ],
       reportSummary: "신임 감독 아래 통제된 점유로 방향을 전환한 팀으로, 자이발트의 임시 3백 형성이 빌드업의 핵심이다.",
@@ -780,7 +780,7 @@ export const TEAMS: Team[] = [
       { id: "rbl-07", name: "요한 바카요코 / 브라얀 그루다", number: 11 },
       { id: "rbl-11", name: "안토니오 누사", number: 7 },
       { id: "rbl-09", name: "크리스토퍼 은쿤쿠", number: 28 },
-    ], { lineHeight: 0.7, width: 0.25, wingerTuck: -0.5, fullbackInvert: -0.3, anchorDrop: 0.7, falseNine: 0.4 }),
+    ], { lineHeight: 0.7, width: 0.25, wingerTuck: 0.4, fullbackInvert: -0.3, anchorDrop: 0.7, falseNine: 0.4 }),
   },
   {
     id: "napoli",
@@ -1255,17 +1255,17 @@ export const TEAMS: Team[] = [
     tactical: {
       inPossession: {
         summary: "백3에서 여유 있게 볼을 소유하다 3-2-5 형태로 전개해 최종지역에서 폭을 만든다.",
-        buildUpDescription: "윙백이 터치라인까지 전진하고 더블 피봇과 파머가 중앙 라인 사이 공간을 오버로드해, 알론소의 레버쿠젠 시절 청사진을 재현한다.",
+        buildUpDescription: "카이세도-라비아의 더블 피봇이 좁은 간격의 사각형 구조를 유지하며 써드맨 연계로 프리맨을 만들어 압박을 벗어나고, 이후 윙백이 터치라인까지 전진해 파머와 함께 최종지역 오버로드를 완성한다.",
         keyPoints: [
           "백3-3-2-5 가변 구조",
-          "윙백의 최종지역 오버로드",
+          "카이세도·라비아의 써드맨 연계 탈압박",
           "파머의 하프스페이스 연결",
         ],
       },
       outOfPossession: {
         summary: "백3와 더블 피봇이 전진한 윙백 뒤 공간을 커버하며, 전방 3인이 협공 압박을 리드한다.",
-        defensiveShapeDescription: "윙백이 전진해 있는 동안 백3와 중앙 미드필더 2인이 커버 셰도잉으로 공간을 메운다.",
-        pressingDescription: "주앙 페드루와 두 명의 10번이 앞장서 높은 지역 탈취를 시도하나, 부임 초기라 조직력이 다듬어지는 단계다.",
+        defensiveShapeDescription: "전방 5각 압박이 뚫리면 신속하게 백5로 전환하고, 하프스페이스 침투 상황에는 센터백 한 명이 미드필더 라인까지 전진해 맨마킹으로 대응한다.",
+        pressingDescription: "주앙 페드루와 두 명의 10번이 전방 5각 압박 대형으로 패스 길목을 차단하고 맨마킹 기반 탈취를 노리나, 부임 초기라 개인 매치업의 합이 다듬어지는 단계다.",
         keyPoints: [
           "백3 커버 셰도잉",
           "전방 3인의 협공 압박",
@@ -1477,25 +1477,25 @@ export const TEAMS: Team[] = [
     accentColor: "#004D9D",
     crestUrl: "/badges/schalke-04.svg",
     koreanPlayer: "황희찬",
-    tacticalStyle: { lineHeight: -0.6, width: -0.3, fullbackInvert: -0.3, anchorDrop: 0.1, falseNine: -0.2 },
+    tacticalStyle: { lineHeight: -0.6, width: -0.3, fullbackInvert: -0.3, anchorDrop: -0.3, falseNine: -0.2 },
     shortSummary:
       "2부 우승 후 1부로 승격한 첫 시즌. 마감일 막판 황희찬이 임대로 합류해 전방 로테이션에 새 변수를 더했다.",
     tactical: {
       inPossession: {
-        summary: "무슬리치의 원칙은 '높은 위치에서 탈취 후 즉각적인 종패스, 등 뒤 공간 침투'로 요약된다.",
-        buildUpDescription: "윙백(고젠스·엘파우지)이 폭을 제공하는 동안 중앙에 밀집된 공격진이 좁은 공간에서 조합 플레이를 시도한다.",
+        summary: "무슬리치는 점유율에 연연하지 않고, 후방에서 짧게 풀어가기보다 골키퍼와 센터백의 롱볼을 전방 밀집 대형에 직접 투입하는 다이렉트 축구를 지향한다.",
+        buildUpDescription: "더블 피봇(다나카·샬렌베르크)은 후방으로 거의 내려오지 않고 전진 배치되며, 고젠스·엘파우지 등 윙백이 폭을 잡아 상대 블록을 벌리는 사이 좁게 선 전방 공격진(아우시시·실라 등)에게 직접 롱볼을 투입한다.",
         keyPoints: [
-          "고젠스의 왼쪽 폭 제공",
+          "리그 최소 패스·최다 롱볼의 다이렉트 축구",
           "실라의 뒷공간 침투 위협",
           "탈취 후 즉각적인 종패스",
         ],
       },
       outOfPossession: {
-        summary: "백3/4-3-3 혼합 구조로 강하게 압박하며 높은 지역에서 탈취를 시도한다.",
-        defensiveShapeDescription: "2부리그 시절 최상위권이었던 실점 관리 능력을 1부에서도 이어가려 하고 있다.",
-        pressingDescription: "감독 스스로 '한 단계 더 끌어올려야 한다'고 언급할 만큼, 1부 무대에 맞춰 압박 강도를 조정하는 과정에 있다.",
+        summary: "전방 3인이 좁은 삼각형으로 상대 더블 피봇에게 가는 패스길을 차단하며, 상대보다 한 명 적은 인원으로도 과감하게 압박하는 '프레싱 마이너스 원'이 원칙이다.",
+        defensiveShapeDescription: "전방 공격진이 좁은 삼각형을 이뤄 중앙 패스길을 차단하고, 볼이 측면으로 유도되면 인근 미드필더가 풀백과 함께 터치라인에서 수적 우위 압박을 건다.",
+        pressingDescription: "커버섀도우로 상대 숫자보다 적은 인원으로도 공격적으로 압박을 걸고 강한 역압박으로 세컨볼을 장악하는 것이 핵심이나, 세컨볼 다툼에서의 뒷공간 노출은 여전한 약점이다.",
         keyPoints: [
-          "백3-4-3-3 혼합 수비 구조",
+          "프레싱 마이너스 원 — 상대보다 적은 인원의 압박",
           "1부 승격 후 압박 강도 재조정",
           "황희찬 합류에 따른 전방 로테이션 변화",
         ],
@@ -1513,7 +1513,7 @@ export const TEAMS: Team[] = [
           name: "무사 실라",
           number: 9,
           role: "침투형 스트라이커",
-          description: "타겟맨이 아닌 뒷공간 침투형 스트라이커로, '즉각적인 종패스' 원칙의 직접적인 수혜자다.",
+          description: "롱볼을 직접 받아 몸싸움으로 지켜내는 동시에 배후 공간 침투도 가능한 전방 자원으로, 무슬리치의 다이렉트 축구를 상징하는 선수다.",
         },
         {
           playerId: "s04-hwang",
@@ -1541,7 +1541,7 @@ export const TEAMS: Team[] = [
       { id: "s04-10", name: "데얀 류비치치 / 황희찬", number: 21 },
       { id: "s04-11", name: "아딜 아우시시", number: 24 },
       { id: "s04-09", name: "무사 실라", number: 9 },
-    ], { lineHeight: -0.6, width: -0.3, fullbackInvert: -0.3, anchorDrop: 0.1, falseNine: -0.2 }),
+    ], { lineHeight: -0.6, width: -0.3, fullbackInvert: -0.3, anchorDrop: -0.3, falseNine: -0.2 }),
   },
 
   // ───────────────────────── 4-4-2 ─────────────────────────
