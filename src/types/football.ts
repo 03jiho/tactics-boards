@@ -53,6 +53,17 @@ export type PositionLabel =
   | "LF"
   | "ST";
 
+/**
+ * 같은 포메이션이라도 팀마다 다른 전술 색깔(라인 높이, 폭)을 반영하기 위한 좌표 보정값.
+ * 포메이션 템플릿 좌표에 곱/합 형태로 적용된다. 값의 범위는 -1~1이 기준이다.
+ */
+export interface TacticalStyle {
+  /** 수비 라인 높이. 1에 가까울수록 매우 높은 라인, -1에 가까울수록 매우 낮은 라인(로우블록). */
+  lineHeight: number;
+  /** 진영 폭. 1에 가까울수록 좌우로 넓게 벌리고, -1에 가까울수록 좁고 압축적인 대형. */
+  width: number;
+}
+
 export interface PlayerPosition {
   playerId: string;
   name: string;
@@ -112,6 +123,8 @@ export interface Team {
   crestUrl?: string;
   /** 이 클럽 소속 한국 선수 이름(있는 경우). 홈 화면의 한국 선수 소속 클럽 필터에 사용된다. */
   koreanPlayer?: string;
+  /** 같은 포메이션을 쓰는 다른 팀과 포메이션 보드를 시각적으로 구분하기 위한 전술 스타일 보정값. */
+  tacticalStyle: TacticalStyle;
   shortSummary: string;
   tactical: TacticalDetail;
   players: PlayerPosition[];

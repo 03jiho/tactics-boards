@@ -24,14 +24,17 @@ export function HomeTeamExplorer({ teams, formations }: HomeTeamExplorerProps) {
   const searchParams = useSearchParams();
 
   const initialFormation = searchParams.get("formation");
+  const initialLeague = searchParams.get("league");
+  const initialKorean = searchParams.get("kr") === "1";
+
   const [formationId, setFormationId] = useState<FormationId | "all">(
     isFormationId(initialFormation, formations) ? initialFormation : "all",
   );
+  const [league, setLeague] = useState<string | "all">(initialLeague ?? "all");
+  const [koreanOnly, setKoreanOnly] = useState(initialKorean);
   const [query, setQuery] = useState("");
   const [sortKey, setSortKey] = useState<TeamSortKey>("name");
   const [view, setView] = useState<TeamListView>("card");
-  const [league, setLeague] = useState<string | "all">("all");
-  const [koreanOnly, setKoreanOnly] = useState(false);
 
   const countByFormation = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -59,16 +62,40 @@ export function HomeTeamExplorer({ teams, formations }: HomeTeamExplorerProps) {
     [teams, formationId, league, koreanOnly, query, sortKey],
   );
 
-  function handleSelectFormation(next: FormationId | "all") {
-    setFormationId(next);
+  /** 포메이션/리그/한국선수 필터는 뒤로가기 시에도 유지되도록 URL 쿼리에 동기화한다. */
+  function syncUrl(next: { formation?: FormationId | "all"; league?: string | "all"; korean?: boolean }) {
     const params = new URLSearchParams(searchParams.toString());
-    if (next === "all") {
-      params.delete("formation");
-    } else {
-      params.set("formation", next);
-    }
+    const nextFormation = next.formation ?? formationId;
+    const nextLeague = next.league ?? league;
+    const nextKorean = next.korean ?? koreanOnly;
+
+    if (nextFormation === "all") params.delete("formation");
+    else params.set("formation", nextFormation);
+
+    if (nextLeague === "all") params.delete("league");
+    else params.set("league", nextLeague);
+
+    if (nextKorean) params.set("kr", "1");
+    else params.delete("kr");
+
     const queryString = params.toString();
     router.replace(queryString ? `/?${queryString}` : "/", { scroll: false });
+  }
+
+  function handleSelectFormation(next: FormationId | "all") {
+    setFormationId(next);
+    syncUrl({ formation: next });
+  }
+
+  function handleSelectLeague(next: string | "all") {
+    setLeague(next);
+    syncUrl({ league: next });
+  }
+
+  function handleToggleKoreanOnly() {
+    const next = !koreanOnly;
+    setKoreanOnly(next);
+    syncUrl({ korean: next });
   }
 
   return (
@@ -83,11 +110,11 @@ export function HomeTeamExplorer({ teams, formations }: HomeTeamExplorerProps) {
       <LeagueFilterBar
         leagues={leagues}
         selected={league}
-        onSelect={setLeague}
+        onSelect={handleSelectLeague}
         countByLeague={countByLeague}
         koreanPlayerCount={koreanPlayerCount}
         koreanOnly={koreanOnly}
-        onToggleKoreanOnly={() => setKoreanOnly((prev) => !prev)}
+        onToggleKoreanOnly={handleToggleKoreanOnly}
       />
 
       <TeamListControls

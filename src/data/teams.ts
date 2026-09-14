@@ -18,6 +18,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#6CABDD",
     crestUrl: "/badges/manchester-city.svg",
+    tacticalStyle: { lineHeight: 0.6, width: 0.2 },
     shortSummary:
       "과르디올라 사임 후 2026년 6월 부임한 마레스카 체제. 사상 최대 규모의 여름 영입(엔초 페르난데스·도쿠·은디아예 등 6억 달러 이상)으로 스쿼드를 재편했다.",
     tactical: {
@@ -88,7 +89,7 @@ export const TEAMS: Team[] = [
       { id: "mci-10", name: "라얀 셰르키", number: 10 },
       { id: "mci-11", name: "제레미 도쿠 / 일리만 은디아예", number: 11 },
       { id: "mci-09", name: "엘링 홀란", number: 9 },
-    ]),
+    ], { lineHeight: 0.6, width: 0.2 }),
   },
   {
     id: "fc-barcelona",
@@ -99,6 +100,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#A50044",
     crestUrl: "/badges/fc-barcelona.svg",
+    tacticalStyle: { lineHeight: 0.9, width: -0.1 },
     shortSummary:
       "맨시티에서 로드리, 뉴캐슬에서 안토니 고든을 영입하며 더블 피봇형 4-2-3-1로 재편. 극단적으로 높은 수비 라인이 강점이자 리스크다.",
     tactical: {
@@ -166,7 +168,7 @@ export const TEAMS: Team[] = [
       { id: "fcb-10", name: "페르민 로페스", number: 7 },
       { id: "fcb-11", name: "앤서니 고든", number: 17 },
       { id: "fcb-09", name: "하피냐", number: 11 },
-    ]),
+    ], { lineHeight: 0.9, width: -0.1 }),
   },
   {
     id: "bayern-munich",
@@ -178,6 +180,7 @@ export const TEAMS: Team[] = [
     accentColor: "#DC052D",
     crestUrl: "/badges/bayern-munich.svg",
     koreanPlayer: "김민재",
+    tacticalStyle: { lineHeight: 0.8, width: 0.3 },
     shortSummary:
       "더블 피봇의 안정감을 바탕으로 공격형 미드필더가 자유롭게 위치를 바꾸는 팀. 김민재가 최근 3경기 연속 선발로 나서며 주전 센터백으로 자리잡았다.",
     tactical: {
@@ -245,7 +248,7 @@ export const TEAMS: Team[] = [
       { id: "bay-10", name: "자말 무시알라", number: 10 },
       { id: "bay-11", name: "루이스 디아스", number: 14 },
       { id: "bay-09", name: "해리 케인", number: 9 },
-    ]),
+    ], { lineHeight: 0.8, width: 0.3 }),
   },
   {
     id: "manchester-united",
@@ -256,6 +259,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#DA291C",
     crestUrl: "/badges/manchester-united.svg",
+    tacticalStyle: { lineHeight: 0.1, width: 0 },
     shortSummary:
       "2026년 1월 아모림 경질 이후 정식 선임된 캐릭 체제. 3-4-2-1에서 4-2-3-1 기반으로 전환했고, 빌드업 시 3-2-5로 변형한다.",
     tactical: {
@@ -322,7 +326,7 @@ export const TEAMS: Team[] = [
       { id: "mun-10", name: "브루누 페르난데스", number: 8 },
       { id: "mun-11", name: "마커스 래시퍼드", number: 9 },
       { id: "mun-09", name: "마테우스 쿠냐 / 베냐민 세슈코", number: 10 },
-    ]),
+    ], { lineHeight: 0.1, width: 0 }),
   },
   {
     id: "liverpool",
@@ -333,6 +337,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#C8102E",
     crestUrl: "/badges/liverpool.svg",
+    tacticalStyle: { lineHeight: 0.5, width: 0.15 },
     shortSummary:
       "아르네 슬롯 사임 후 2026년 6월 부임한 이라올라 체제. 본머스 시절부터 이어진 하이브리드 압박과 수직적 전환이 핵심이다.",
     tactical: {
@@ -397,7 +402,7 @@ export const TEAMS: Team[] = [
       { id: "liv-10", name: "플로리안 비르츠" },
       { id: "liv-11", name: "코디 가크포" },
       { id: "liv-09", name: "알렉산더 이삭" },
-    ]),
+    ], { lineHeight: 0.5, width: 0.15 }),
   },
   {
     id: "tottenham-hotspur",
@@ -408,6 +413,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#132257",
     crestUrl: "/badges/tottenham.svg",
+    tacticalStyle: { lineHeight: 0.3, width: 0.1 },
     shortSummary:
       "2026년 3월 부임한 데 제르비 체제. '압박 유인' 후 라인 브레이킹 패스로 전개하는 조직적인 축구가 특징이다.",
     tactical: {
@@ -469,7 +475,7 @@ export const TEAMS: Team[] = [
       { id: "tot-10", name: "마테우스 페르난데스", number: 18 },
       { id: "tot-11", name: "마티스 텔", number: 11 },
       { id: "tot-09", name: "오마르 마르무시", number: 22 },
-    ]),
+    ], { lineHeight: 0.3, width: 0.1 }),
   },
   {
     id: "real-madrid",
@@ -480,6 +486,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#FEBE10",
     crestUrl: "/badges/real-madrid.svg",
+    tacticalStyle: { lineHeight: 0.2, width: -0.1 },
     shortSummary:
       "2026년 6월 두 번째로 부임한 무리뉴 체제. 기존 4-3-3에서 더블 피봇 4-2-3-1로 전환하며 벨링엄의 역할을 전진 배치했다.",
     tactical: {
@@ -544,7 +551,7 @@ export const TEAMS: Team[] = [
       { id: "rma-10", name: "주드 벨링엄", number: 5 },
       { id: "rma-11", name: "비니시우스 주니오르", number: 7 },
       { id: "rma-09", name: "킬리안 음바페", number: 10 },
-    ]),
+    ], { lineHeight: 0.2, width: -0.1 }),
   },
   {
     id: "monaco",
@@ -555,6 +562,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#E51A23",
     crestUrl: "/badges/monaco.svg",
+    tacticalStyle: { lineHeight: 0, width: 0.05 },
     shortSummary:
       "2026년 7월 부임한 필리페 루이스 체제. 5연승으로 리그 선두를 달리는 강한 시작을 보였고, 브뤼너 등 신예의 돌파구가 돋보인다.",
     tactical: {
@@ -618,7 +626,7 @@ export const TEAMS: Team[] = [
       { id: "mco-10", name: "알렉산드르 골로빈", number: 10 },
       { id: "mco-11", name: "마니에스 아클리우슈", number: 11 },
       { id: "mco-09", name: "파리 브뤼너", number: 29 },
-    ]),
+    ], { lineHeight: 0, width: 0.05 }),
   },
 
   // ───────────────────────── 4-3-3 ─────────────────────────
@@ -631,6 +639,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-3-3",
     accentColor: "#EF0107",
     crestUrl: "/badges/arsenal.svg",
+    tacticalStyle: { lineHeight: 0.4, width: -0.2 },
     shortSummary:
       "2025-26 프리미어리그 우승팀. 칼라피오리의 인버트로 빌드업 시 3-2-4-1로 가변하며, 세트피스 비중이 매우 높다.",
     tactical: {
@@ -695,7 +704,7 @@ export const TEAMS: Team[] = [
       { id: "ars-07", name: "부카요 사카", number: 7 },
       { id: "ars-11", name: "크리스토스 촐리스", number: 17 },
       { id: "ars-09", name: "카이 하베르츠 / 빅토르 요케레스", number: 29 },
-    ]),
+    ], { lineHeight: 0.4, width: -0.2 }),
   },
   {
     id: "rb-leipzig",
@@ -706,6 +715,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-3-3",
     accentColor: "#DD0741",
     crestUrl: "/badges/rb-leipzig.svg",
+    tacticalStyle: { lineHeight: 0.7, width: 0.25 },
     shortSummary:
       "2026시즌 부임한 데미첼리스 체제. 빌드업 시 4-3-3, 비소유 시 4-1-4-1로 전환하며 통제된 점유를 지향한다.",
     tactical: {
@@ -770,7 +780,7 @@ export const TEAMS: Team[] = [
       { id: "rbl-07", name: "요한 바카요코 / 브라얀 그루다", number: 11 },
       { id: "rbl-11", name: "안토니오 누사", number: 7 },
       { id: "rbl-09", name: "크리스토퍼 은쿤쿠", number: 28 },
-    ]),
+    ], { lineHeight: 0.7, width: 0.25 }),
   },
   {
     id: "napoli",
@@ -781,6 +791,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-3-3",
     accentColor: "#12A0D7",
     crestUrl: "/badges/napoli.svg",
+    tacticalStyle: { lineHeight: 0.2, width: 0.1 },
     shortSummary:
       "2025-26 스쿠데토 우승팀. 콘테 후임으로 부임한 알레그리는 선수 개개인의 자유로운 위치 선정과 수비 조직을 우선한다.",
     tactical: {
@@ -845,7 +856,7 @@ export const TEAMS: Team[] = [
       { id: "nap-07", name: "마테오 폴리타노", number: 21 },
       { id: "nap-11", name: "다비드 네레스 / 노아 랑", number: 7 },
       { id: "nap-09", name: "라스무스 회위룬", number: 19 },
-    ]),
+    ], { lineHeight: 0.2, width: 0.1 }),
   },
   {
     id: "psg",
@@ -856,6 +867,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-3-3",
     accentColor: "#004170",
     crestUrl: "/badges/psg.svg",
+    tacticalStyle: { lineHeight: 0.6, width: 0.15 },
     shortSummary:
       "명목상 4-3-3이지만 실제로는 백3+더블 피봇+5인 공격진으로 재편되는 것이 원칙인 팀. 뎀벨레의 폴스나인 움직임이 상징적이다.",
     tactical: {
@@ -920,7 +932,7 @@ export const TEAMS: Team[] = [
       { id: "psg-07", name: "데지레 두에", number: 14 },
       { id: "psg-11", name: "흐비차 크바라츠헬리아", number: 7 },
       { id: "psg-09", name: "우스만 뎀벨레", number: 10 },
-    ]),
+    ], { lineHeight: 0.6, width: 0.15 }),
   },
   {
     id: "marseille",
@@ -931,6 +943,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-3-3",
     accentColor: "#2FAEE0",
     crestUrl: "/badges/marseille.svg",
+    tacticalStyle: { lineHeight: 0.1, width: -0.05 },
     shortSummary:
       "2026년 6월 베예 경질 후 부임한 제네시오 체제. DNCG발 긴축 재정으로 그린우드·팀버·룰리 등 주축이 대거 이탈하며 스쿼드가 크게 재편됐다.",
     tactical: {
@@ -993,7 +1006,7 @@ export const TEAMS: Team[] = [
       { id: "mar-07", name: "아민 하리트", number: 77 },
       { id: "mar-11", name: "닐 모페" },
       { id: "mar-09", name: "아민 구지", number: 9 },
-    ]),
+    ], { lineHeight: 0.1, width: -0.05 }),
   },
   {
     id: "lafc",
@@ -1005,6 +1018,7 @@ export const TEAMS: Team[] = [
     accentColor: "#C39E6D",
     crestUrl: "/badges/lafc.svg",
     koreanPlayer: "손흥민",
+    tacticalStyle: { lineHeight: -0.1, width: 0.2 },
     shortSummary:
       "2025년 12월 부임한 도스 산투스 체제. 손흥민-부앙가의 '흥부 듀오'가 공격의 절대적 중심이다.",
     tactical: {
@@ -1069,7 +1083,7 @@ export const TEAMS: Team[] = [
       { id: "laf-07", name: "제이콥 샤펠버그 / 타일러 보이드" },
       { id: "laf-11", name: "드니 부앙가", number: 99 },
       { id: "laf-09", name: "손흥민", number: 7 },
-    ]),
+    ], { lineHeight: -0.1, width: 0.2 }),
   },
   {
     id: "fc-porto",
@@ -1081,6 +1095,7 @@ export const TEAMS: Team[] = [
     accentColor: "#00539F",
     crestUrl: "/badges/fc-porto.svg",
     koreanPlayer: "황인범",
+    tacticalStyle: { lineHeight: 0.3, width: 0 },
     shortSummary:
       "인내심 있는 빌드업과 트리거 기반 하이프레스를 겸비한 팀. 로우블록 공략을 위해 황인범을 더블 피봇 로테이션 자원으로 영입했다.",
     tactical: {
@@ -1145,7 +1160,7 @@ export const TEAMS: Team[] = [
       { id: "por-07", name: "윌리암 고메스", number: 7 },
       { id: "por-11", name: "페페", number: 11 },
       { id: "por-09", name: "안드레 실바", number: 19 },
-    ]),
+    ], { lineHeight: 0.3, width: 0 }),
   },
 
   // ───────────────────────── 3-4-2-1 ─────────────────────────
@@ -1158,6 +1173,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "3-4-2-1",
     accentColor: "#8E1F2F",
     crestUrl: "/badges/as-roma.svg",
+    tacticalStyle: { lineHeight: -0.2, width: -0.1 },
     shortSummary:
       "2025년 6월 부임한 가스페리니 체제. 3백 중앙의 과감한 전진과 두 명의 세컨드 스트라이커가 핵심이다. 첼리크는 유벤투스로 떠나고 몰리나가 새 윙백으로 합류했다.",
     tactical: {
@@ -1221,7 +1237,7 @@ export const TEAMS: Team[] = [
       { id: "rom-10", name: "파울로 디발라", number: 21 },
       { id: "rom-11", name: "마티아스 술레", number: 18 },
       { id: "rom-09", name: "도니엘 말렌", number: 14 },
-    ]),
+    ], { lineHeight: -0.2, width: -0.1 }),
   },
   {
     id: "chelsea",
@@ -1232,6 +1248,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "3-4-2-1",
     accentColor: "#034694",
     crestUrl: "/badges/chelsea.svg",
+    tacticalStyle: { lineHeight: 0.3, width: 0.1 },
     shortSummary:
       "1년 새 세 번째 감독 교체(마레스카→로제노어→알론소) 끝에 부임한 알론소 체제. 레버쿠젠식 백3-3-2-5 가변 구조를 이식하는 중이다.",
     tactical: {
@@ -1293,7 +1310,7 @@ export const TEAMS: Team[] = [
       { id: "che-10", name: "콜 파머" },
       { id: "che-11", name: "모건 로저스" },
       { id: "che-09", name: "주앙 페드루" },
-    ]),
+    ], { lineHeight: 0.3, width: 0.1 }),
   },
   {
     id: "juventus",
@@ -1304,6 +1321,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "3-4-2-1",
     accentColor: "#000000",
     crestUrl: "/badges/juventus.svg",
+    tacticalStyle: { lineHeight: -0.1, width: -0.15 },
     shortSummary:
       "2025년 10월 부임한 스팔레티 체제. 백3임에도 공격적인 오프사이드 트랩과 측면 로테이션을 통한 중앙 오버로드가 특징이나, 이을드즈·투랑·매케니·캄비아소·켈리가 동시에 부상으로 이탈해 최근에는 백4로 뛰고 있다.",
     tactical: {
@@ -1367,7 +1385,7 @@ export const TEAMS: Team[] = [
       { id: "juv-10", name: "테운 코프마이너스 / 파비오 미레티", number: 8 },
       { id: "juv-11", name: "케난 이을드즈", number: 10 },
       { id: "juv-09", name: "랑달 콜로 무아니", number: 9 },
-    ]),
+    ], { lineHeight: -0.1, width: -0.15 }),
   },
   {
     id: "borussia-dortmund",
@@ -1378,6 +1396,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "3-4-2-1",
     accentColor: "#FDE100",
     crestUrl: "/badges/borussia-dortmund.svg",
+    tacticalStyle: { lineHeight: 0.2, width: 0.2 },
     shortSummary:
       "시즌 중 4-2-3-1에서 3-4-2-1로 전환해 13경기 무패를 이끈 코바치 체제. 센터백의 개별 전진 수비와 직선적인 전개가 특징이다.",
     tactical: {
@@ -1441,7 +1460,7 @@ export const TEAMS: Team[] = [
       { id: "bvb-10", name: "콘스탄티노스 카레차스", number: 19 },
       { id: "bvb-11", name: "막시밀리안 바이어", number: 14 },
       { id: "bvb-09", name: "세르후 기라시", number: 9 },
-    ]),
+    ], { lineHeight: 0.2, width: 0.2 }),
   },
   {
     id: "schalke-04",
@@ -1453,6 +1472,7 @@ export const TEAMS: Team[] = [
     accentColor: "#004D9D",
     crestUrl: "/badges/schalke-04.svg",
     koreanPlayer: "황희찬",
+    tacticalStyle: { lineHeight: -0.6, width: -0.3 },
     shortSummary:
       "2부 우승 후 1부로 승격한 첫 시즌. 마감일 막판 황희찬이 임대로 합류해 전방 로테이션에 새 변수를 더했다.",
     tactical: {
@@ -1516,7 +1536,7 @@ export const TEAMS: Team[] = [
       { id: "s04-10", name: "데얀 류비치치 / 황희찬", number: 21 },
       { id: "s04-11", name: "아딜 아우시체", number: 24 },
       { id: "s04-09", name: "무사 실라", number: 9 },
-    ]),
+    ], { lineHeight: -0.6, width: -0.3 }),
   },
 
   // ───────────────────────── 4-4-2 ─────────────────────────
@@ -1530,6 +1550,7 @@ export const TEAMS: Team[] = [
     accentColor: "#CB3524",
     crestUrl: "/badges/atletico-madrid.svg",
     koreanPlayer: "이강인",
+    tacticalStyle: { lineHeight: -0.5, width: -0.3 },
     shortSummary:
       "통산 800경기를 넘긴 시메오네 체제. 기본 4-4-2에서 빌드업 시 4-3-3, 비소유 시 5-3-2로 유동적이며, 이강인이 새 창조 자원으로 합류했다.",
     tactical: {
@@ -1593,7 +1614,7 @@ export const TEAMS: Team[] = [
       { id: "atm-11", name: "훌리아노 시메오네", number: 20 },
       { id: "atm-09", name: "아데몰라 루크먼", number: 11 },
       { id: "atm-10", name: "알렉스 바에나 / 이강인" },
-    ]),
+    ], { lineHeight: -0.5, width: -0.3 }),
   },
 
   // ───────────────────────── 3-5-2 ─────────────────────────
@@ -1606,6 +1627,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "3-5-2",
     accentColor: "#010E80",
     crestUrl: "/badges/inter-milan.svg",
+    tacticalStyle: { lineHeight: 0, width: -0.1 },
     shortSummary:
       "인자기 후임으로 부임해 첫 시즌 스쿠데토를 차지한 키부 체제. 3-5-2 골격은 유지하되 전환 속도와 압박 강도를 끌어올렸다.",
     tactical: {
@@ -1670,7 +1692,7 @@ export const TEAMS: Team[] = [
       { id: "int-07", name: "페데리코 디마르코", number: 32 },
       { id: "int-09", name: "라우타로 마르티네스", number: 10 },
       { id: "int-11", name: "마르쿠스 튀랑", number: 9 },
-    ]),
+    ], { lineHeight: 0, width: -0.1 }),
   },
 
   // ───────────────────────── 5-3-2 ─────────────────────────
@@ -1683,6 +1705,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "5-3-2",
     accentColor: "#005999",
     crestUrl: "/badges/getafe.svg",
+    tacticalStyle: { lineHeight: -0.8, width: -0.4 },
     shortSummary:
       "2028년까지 재계약한 보르달라스 체제. 라리가에서 가장 직선적인 축구를 구사하며, 최근 경기는 5-3-2에 가깝다(전통적 정체성은 4-4-2).",
     tactical: {
@@ -1747,7 +1770,7 @@ export const TEAMS: Team[] = [
       { id: "get-07", name: "요한 모히카", number: 22 },
       { id: "get-09", name: "에네스 위날", number: 19 },
       { id: "get-11", name: "마르틴 사트리아노", number: 10 },
-    ]),
+    ], { lineHeight: -0.8, width: -0.4 }),
   },
 
   // ───────────────────────── 4-3-1-2 ─────────────────────────
@@ -1761,6 +1784,7 @@ export const TEAMS: Team[] = [
     accentColor: "#E2001A",
     crestUrl: "/badges/fc-midtjylland.svg",
     koreanPlayer: "조규성·홍현석",
+    tacticalStyle: { lineHeight: 0.1, width: -0.2 },
     shortSummary:
       "측면 미드필더 없는 좁은 다이아몬드형 4-3-1-2를 구사하는 7경기 무패팀. 조규성과 홍현석, 두 명의 한국 선수가 함께 뛰는 독특한 스쿼드 구성이 특징이다.",
     tactical: {
@@ -1825,7 +1849,7 @@ export const TEAMS: Team[] = [
       { id: "fcm-07", name: "데닐 카스티요 / 홍현석" },
       { id: "fcm-09", name: "조규성", number: 10 },
       { id: "fcm-11", name: "프랑쿨리누 주", number: 7 },
-    ]),
+    ], { lineHeight: 0.1, width: -0.2 }),
   },
   {
     id: "mainz-05",
@@ -1837,6 +1861,7 @@ export const TEAMS: Team[] = [
     accentColor: "#EA1D25",
     crestUrl: "/badges/mainz-05.svg",
     koreanPlayer: "이재성",
+    tacticalStyle: { lineHeight: 0.4, width: 0.1 },
     shortSummary:
       "2025년 12월 부임한 피셔 체제. 아미리와 이재성이 이끄는 중앙 더블 10번 콤비네이션이 공격의 핵심이다.",
     tactical: {
@@ -1901,7 +1926,7 @@ export const TEAMS: Team[] = [
       { id: "m05-07", name: "필리프 므베네", number: 2 },
       { id: "m05-09", name: "요나탄 티에츠", number: 9 },
       { id: "m05-11", name: "파울 베커", number: 23 },
-    ]),
+    ], { lineHeight: 0.4, width: 0.1 }),
   },
   {
     id: "celtic",
@@ -1913,6 +1938,7 @@ export const TEAMS: Team[] = [
     accentColor: "#018A42",
     crestUrl: "/badges/celtic.svg",
     koreanPlayer: "양현준",
+    tacticalStyle: { lineHeight: 0.6, width: 0.2 },
     shortSummary:
       "로저스→낸시→오닐로 이어진 감독 교체 소동 끝에 안정을 찾은 팀. 양현준의 개인 기량이 공격의 핵심 변수지만, 그는 현재 아시안게임 대표팀 차출로 레인저스전 등 주요 경기에 결장 중이다.",
     tactical: {
@@ -1977,7 +2003,7 @@ export const TEAMS: Team[] = [
       { id: "cel-10", name: "레지 하산", number: 23 },
       { id: "cel-11", name: "양현준", number: 13 },
       { id: "cel-09", name: "카밀로 두란", number: 11 },
-    ]),
+    ], { lineHeight: 0.6, width: 0.2 }),
   },
 ];
 
