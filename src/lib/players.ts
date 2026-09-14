@@ -87,6 +87,63 @@ function applyTacticalStyle(
 }
 
 /**
+ * PitchBoard의 SVG viewBox는 가로 100 / 세로 150이므로(PitchBoard.tsx의 VIEW_WIDTH/VIEW_HEIGHT),
+ * 데이터 좌표계(0~100)의 y 1칸은 화면에서 x 1칸보다 1.5배 길게 그려진다. 토큰 간 거리를 화면에
+ * 보이는 그대로 계산하려면 y에 이 배율을 곱해서 비교해야 한다.
+ */
+const VIEW_Y_SCALE = 1.5;
+/**
+ * 최소 화면 간격. 토큰 원(반지름 4.2)뿐 아니라 원 아래에 붙는 이름·포지션 라벨(최대 원 중심
+ * 기준 +10.4까지 내려감, PlayerToken.tsx)까지 고려해야, 위아래로 겹친 토큰의 이름표가 아래
+ * 토큰의 원과 겹치는 것도 방지된다(10.4 + 반지름 4.2 = 14.6 이상 필요).
+ */
+const MIN_TOKEN_DISTANCE = 15;
+
+/**
+ * 전술 스타일 보정을 거친 좌표들이 서로 너무 가까워져 화면에서 토큰이 겹치는 것을 막는다.
+ * 겹치는 쌍을 반복적으로 서로 밀어내는 단순한 완화(relaxation) 방식으로, 이미 충분히 떨어진
+ * 좌표는 건드리지 않고 최소 간격보다 가까운 경우에만 밀어낸다.
+ */
+function resolveOverlaps(coords: PitchCoordinate[]): PitchCoordinate[] {
+  const points = coords.map((c) => ({ x: c.x, y: c.y * VIEW_Y_SCALE }));
+  const clampPoint = (p: { x: number; y: number }) => {
+    p.x = clamp(p.x, 3, 97);
+    p.y = clamp(p.y, 3 * VIEW_Y_SCALE, 97 * VIEW_Y_SCALE);
+  };
+  points.forEach(clampPoint);
+
+  for (let iteration = 0; iteration < 24; iteration += 1) {
+    let movedAny = false;
+    for (let i = 0; i < points.length; i += 1) {
+      for (let j = i + 1; j < points.length; j += 1) {
+        const dx = points[j].x - points[i].x;
+        const dy = points[j].y - points[i].y;
+        const distance = Math.hypot(dx, dy);
+
+        if (distance >= MIN_TOKEN_DISTANCE) continue;
+        movedAny = true;
+
+        const push = (MIN_TOKEN_DISTANCE - distance) / 2;
+        const [ux, uy] = distance > 0.001 ? [dx / distance, dy / distance] : [1, 0];
+        points[i].x -= ux * push;
+        points[i].y -= uy * push;
+        points[j].x += ux * push;
+        points[j].y += uy * push;
+        // 매 밀어내기 직후 경계로 다시 눌러, 한쪽이 경계에 막힌 만큼 반대쪽이 더 밀리도록 한다.
+        clampPoint(points[i]);
+        clampPoint(points[j]);
+      }
+    }
+    if (!movedAny) break;
+  }
+
+  return points.map((p) => ({
+    x: clamp(p.x, 3, 97),
+    y: clamp(p.y / VIEW_Y_SCALE, 3, 97),
+  }));
+}
+
+/**
  * 포메이션 템플릿의 좌표 슬롯에 실제 선수 명단을 채워 넣는다.
  * roster는 반드시 PITCH_TEMPLATES[formationId]와 같은 순서(GK -> DF -> MF -> FW)로 전달해야 한다.
  * style을 지정하면 같은 포메이션을 쓰는 다른 팀과 구분되도록 좌표에 팀별 보정을 적용한다.
@@ -103,15 +160,20 @@ export function buildPlayers(
     );
   }
 
-  return template.map((slot, index) => {
-    const role = classifySlot(slot);
-    return {
-      playerId: roster[index].id,
-      name: roster[index].name,
-      number: roster[index].number ?? slot.number,
-      positionLabel: slot.positionLabel,
-      inPossession: applyTacticalStyle(slot.inPossession, style, role, "in"),
-      outOfPossession: applyTacticalStyle(slot.outOfPossession, style, role, "out"),
-    };
-  });
+  const roles = template.map(classifySlot);
+  const inPossessionCoords = resolveOverlaps(
+    template.map((slot, index) => applyTacticalStyle(slot.inPossession, style, roles[index], "in")),
+  );
+  const outOfPossessionCoords = resolveOverlaps(
+    template.map((slot, index) => applyTacticalStyle(slot.outOfPossession, style, roles[index], "out")),
+  );
+
+  return template.map((slot, index) => ({
+    playerId: roster[index].id,
+    name: roster[index].name,
+    number: roster[index].number ?? slot.number,
+    positionLabel: slot.positionLabel,
+    inPossession: inPossessionCoords[index],
+    outOfPossession: outOfPossessionCoords[index],
+  }));
 }
