@@ -628,6 +628,261 @@ export const TEAMS: Team[] = [
       { id: "mco-09", name: "파리스 브루너", number: 29 },
     ], { lineHeight: 0, width: 0.05, wingerTuck: 0.3, fullbackInvert: -0.4, anchorDrop: 0.3, falseNine: 0.1 }),
   },
+  {
+    id: "aston-villa",
+    name: "아스톤 빌라",
+    league: "프리미어리그",
+    country: "잉글랜드",
+    manager: "우나이 에메리",
+    primaryFormationId: "4-2-3-1",
+    accentColor: "#670E36",
+    crestUrl: "/badges/aston-villa.svg",
+    tacticalStyle: { lineHeight: 0.5, width: 0.05, wingerTuck: 0.6, fullbackInvert: -0.6, anchorDrop: 0.6, falseNine: -0.3 },
+    shortSummary:
+      "유로파리그 우승과 리그 4위로 챔피언스리그에 복귀한 에메리 체제 3년차. 왓킨스·로저스·마르티네스를 모두 팔고 잭슨·만잠비·스즈키로 교체한 대규모 스쿼드 재편이 진행 중이다.",
+    tactical: {
+      inPossession: {
+        summary:
+          "짧은 패스로 상대를 의도적으로 끌어올려 압박을 유도한 뒤, 열린 라인 사이로 부엔디아와 만잠비에게 수직 패스를 꽂아 한 번에 통과하는 '유인 후 관통' 구조다.",
+        buildUpDescription:
+          "카마라가 두 센터백 사이로 내려앉아 3-2 빌드업을 만들고 고메스가 그 위 단계를 지킨다. 공격 3선(맥긴·부엔디아·만잠비)은 중앙 하프스페이스로 좁혀 들어가고, 폭은 높게 전진하는 양 풀백이 오버랩으로 담당한다. 왼발 센터백 파우 토레스의 대각 롱패스도 주요 전진 루트다.",
+        keyPoints: [
+          "느린 빌드업으로 상대 압박을 유인한 뒤의 수직 관통 패스",
+          "공격 3선은 좁게, 폭은 풀백이 담당하는 역할 분담",
+          "카마라의 드롭으로 만드는 3-2 후방 구조",
+        ],
+      },
+      outOfPossession: {
+        summary: "수비 시 플랫 4-4-2로 전환해 높은 라인을 유지하며 전방부터 적극적으로 압박한다.",
+        defensiveShapeDescription:
+          "10번 부엔디아가 잭슨 옆으로 올라 투톱을 이루고, 만잠비와 맥긴이 측면 미드필더로 내려와 4-4 블록을 완성한다.",
+        pressingDescription:
+          "상대 센터백의 횡패스와 풀백으로 향하는 전진 패스가 압박 트리거다. 투톱이 백패스 각을 잘라 터치라인으로 몰고 측면 미드필더가 풀백에게 점프하며, 뒤는 더블 피봇이 커버 섀도로 막는다.",
+        keyPoints: [
+          "수비 시 4-4-2 전환과 높은 라인",
+          "터치라인으로 몰아가는 측면 유도 압박",
+          "라인이 높아 백라인 뒤 공간이 반복적으로 노출되는 구조적 약점",
+        ],
+      },
+      keyPlayers: [
+        {
+          playerId: "avl-manzambi",
+          name: "요한 만잠비",
+          number: 44,
+          role: "볼 캐리형 좌측 인사이드",
+          description:
+            "모건 로저스의 대체자로 구단 레코드 이적료에 합류한 2005년생. 좌측 하프스페이스에서 공을 받아 드리블로 직접 라인을 깨고 전진시키는 캐리어 역할을 맡으며, 역압박 강도도 높아 4-4-2 전환의 스위치를 겸한다.",
+        },
+        {
+          playerId: "avl-buendia",
+          name: "에밀리아노 부엔디아",
+          number: 10,
+          role: "라인 사이 프리롤 10번",
+          description:
+            "상대 피봇과 센터백 사이 공간을 상시 점유하며, 유인 빌드업으로 벌어진 틈을 한 번의 전진 패스와 턴으로 통과하는 기점이다. 좌우로 자유롭게 이동해 풀백이 전진한 뒤 비는 측면 안쪽을 채운다.",
+        },
+        {
+          playerId: "avl-kamara",
+          name: "부바카르 카마라",
+          number: 8,
+          role: "백4를 가리는 단일 앵커",
+          description:
+            "더블 피봇의 낮은 축으로, 고메스가 전진 압박에 나가는 동안 센터백 앞 공간을 홀로 덮는다. 빌드업에서는 센터백 사이로 내려가 3-2 구조를 만들어 전진 패스 각을 여는 배급원이다.",
+        },
+      ],
+      tacticalHighlights: [
+        "카마라의 드롭 타이밍 — 3-2 빌드업 전환",
+        "부엔디아·만잠비가 라인 사이에서 받는 수직 패스",
+        "높은 라인 뒤 공간 관리 성패",
+      ],
+      reportSummary:
+        "핵심 공격 자원 셋을 한 번에 교체하고도 에메리의 유인·관통 원칙을 유지하는 팀으로, 만잠비와 잭슨이 얼마나 빨리 전임자의 역할을 흡수하는지가 시즌의 관건이다.",
+    },
+    players: buildPlayers("4-2-3-1", [
+      { id: "avl-01", name: "스즈키 자이온", number: 1 },
+      { id: "avl-02", name: "매티 캐시 / 아론 완비사카", number: 2 },
+      { id: "avl-04", name: "빅토르 린델뢰프", number: 3 },
+      { id: "avl-05", name: "파우 토레스", number: 14 },
+      { id: "avl-03", name: "이안 마트센 / 마테오 루제리", number: 22 },
+      { id: "avl-06", name: "주앙 고메스", number: 35 },
+      { id: "avl-08", name: "부바카르 카마라", number: 8 },
+      { id: "avl-07", name: "존 맥긴", number: 7 },
+      { id: "avl-10", name: "에밀리아노 부엔디아", number: 10 },
+      { id: "avl-11", name: "요한 만잠비", number: 44 },
+      { id: "avl-09", name: "니콜라 잭슨", number: 11 },
+    ], { lineHeight: 0.5, width: 0.05, wingerTuck: 0.6, fullbackInvert: -0.6, anchorDrop: 0.6, falseNine: -0.3 }),
+  },
+  {
+    id: "brighton",
+    name: "브라이턴 앤 호브 알비온",
+    league: "프리미어리그",
+    country: "잉글랜드",
+    manager: "파비안 휘르첼러",
+    primaryFormationId: "4-2-3-1",
+    accentColor: "#0057B8",
+    crestUrl: "/badges/brighton.png",
+    tacticalStyle: { lineHeight: 0.8, width: -0.25, wingerTuck: -0.2, fullbackInvert: 0.3, anchorDrop: 0.1, falseNine: 0.3 },
+    shortSummary:
+      "창단 125주년을 맞은 휘르첼러 체제 3년차. 발레바·반 헤케를 대형 이적료로 팔고 체마 안드레스·코스툴라스를 영입했으며, 점유율 리그 2위와 파이널서드 볼 회수 리그 1위를 동시에 기록하는 극단적 압박 팀이다.",
+    tactical: {
+      inPossession: {
+        summary:
+          "왼쪽을 공격 사이드로 쓰는 비대칭 백4. 본래 레프트백인 더 카위퍼르가 왼쪽 최전방까지 올라가고, 본래 센터백인 보스카글리가 레프트백 자리를 맡는다.",
+        buildUpDescription:
+          "그로스가 센터백 왼쪽으로 내려와 첫 배급을 담당하고 그만큼 보스카글리가 전진한다. 짧고 빠른 삼각 패스와 되돌림 패스로 볼 캐리어에게 항상 3~4개의 옵션을 만들어 전진하며, 보스카글리의 왼발 롱 스위치와 카디올루의 인필드 패스가 변주로 섞인다.",
+        keyPoints: [
+          "더 카위퍼르-보스카글리의 좌측 포지션 스와프",
+          "그로스의 좌측 드롭과 첫 배급",
+          "짧은 삼각 패스 + 왼발 롱 스위치의 조합",
+        ],
+      },
+      outOfPossession: {
+        summary:
+          "대형보다 사람을 기준으로 삼는 맨마킹 지향 압박. 4-2-3-1이든 4-4-2든 형태에 상관없이 볼에 가장 가까운 선수가 튀어나가고 나머지가 연쇄적으로 따라붙는다.",
+        defensiveShapeDescription:
+          "윙어가 자기 진영 수비라인까지 상대를 따라 내려가고, 전방 자원끼리는 위치를 계속 맞바꾼다. 형태 유지보다 마킹 연결을 우선한다.",
+        pressingDescription:
+          "압박 트리거는 골키퍼로 향하는 백패스다. 그로스가 먼저 가속하면 전원이 따라 올라가며, 목표는 볼 탈취보다 롱볼 에러를 강요해 스트라위크·부슈코비치의 제공권으로 회수하는 것이다.",
+        keyPoints: [
+          "백패스를 트리거로 삼는 맨마킹 지향 압박",
+          "그로스가 켜는 팀 전체의 압박 스위치",
+          "롱볼 유도 후 센터백 제공권으로 회수",
+        ],
+      },
+      keyPlayers: [
+        {
+          playerId: "bha-gross",
+          name: "파스칼 그로스",
+          number: 13,
+          role: "프리롤 플레이메이커 겸 압박 스위치",
+          description:
+            "빌드업에서는 센터백 왼쪽으로 내려가 배급하고, 다음 순간 하프스페이스에서 결정적 패스를 꽂는 라움도이터형 10번으로 변신한다. 동시에 팀에서 가장 많이 뛰며 골키퍼 백패스마다 스프린트를 걸어 팀 전체의 압박 스위치를 켜는 선수다.",
+        },
+        {
+          playerId: "bha-chema",
+          name: "체마 안드레스",
+          number: 14,
+          role: "고정형 앵커 6번",
+          description:
+            "발레바의 이탈로 비어버린 자리를 메우며 피지컬과 공간 판독으로 명확한 6번 역할을 소화한다. 그가 후방을 고정해준 덕분에 그로스가 수비 부담에서 해방돼 더 높은 위치에서 뛸 수 있게 됐다.",
+        },
+        {
+          playerId: "bha-kostoulas",
+          name: "카라람포스 코스툴라스",
+          number: 19,
+          role: "압박 선봉형 스트라이커",
+          description:
+            "최전방에서 압박의 첫 트리거를 맡으며 좌측 자원과 위치 교환을 반복하는 그리스 공격수. 직접 드리블로 들어가는 능력과 역습 상황의 결정력을 겸비해 여름 최고의 바겐으로 평가된다.",
+        },
+      ],
+      tacticalHighlights: [
+        "좌측 비대칭 — 더 카위퍼르의 전진과 보스카글리의 백업",
+        "백패스 순간 한꺼번에 올라가는 맨마킹 압박",
+        "그로스의 드롭-전진 이중 역할",
+      ],
+      reportSummary:
+        "형태보다 마킹 연결을 우선하는 극단적 압박 팀으로, 점유와 회수 지표를 동시에 상위권에 올려놓은 휘르첼러 전술의 완성도가 돋보인다.",
+    },
+    players: buildPlayers("4-2-3-1", [
+      { id: "bha-01", name: "바르트 페르브뤼헌", number: 1 },
+      { id: "bha-02", name: "페르디 카디올루", number: 24 },
+      { id: "bha-04", name: "루카 부슈코비치", number: 44 },
+      { id: "bha-05", name: "파스칼 스트라위크 / 루이스 덩크", number: 4 },
+      { id: "bha-03", name: "올리비에 보스카글리", number: 21 },
+      { id: "bha-06", name: "야신 아야리 / 말릭 얄쿠예", number: 26 },
+      { id: "bha-08", name: "체마 안드레스", number: 14 },
+      { id: "bha-07", name: "미토마 카오루 / 얀쿠바 민테", number: 7 },
+      { id: "bha-10", name: "파스칼 그로스", number: 13 },
+      { id: "bha-11", name: "막심 더 카위퍼르 / 디에고 고메스", number: 29 },
+      { id: "bha-09", name: "카라람포스 코스툴라스", number: 19 },
+    ], { lineHeight: 0.8, width: -0.25, wingerTuck: -0.2, fullbackInvert: 0.3, anchorDrop: 0.1, falseNine: 0.3 }),
+  },
+  {
+    id: "newcastle-united",
+    name: "뉴캐슬 유나이티드",
+    league: "프리미어리그",
+    country: "잉글랜드",
+    manager: "마티아스 야이슬레",
+    primaryFormationId: "4-2-3-1",
+    accentColor: "#241F20",
+    crestUrl: "/badges/newcastle.svg",
+    koreanPlayer: "박승수",
+    tacticalStyle: { lineHeight: 0.3, width: -0.4, wingerTuck: -0.5, fullbackInvert: -0.5, anchorDrop: 0.7, falseNine: -0.1 },
+    shortSummary:
+      "2026년 7월 하우 사임 후 잘츠부르크 출신 야이슬레가 부임했다. 기마랑이스·토날리·고든이 모두 떠난 대규모 해체 끝에 니코 곤살레스를 축으로 한 역습 중심 팀으로 재편되는 과정이다. 한국 선수 박승수는 아카데미 소속으로 1군 출장 기록은 아직 없다.",
+    tactical: {
+      inPossession: {
+        summary:
+          "점유율을 의도적으로 내주고 측면 대각 롱패스로 3선을 한 번에 넘기는 수직 전환 팀이다.",
+        buildUpDescription:
+          "니코 곤살레스가 센터백 라인까지 내려앉아 사실상 백3를 만들고, 마일리가 좌우로 벌려 골키퍼를 포함한 초기 다이아몬드를 형성한다. 이 마일리의 사이드 이동이 양 풀백을 높이 밀어올리는 트리거이며, 나머지 선수는 라인 사이에 자리를 잡고 니코 또는 보트만의 롱패스를 기다린다.",
+        keyPoints: [
+          "니코 곤살레스의 드롭으로 만드는 백3",
+          "마일리의 사이드 이동 → 풀백 전진 트리거",
+          "점진적 전진 대신 측면 대각 롱패스로 한 번에 넘기기",
+        ],
+      },
+      outOfPossession: {
+        summary:
+          "10번이 최전방으로 올라 투톱을 이루는 4-4-2 하이 블록에, 볼 로스트 순간 떼로 덮는 카운터프레스를 결합한다.",
+        defensiveShapeDescription:
+          "윌록이 위사 옆으로 올라가 4-4-2가 되지만, 4-1-4-1식 스태거링이 없어 두 중앙 미드필더가 등 뒤 차단과 전방 마킹을 동시에 떠맡아야 한다.",
+        pressingDescription:
+          "압박 트리거는 자기 팀이 볼을 잃는 순간 그 자체다. 후퇴하지 않고 즉시 볼 주변에 인원을 투입해 최대한 상대 진영 깊은 곳에서 회수하려 한다.",
+        keyPoints: [
+          "볼 로스트 순간 발동하는 대인원 카운터프레스",
+          "중앙 스태거링 부재로 열리는 라인 사이 공간",
+          "지나치게 좁힌 수비 대형 — 전환 패스에 취약",
+        ],
+      },
+      keyPlayers: [
+        {
+          playerId: "nwc-gonzalez",
+          name: "니코 곤살레스",
+          number: 6,
+          role: "딥라잉 레지스타",
+          description:
+            "센터백 사이로 내려앉아 빌드업의 기점이 되며 팀의 공격 방향을 결정한다. 측면으로 뿌리는 루핑 롱패스 정확도가 팀의 유일한 창의성 공급원으로, 야이슬레는 창조를 그에게 집중시키고 나머지는 활동량과 마무리로 채우는 구조를 택했다.",
+        },
+        {
+          playerId: "nwc-barnes",
+          name: "하비 반스",
+          number: 11,
+          role: "다이렉트 역습 윙어",
+          description:
+            "왼쪽에서 니코의 대각 롱패스를 직접 받아 드리블로 전진하는 역습의 종착점이자 기점이다. 순수 스피드로 뒷공간을 파는 엘랑가와 달리 볼 컨트롤과 돌파로 중앙에 공간을 만들어낸다.",
+        },
+        {
+          playerId: "nwc-hornicek",
+          name: "루카시 호르니첵",
+          number: 21,
+          role: "슛스토퍼형 수문장",
+          description:
+            "수비 조직이 정립되지 않아 다량의 슈팅을 허용하는 현 구조에서 실질적인 생명줄이다. 세이브 수와 실점 억제 지표 모두 리그 최상위권이지만, 빌드업 관여와 제공권 장악은 아직 약점으로 지적된다.",
+        },
+      ],
+      tacticalHighlights: [
+        "니코 곤살레스의 대각 롱패스 한 방",
+        "마일리의 사이드 이동과 풀백 전진 타이밍",
+        "전환 패스 한 번에 무너지는 좁은 수비 대형",
+      ],
+      reportSummary:
+        "핵심 3인이 한꺼번에 떠난 뒤 야이슬레가 역습 중심 구조로 팀을 다시 짜는 과도기로, 니코 곤살레스 한 명에게 창조를 의존하는 편중이 그대로 드러나고 있다.",
+    },
+    players: buildPlayers("4-2-3-1", [
+      { id: "nwc-01", name: "루카시 호르니첵", number: 21 },
+      { id: "nwc-02", name: "아마르 데디치 / 티노 리브라멘토", number: 37 },
+      { id: "nwc-04", name: "말릭 치아우", number: 12 },
+      { id: "nwc-05", name: "스벤 보트만", number: 4 },
+      { id: "nwc-03", name: "루이스 홀", number: 3 },
+      { id: "nwc-06", name: "루이스 마일리", number: 67 },
+      { id: "nwc-08", name: "니코 곤살레스", number: 6 },
+      { id: "nwc-07", name: "안토니 엘랑가", number: 19 },
+      { id: "nwc-10", name: "조 윌록 / 마티아스 페르난데스파르도", number: 28 },
+      { id: "nwc-11", name: "하비 반스", number: 11 },
+      { id: "nwc-09", name: "요안 위사", number: 9 },
+    ], { lineHeight: 0.3, width: -0.4, wingerTuck: -0.5, fullbackInvert: -0.5, anchorDrop: 0.7, falseNine: -0.1 }),
+  },
 
   // ───────────────────────── 4-3-3 ─────────────────────────
   {
