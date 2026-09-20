@@ -1,3 +1,4 @@
+import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { getFormationById } from "@/data/formations";
 import { getTeamById, TEAMS } from "@/data/teams";
@@ -13,6 +14,38 @@ export function generateStaticParams() {
 
 interface TeamDetailPageProps {
   params: Promise<{ teamId: string }>;
+}
+
+export async function generateMetadata(
+  { params }: TeamDetailPageProps,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const { teamId } = await params;
+  const team = getTeamById(teamId);
+
+  if (!team) return {};
+
+  const title = `${team.name} 전술 분석 | Tactics Board`;
+  const description = `${team.league} · 감독 ${team.manager} · 주 포메이션 ${team.primaryFormationId}. ${team.shortSummary}`;
+  // openGraph/twitter는 부모 값을 병합하지 않고 통째로 대체하므로, 공용 썸네일과
+  // summary_large_image 카드 설정을 부모에서 직접 가져와 다시 지정한다.
+  const parentMetadata = await parent;
+  const images = parentMetadata.openGraph?.images ?? [];
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `/teams/${team.id}`,
+      siteName: "Tactics Board",
+      locale: "ko_KR",
+      type: "article",
+      images,
+    },
+    twitter: { card: "summary_large_image", title, description, images },
+  };
 }
 
 export default async function TeamDetailPage({ params }: TeamDetailPageProps) {
