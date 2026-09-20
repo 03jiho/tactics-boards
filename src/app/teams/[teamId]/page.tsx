@@ -25,7 +25,10 @@ export async function generateMetadata(
 
   if (!team) return {};
 
-  const title = `${team.name} 전술 분석 | Tactics Board`;
+  // 공유 카드는 사이트명을 따로 표시하므로, 링크 미리보기 제목에는 접미사를 붙이지 않는다.
+  // 붙이면 카카오톡처럼 좁은 카드에서 제목이 두 줄로 밀려 팀 이름이 잘린다.
+  const shareTitle = `${team.name} 전술 분석`;
+  const title = `${shareTitle} | Tactics Board`;
   const description = `${team.league} · 감독 ${team.manager} · 주 포메이션 ${team.primaryFormationId}. ${team.shortSummary}`;
   // openGraph/twitter는 부모 값을 병합하지 않고 통째로 대체하므로, 공용 썸네일과
   // summary_large_image 카드 설정을 부모에서 직접 가져와 다시 지정한다.
@@ -36,7 +39,7 @@ export async function generateMetadata(
     title,
     description,
     openGraph: {
-      title,
+      title: shareTitle,
       description,
       url: `/teams/${team.id}`,
       siteName: "Tactics Board",
@@ -44,7 +47,7 @@ export async function generateMetadata(
       type: "article",
       images,
     },
-    twitter: { card: "summary_large_image", title, description, images },
+    twitter: { card: "summary_large_image", title: shareTitle, description, images },
   };
 }
 
