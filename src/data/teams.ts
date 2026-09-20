@@ -1837,23 +1837,23 @@ export const TEAMS: Team[] = [
     accentColor: "#CB3524",
     crestUrl: "/badges/atletico-madrid.svg",
     koreanPlayer: "이강인",
-    tacticalStyle: { lineHeight: -0.5, width: -0.3, wingerTuck: -0.2, fullbackInvert: -0.1, anchorDrop: 0.4, falseNine: 0.6 },
+    tacticalStyle: { lineHeight: -0.5, width: -0.3, wingerTuck: -0.2, fullbackInvert: -0.5, anchorDrop: 0.4, falseNine: 0.6 },
     shortSummary:
-      "통산 800경기를 넘긴 시메오네 체제. 기본 4-4-2에서 빌드업 시 4-3-3, 비소유 시 5-3-2로 유동적이며, 이강인이 새 창조 자원으로 합류했다.",
+      "통산 800경기를 넘긴 시메오네 체제. 기본은 4-4-2 미드블록이고 강팀 원정에서만 3백 카드를 꺼내며, 그리즈만이 떠난 자리에 이강인이 새 창조 자원으로 합류했다.",
     tactical: {
       inPossession: {
-        summary: "풀백을 낮게 두고 더블 피봇이 안전한 좌우 순환을 우선하는 4-3-3형 빌드업으로 시작한다.",
-        buildUpDescription: "훌리안 알바레스가 짧게 내려오거나 측면에서 오버로드를 만든 뒤 기회를 엿보며, '더 통제된 점유'를 표방하지만 전방 움직임 부족으로 롱킥 의존도가 높다는 평가도 있다.",
+        summary: "히울만이 센터백 사이로 내려받아 기준점을 잡고, 그 위에서 바리오스가 전진 패스를 배급하며 왼쪽으로 무게를 싣는다.",
+        buildUpDescription: "핵심 전개 루트는 왼쪽이다. 그리말도가 높이 오버래핑해 바에나와 2대1을 만든 뒤 얼리 크로스와 대각 전환을 뿌리고, 반대편에서는 요렌테가 우측 하프스페이스로 침투해 마무리를 노린다. 이강인은 상대 수비형 미드필더 뒤 포켓으로 내려받아 방향을 바꾸고, 알바레스가 등지고 버텨 팀 전체를 전진시킨다. 한츠코의 후방 롱 다이애고널도 주요 전개 옵션이다.",
         keyPoints: [
-          "알바레스의 폴스나인 무브",
-          "이강인의 하프스페이스 연결",
-          "롱킥 의존도와 세컨드 볼 경합",
+          "그리말도-바에나의 좌측 2대1과 얼리 크로스",
+          "알바레스의 등지는 기준점 + 이강인의 포켓 연결",
+          "좌측 자원이 모두 안쪽을 선호해 생기는 좌측 과밀",
         ],
       },
       outOfPossession: {
-        summary: "여전히 정교한 5-3-2/4-5-1 로우블록이 기반이나, 전성기 대비 라인 간 간격이 벌어졌다는 지적도 있다.",
-        defensiveShapeDescription: "라인 간 간격을 좁게 유지해 중앙 공간 자체를 최소화하는 것이 원칙이다.",
-        pressingDescription: "탈취 직후 빠른 역습은 여전히 팀의 가장 위협적인 무기다.",
+        summary: "전형적인 시메오네식 4-4-2 미드블록으로, 점유율을 내주고 버티다 후반에 터뜨리는 경기 패턴이 반복된다.",
+        defensiveShapeDescription: "투톱이 패스 각도만 차단해 압박 트리거를 만들고, 미드필드 4인이 좁게 붙어 중앙을 봉쇄한 뒤 상대를 측면으로 몰아낸다. 풀백이 전진해 압박하면 히울만이 그 자리를 메우고, 로메로는 라인을 깨고 전진해 직접 볼을 끊어낸다.",
+        pressingDescription: "탈취 직후 알바레스·이강인의 전진과 요렌테·줄리아노의 러닝으로 이어지는 빠른 역습이 여전히 팀의 가장 위협적인 무기다. 강팀 원정에서는 한츠코-로메로-푸빌 3백 카드도 꺼낸다.",
         keyPoints: [
           "라인 간 간격 관리",
           "탈취 직후 즉각적인 역습",
@@ -1865,15 +1865,17 @@ export const TEAMS: Team[] = [
           playerId: "atm-alvarez",
           name: "훌리안 알바레스",
           number: 19,
-          role: "폴스나인",
-          description: "여름 내내 이적설에 시달렸지만 잔류했고, 챔피언스리그 리버풀전에 최전방으로 나서며 주전 경쟁에 다시 가세했다.",
+          role: "폴스나인 겸 박스 안 결정자",
+          description:
+            "여름 내내 바르셀로나·아스날의 오퍼에 시달렸지만 본인이 잔류를 택한 공격의 1옵션이다. 투톱의 축으로 상대 센터백을 등지고 버티다 하프스페이스로 내려와 빌드업의 마지막 연결고리가 되고, 박스 안에서는 좌우 어느 발로도 마무리한다.",
         },
         {
           playerId: "atm-leekangin",
           name: "이강인",
           number: 7,
-          role: "창조 자원(주전급)",
-          description: "PSG에서 여름 이적한 창조적 미드필더로, 최근 두 경기 연속 바에나와 함께 선발 출전하며 확실한 주전급으로 자리잡고 있다.",
+          role: "세컨 스트라이커형 플레이메이커",
+          description:
+            "PSG에서 여름 이적하며 그리즈만이 비운 7번과 창의성 공백을 함께 넘겨받았다. 처진 공격수와 우측 미드를 오가면서 상대 수비형 미드필더 뒤 포켓으로 내려받아 방향을 바꾸고, 좁은 공간에서 라스트 패스를 만들어낸다. 세트피스 키커와 박스 외곽 슈팅으로 직접 득점도 책임진다.",
         },
         {
           playerId: "atm-llorente",
@@ -1894,16 +1896,16 @@ export const TEAMS: Team[] = [
     players: buildPlayers("4-4-2", [
       { id: "atm-01", name: "얀 오블라크", number: 13 },
       { id: "atm-02", name: "마르크 푸빌", number: 18 },
-      { id: "atm-04", name: "다비드 한츠코", number: 17 },
-      { id: "atm-05", name: "크리스티안 로메로", number: 21 },
+      { id: "atm-04", name: "크리스티안 로메로", number: 21 },
+      { id: "atm-05", name: "다비드 한츠코", number: 17 },
       { id: "atm-03", name: "알레한드로 그리말도", number: 22 },
-      { id: "atm-07", name: "마르코스 요렌테", number: 14 },
+      { id: "atm-07", name: "마르코스 요렌테 / 줄리아노 시메오네", number: 14 },
       { id: "atm-08", name: "파블로 바리오스", number: 8 },
-      { id: "atm-06", name: "모르텐 히울만", number: 23 },
-      { id: "atm-11", name: "줄리아노 시메오네", number: 20 },
-      { id: "atm-09", name: "아데몰라 루크먼", number: 11 },
-      { id: "atm-10", name: "알렉스 바에나 / 이강인", number: 10 },
-    ], { lineHeight: -0.5, width: -0.3, wingerTuck: -0.2, fullbackInvert: -0.1, anchorDrop: 0.4, falseNine: 0.6 }),
+      { id: "atm-06", name: "모르텐 히울만 / 코케", number: 23 },
+      { id: "atm-11", name: "알렉스 바에나 / 아데몰라 루크먼", number: 10 },
+      { id: "atm-09", name: "훌리안 알바레스", number: 19 },
+      { id: "atm-10", name: "이강인", number: 7 },
+    ], { lineHeight: -0.5, width: -0.3, wingerTuck: -0.2, fullbackInvert: -0.5, anchorDrop: 0.4, falseNine: 0.6 }),
   },
 
   // ───────────────────────── 3-5-2 ─────────────────────────
