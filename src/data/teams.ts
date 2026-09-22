@@ -22,7 +22,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#6CABDD",
     crestUrl: "/badges/manchester-city.svg",
-    tacticalStyle: { lineHeight: 0.6, width: 0.2, wingerTuck: -0.3, fullbackInvert: 0.2, anchorDrop: 0.3, falseNine: 0.5 },
+    tacticalStyle: { lineHeight: 0.6, width: 0.2, wingerTuck: -0.3, fullbackInvertRight: 0.7, fullbackInvertLeft: -0.5, anchorDrop: 0.3, falseNine: 0.5 },
     shortSummary:
       "과르디올라 사임 후 2026년 6월 부임한 마레스카 체제. 사상 최대 규모의 여름 영입(엔소 페르난데스·도쿠·은디아예 등 6억 달러 이상)으로 스쿼드를 재편했다.",
     tactical: {
@@ -93,7 +93,7 @@ export const TEAMS: Team[] = [
       { id: "mci-10", name: "라얀 셰르키", number: 10 },
       { id: "mci-11", name: "제레미 도쿠 / 필 포든", number: 11 },
       { id: "mci-09", name: "엘링 홀란", number: 9 },
-    ], { lineHeight: 0.6, width: 0.2, wingerTuck: -0.3, fullbackInvert: 0.2, anchorDrop: 0.3, falseNine: 0.5 }),
+    ], { lineHeight: 0.6, width: 0.2, wingerTuck: -0.3, fullbackInvertRight: 0.7, fullbackInvertLeft: -0.5, anchorDrop: 0.3, falseNine: 0.5 }),
   },
   {
     id: "fc-barcelona",

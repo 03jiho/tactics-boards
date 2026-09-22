@@ -68,10 +68,15 @@ function applyTacticalStyle(
 
   const roleGain = phase === "in" ? 1 : 0.4;
 
-  if (role === "wideDefender" && style.fullbackInvert) {
-    const invert = style.fullbackInvert * roleGain;
-    x = 50 + (x - 50) * (1 - invert * 0.35);
-    y = y - invert * 10;
+  if (role === "wideDefender") {
+    // 좌우 역할이 다른 팀(한쪽은 백3에 합류, 반대쪽은 높이 전진)을 표현하려면 side별 값이 필요하다.
+    // 어느 쪽 풀백인지는 템플릿 좌표의 x로 판별한다(x >= 50이 오른쪽).
+    const sideInvert = coord.x >= 50 ? style.fullbackInvertRight : style.fullbackInvertLeft;
+    const invert = (sideInvert ?? style.fullbackInvert ?? 0) * roleGain;
+    if (invert) {
+      x = 50 + (x - 50) * (1 - invert * 0.35);
+      y = y - invert * 10;
+    }
   } else if (role === "wideAttacker" && style.wingerTuck) {
     const tuck = style.wingerTuck * roleGain;
     x = 50 + (x - 50) * (1 - tuck * 0.35);
