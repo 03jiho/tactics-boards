@@ -22,19 +22,19 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#6CABDD",
     crestUrl: "/badges/manchester-city.svg",
-    tacticalStyle: { lineHeight: 0.6, width: 0.2, wingerTuck: -0.3, fullbackInvert: 0.5, anchorDrop: 0.3, falseNine: 0.5 },
+    tacticalStyle: { lineHeight: 0.6, width: 0.2, wingerTuck: -0.3, fullbackInvert: 0.2, anchorDrop: 0.3, falseNine: 0.5 },
     shortSummary:
       "과르디올라 사임 후 2026년 6월 부임한 마레스카 체제. 사상 최대 규모의 여름 영입(엔소 페르난데스·도쿠·은디아예 등 6억 달러 이상)으로 스쿼드를 재편했다.",
     tactical: {
       inPossession: {
         summary:
-          "왼쪽 풀백 그바르디올이 인버트해 후벵 디아스·게히와 함께 백3를 형성하면, 앤더슨이 그 앞을 커버하는 동안 엔소는 한 칸 더 높은 위치까지 전진해 2-3-5에 가까운 구조를 완성한다. 셰르키는 중앙에서 자유롭게 움직이며 세메뇨·도쿠 두 측면 자원과 연계한다.",
+          "좌우 풀백의 역할이 비대칭이다. 오른쪽 풀백이 안으로 좁혀 후벵 디아스·게히 옆에 서서 백3의 우측 스토퍼가 되는 동안, 그바르디올은 반대로 왼쪽에서 높이 전진해 박스 안까지 들어간다. 그 위에서 앤더슨이 커버, 엔소는 한 칸 더 전진해 3-2-5에 가까운 구조를 완성한다.",
         buildUpDescription:
-          "오라일리의 인버트로 만든 3백 위에서 앤더슨이 라인 사이 공간을 지키며 짧은 패스로 상대 1차 압박 라인을 돌파하고, 엔소는 더 높은 위치까지 전진해 침투와 마무리에 가담한다. 홀란이 짧게 내려와 센터백을 끌어내는 움직임도 늘었다.",
+          "오른쪽 풀백이 백라인에 합류해 만든 3백 위에서 앤더슨이 라인 사이 공간을 지키며 짧은 패스로 상대 1차 압박 라인을 돌파하고, 엔소는 더 높은 위치까지 전진해 침투와 마무리에 가담한다. 셰르키는 중앙에서 자유롭게 움직이며 세메뇨·도쿠 두 측면 자원과 연계하고, 홀란이 짧게 내려와 센터백을 끌어내는 움직임도 늘었다.",
         keyPoints: [
-          "오라일리의 인버트 타이밍 — 3-2-5 빌드업 구조",
+          "오른쪽 풀백의 백3 합류 — 3-2-5 빌드업 구조",
+          "그바르디올의 전진 — 왼쪽은 좁히지 않고 박스까지 올라간다",
           "앤더슨은 커버, 엔소는 전진 — 비대칭 더블 피봇 롤 분담",
-          "셰르키의 중앙 연계 플레이",
         ],
       },
       outOfPossession: {
@@ -74,9 +74,9 @@ export const TEAMS: Team[] = [
         },
       ],
       tacticalHighlights: [
-        "오라일리의 인버트가 만드는 백3 빌드업 구조",
+        "오른쪽 풀백이 백3에 합류하는 타이밍",
+        "그바르디올이 왼쪽에서 박스까지 올라가는 빈도",
         "셰르키의 중앙 연계 플레이 빈도",
-        "오라일리-그바르디올, 누네스-후사노프 등 좌우 풀백 경쟁 구도",
       ],
       reportSummary:
         "감독 교체와 사상 최대 규모의 영입이 겹친 팀으로, 셰르키를 중심으로 한 새 공격 조합이 빠르게 손발을 맞춰가고 있다.",
@@ -93,7 +93,7 @@ export const TEAMS: Team[] = [
       { id: "mci-10", name: "라얀 셰르키", number: 10 },
       { id: "mci-11", name: "제레미 도쿠 / 필 포든", number: 11 },
       { id: "mci-09", name: "엘링 홀란", number: 9 },
-    ], { lineHeight: 0.6, width: 0.2, wingerTuck: -0.3, fullbackInvert: 0.5, anchorDrop: 0.3, falseNine: 0.5 }),
+    ], { lineHeight: 0.6, width: 0.2, wingerTuck: -0.3, fullbackInvert: 0.2, anchorDrop: 0.3, falseNine: 0.5 }),
   },
   {
     id: "fc-barcelona",
