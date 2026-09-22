@@ -180,14 +180,14 @@ export const TEAMS: Team[] = [
     name: "바이에른 뮌헨",
     league: "분데스리가",
     country: "독일",
-    manager: "빈센트 콤파니",
+    manager: "뱅상 콤파니",
     primaryFormationId: "4-2-3-1",
     accentColor: "#DC052D",
     crestUrl: "/badges/bayern-munich.svg",
     koreanPlayer: "김민재",
     tacticalStyle: { lineHeight: 0.8, width: 0.3, wingerTuck: -0.3, fullbackInvert: 0.4, anchorDrop: 0.7, falseNine: 0.3 },
     shortSummary:
-      "더블 피봇의 안정감을 바탕으로 공격형 미드필더가 자유롭게 위치를 바꾸는 팀. 여름 영입생 요나탄 타가 우파메카노와 주전 센터백을 이루면서 김민재는 백업으로 밀려났고, 왼쪽은 새 영입생 너새니얼 브라운이 데이비스를 밀어내고 주전으로 떠올랐다.",
+      "더블 피봇의 안정감을 바탕으로 공격형 미드필더가 자유롭게 위치를 바꾸는 팀. 요나탄 타가 우파메카노와 주전 센터백을 이루며 김민재가 그 뒤를 받치고, 여름 영입생 너새니얼 브라운은 왼쪽 풀백과 공격형 미드필더를 겸하는 멀티 자원으로 쓰인다.",
     tactical: {
       inPossession: {
         summary:
@@ -213,7 +213,7 @@ export const TEAMS: Team[] = [
       keyPlayers: [
         {
           playerId: "bay-kimmich",
-          name: "요슈아 키미히",
+          name: "요주아 키미히",
           number: 6,
           role: "빌드업 쿼터백",
           description:
@@ -227,16 +227,17 @@ export const TEAMS: Team[] = [
           description: "하프스페이스 좁은 공간 드리블로 수비라인을 직접 무너뜨린다. PSV에서 영입된 사이바리와 10번 자리를 두고 경쟁 중이다.",
         },
         {
-          playerId: "bay-tah",
-          name: "요나탄 타",
-          number: 4,
-          role: "주전 센터백",
-          description: "레버쿠젠에서 자유이적으로 합류한 여름 영입생으로, 우파메카노와 짝을 이루는 주전 센터백 한 자리를 곧바로 꿰찼다. 김민재는 이토와 함께 백업 자원으로 로테이션한다.",
+          playerId: "bay-olise",
+          name: "마이클 올리세",
+          number: 17,
+          role: "우측 아이솔레이션 윙어",
+          description:
+            "오른쪽 터치라인에 고정돼 1대1 상황을 강요받고 그 상황을 거의 전부 이겨내는 역발 윙어다. 팀 전체가 반대편으로 옮겨 수비를 끌어낸 뒤 그가 안쪽으로 감아 들어오는 것이 1차 공격 루트이며, 컷인 슈팅과 반대 포스트로 넘기는 얼리 크로스를 동시에 쥐고 있어 수비가 한쪽을 버릴 수 없다. 팀 내 득점·도움 모두 1위다.",
         },
       ],
       tacticalHighlights: [
         "키미히의 백라인 합류 타이밍",
-        "브라운의 언더래핑",
+        "데이비스의 좌측 뒷공간 침투",
         "우파메카노-타 조합의 수비 안정감",
       ],
       reportSummary:
@@ -247,8 +248,8 @@ export const TEAMS: Team[] = [
       { id: "bay-02", name: "콘라트 라이머", number: 27 },
       { id: "bay-04", name: "다요 우파메카노", number: 2 },
       { id: "bay-tah", name: "요나탄 타 / 김민재", number: 4 },
-      { id: "bay-03", name: "너새니얼 브라운 / 알폰소 데이비스", number: 11 },
-      { id: "bay-06", name: "요슈아 키미히", number: 6 },
+      { id: "bay-03", name: "알폰소 데이비스 / 너새니얼 브라운", number: 19 },
+      { id: "bay-06", name: "요주아 키미히", number: 6 },
       { id: "bay-08", name: "알렉산다르 파블로비치", number: 45 },
       { id: "bay-07", name: "마이클 올리세", number: 17 },
       { id: "bay-10", name: "자말 무시알라 / 이스마엘 사이바리", number: 10 },
@@ -1975,7 +1976,7 @@ export const TEAMS: Team[] = [
     },
     players: buildPlayers("3-5-2", [
       { id: "int-01", name: "주젭 마르티네스", number: 1 },
-      { id: "int-04", name: "얀 비세크", number: 31 },
+      { id: "int-04", name: "얀 아우렐 비세크", number: 31 },
       { id: "int-05", name: "마누엘 아칸지", number: 25 },
       { id: "int-03", name: "알레산드로 바스토니", number: 95 },
       { id: "int-02", name: "앙디 디우프", number: 17 },
@@ -1984,7 +1985,7 @@ export const TEAMS: Team[] = [
       { id: "int-10", name: "페타르 수치치", number: 8 },
       { id: "int-07", name: "페데리코 디마르코", number: 32 },
       { id: "int-09", name: "라우타로 마르티네스", number: 10 },
-      { id: "int-11", name: "마르쿠스 튀랑", number: 9 },
+      { id: "int-11", name: "마르쿠스 튀람", number: 9 },
     ], { lineHeight: 0, width: -0.1, fullbackInvert: -0.5, anchorDrop: 0.5, falseNine: 0.1 }),
   },
 
