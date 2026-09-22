@@ -21,12 +21,26 @@ function labelPadding(name: string): number {
 let pairs = 0;
 const overlaps: string[] = [];
 
+const duplicateNumbers: string[] = [];
+
 for (const team of TEAMS) {
   assert.equal(
     team.players.length,
     PITCH_TEMPLATES[team.primaryFormationId].length,
     `${team.id}: 명단 인원이 포메이션 템플릿과 다르다`,
   );
+
+  // 한 팀 안에서 등번호는 겹칠 수 없다. 조합 슬롯의 번호는 먼저 적힌 선수의 것이다.
+  const owner = new Map<number, string>();
+  for (const player of team.players) {
+    const name = player.name.split(" / ")[0].trim();
+    const already = owner.get(player.number);
+    if (already) {
+      duplicateNumbers.push(`${team.id}: ${player.number}번이 ${already}와 ${name}에게 중복 배정됐다`);
+    } else {
+      owner.set(player.number, name);
+    }
+  }
 
   for (const phase of ["inPossession", "outOfPossession"] as const) {
     for (let i = 0; i < team.players.length; i += 1) {
@@ -50,6 +64,11 @@ for (const team of TEAMS) {
 }
 
 assert.deepEqual(overlaps, [], `토큰이 겹치는 쌍이 있다:\n  ${overlaps.join("\n  ")}`);
+assert.deepEqual(
+  duplicateNumbers,
+  [],
+  `등번호가 중복된 팀이 있다:\n  ${duplicateNumbers.join("\n  ")}`,
+);
 
 // 좌우를 분리한 팀은 두 풀백이 같은 폭으로 좁혀지면 안 된다.
 const split = TEAMS.filter(
