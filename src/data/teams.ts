@@ -28,7 +28,7 @@ export const TEAMS: Team[] = [
     tactical: {
       inPossession: {
         summary:
-          "왼쪽 풀백 오라일리가 인버트해 후벤 디아스·게히와 함께 백3를 형성하면, 앤더슨이 그 앞을 커버하는 동안 엔소는 한 칸 더 높은 위치까지 전진해 2-3-5에 가까운 구조를 완성한다. 셰르키는 중앙에서 자유롭게 움직이며 세메뇨·도쿠 두 측면 자원과 연계한다.",
+          "왼쪽 풀백 그바르디올이 인버트해 후벵 디아스·게히와 함께 백3를 형성하면, 앤더슨이 그 앞을 커버하는 동안 엔소는 한 칸 더 높은 위치까지 전진해 2-3-5에 가까운 구조를 완성한다. 셰르키는 중앙에서 자유롭게 움직이며 세메뇨·도쿠 두 측면 자원과 연계한다.",
         buildUpDescription:
           "오라일리의 인버트로 만든 3백 위에서 앤더슨이 라인 사이 공간을 지키며 짧은 패스로 상대 1차 압박 라인을 돌파하고, 엔소는 더 높은 위치까지 전진해 침투와 마무리에 가담한다. 홀란이 짧게 내려와 센터백을 끌어내는 움직임도 늘었다.",
         keyPoints: [
@@ -85,11 +85,11 @@ export const TEAMS: Team[] = [
       { id: "mci-01", name: "잔루이지 돈나룸마", number: 1 },
       { id: "mci-02", name: "마테우스 누네스 / 압두코디르 후사노프", number: 27 },
       { id: "mci-05", name: "마크 게히", number: 6 },
-      { id: "mci-04", name: "후벤 디아스", number: 3 },
-      { id: "mci-03", name: "니코 오라일리 / 요슈코 그바르디올", number: 33 },
+      { id: "mci-04", name: "후벵 디아스", number: 3 },
+      { id: "mci-03", name: "요슈코 그바르디올 / 니코 오라일리", number: 24 },
       { id: "mci-08", name: "엘리엇 앤더슨 / 아유브 부아디", number: 5 },
       { id: "mci-06", name: "엔소 페르난데스", number: 17 },
-      { id: "mci-07", name: "안투안 세메뇨 / 일리만 은디아예", number: 42 },
+      { id: "mci-07", name: "앙투안 세메뇨 / 일리만 은디아예", number: 42 },
       { id: "mci-10", name: "라얀 셰르키", number: 10 },
       { id: "mci-11", name: "제레미 도쿠 / 필 포든", number: 11 },
       { id: "mci-09", name: "엘링 홀란", number: 9 },
@@ -561,8 +561,8 @@ export const TEAMS: Team[] = [
       { id: "rma-05", name: "딘 하위선", number: 4 },
       { id: "rma-03", name: "마르크 쿠쿠레야 / 알바로 카레라스", number: 17 },
       { id: "rma-06", name: "페데리코 발베르데", number: 8 },
-      { id: "rma-08", name: "베르나르두 실바 / 에두아르도 카마빙가", number: 20 },
-      { id: "rma-07", name: "아르다 귈러 / 브라힘 디아스 / 얀 디오망데", number: 15 },
+      { id: "rma-08", name: "오렐리앵 추아메니 / 에두아르도 카마빙가", number: 14 },
+      { id: "rma-07", name: "아르다 귈러 / 얀 디오망데", number: 15 },
       { id: "rma-10", name: "주드 벨링엄", number: 5 },
       { id: "rma-11", name: "비니시우스 주니오르", number: 7 },
       { id: "rma-09", name: "킬리안 음바페", number: 10 },
@@ -1526,7 +1526,7 @@ export const TEAMS: Team[] = [
     name: "첼시 FC",
     league: "프리미어리그",
     country: "잉글랜드",
-    manager: "사비 알론소",
+    manager: "샤비 알론소",
     primaryFormationId: "3-4-2-1",
     accentColor: "#034694",
     crestUrl: "/badges/chelsea.svg",
