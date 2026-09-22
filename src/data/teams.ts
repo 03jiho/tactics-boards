@@ -84,8 +84,8 @@ export const TEAMS: Team[] = [
     players: buildPlayers("4-2-3-1", [
       { id: "mci-01", name: "잔루이지 돈나룸마", number: 1 },
       { id: "mci-02", name: "마테우스 누네스 / 압두코디르 후사노프", number: 27 },
-      { id: "mci-05", name: "마크 게히", number: 6 },
       { id: "mci-04", name: "후벵 디아스", number: 3 },
+      { id: "mci-05", name: "마크 게히", number: 6 },
       { id: "mci-03", name: "요슈코 그바르디올 / 니코 오라일리", number: 24 },
       { id: "mci-08", name: "엘리엇 앤더슨 / 아유브 부아디", number: 5 },
       { id: "mci-06", name: "엔소 페르난데스", number: 17 },
