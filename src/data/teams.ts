@@ -1144,16 +1144,16 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-3-3",
     accentColor: "#004170",
     crestUrl: "/badges/psg.svg",
-    tacticalStyle: { lineHeight: 0.6, width: 0.15, wingerTuck: 0.6, fullbackInvert: 0.7, anchorDrop: 0.6, falseNine: 0.7 },
+    tacticalStyle: { lineHeight: 0.6, width: 0.15, wingerTuck: 0.6, fullbackInvertLeft: -0.4, fullbackInvertRight: -0.8, anchorDrop: 0.6, falseNine: 0.7 },
     shortSummary:
       "명목상 4-3-3이지만 실제로는 백3+더블 피봇+5인 공격진으로 재편되는 것이 원칙인 팀. 뎀벨레의 폴스나인 움직임이 상징적이다.",
     tactical: {
       inPossession: {
-        summary: "비티냐가 백라인 사이로 내려가고 하키미가 중앙으로 좁혀 들어가며, 뎀벨레가 폴스나인처럼 처져 상대 수비를 끌어낸다.",
+        summary: "비티냐가 백라인 사이로 내려가 멘데스를 앞으로 풀어주고, 윙어가 안쪽으로 좁히는 만큼 양 풀백이 터치라인을 맡는다. 그 위에서 뎀벨레가 폴스나인처럼 처져 상대 수비를 끌어낸다.",
         buildUpDescription: "포지션 번호를 유동적으로 재해석해(6이 8이 되고 8이 10이 되는) 상대 마킹을 혼란시킨다.",
         keyPoints: [
           "포지션 번호의 유동성",
-          "하키미의 인버트 무브",
+          "두 풀백 중 늘 더 높이 올라가는 하키미",
           "뎀벨레의 폴스나인 움직임",
         ],
       },
@@ -1186,8 +1186,8 @@ export const TEAMS: Team[] = [
           playerId: "psg-hakimi",
           name: "아슈라프 하키미",
           number: 2,
-          role: "인버티드 풀백",
-          description: "공격 시 중앙으로 좁혀 들어가는 인버티드 풀백으로, 팀의 포지션 유동성 원칙을 상징한다.",
+          role: "전진형 라이트백",
+          description: "두 풀백 중 늘 더 높이 올라가 박스 안까지 도착하는 자원으로, 전진 드리블과 박스 진입 횟수가 윙어 수준이다. 서는 자리는 앞선 윙어에 따라 정해져, 윙어가 폭을 잡으면 안쪽으로 들어오고 윙어가 좁히면 자신이 터치라인을 맡는다.",
         },
       ],
       tacticalHighlights: [
@@ -1209,7 +1209,7 @@ export const TEAMS: Team[] = [
       { id: "psg-07", name: "데지레 두에", number: 14 },
       { id: "psg-11", name: "흐비차 크바라츠헬리아", number: 7 },
       { id: "psg-09", name: "우스만 뎀벨레 / 페란 토레스", number: 10 },
-    ], { lineHeight: 0.6, width: 0.15, wingerTuck: 0.6, fullbackInvert: 0.7, anchorDrop: 0.6, falseNine: 0.7 }),
+    ], { lineHeight: 0.6, width: 0.15, wingerTuck: 0.6, fullbackInvertLeft: -0.4, fullbackInvertRight: -0.8, anchorDrop: 0.6, falseNine: 0.7 }),
   },
   {
     id: "marseille",
