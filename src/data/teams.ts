@@ -1456,7 +1456,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "3-4-2-1",
     accentColor: "#8E1F2F",
     crestUrl: "/badges/as-roma.svg",
-    tacticalStyle: { lineHeight: 0.7, width: 0.4, fullbackInvert: -0.6, anchorDrop: 0.2, falseNine: -0.4 },
+    tacticalStyle: { lineHeight: 0.7, width: 0.4, wingerTuck: 0.5, fullbackInvert: -0.6, anchorDrop: 0.2, falseNine: -0.4 },
     shortSummary:
       "2025년 6월 부임한 가스페리니 체제. 3백 중앙의 과감한 전진과 두 명의 세컨드 스트라이커가 핵심이다. 첼리크는 유벤투스로 떠나고 몰리나가 새 윙백으로 합류했다.",
     tactical: {
@@ -1521,7 +1521,7 @@ export const TEAMS: Team[] = [
       { id: "rom-10", name: "파울로 디발라", number: 21 },
       { id: "rom-11", name: "마티아스 소울레 / 호드리구 모라", number: 18 },
       { id: "rom-09", name: "도니얼 말런", number: 14 },
-    ], { lineHeight: 0.7, width: 0.4, fullbackInvert: -0.6, anchorDrop: 0.2, falseNine: -0.4 }),
+    ], { lineHeight: 0.7, width: 0.4, wingerTuck: 0.5, fullbackInvert: -0.6, anchorDrop: 0.2, falseNine: -0.4 }),
   },
   {
     id: "chelsea",
@@ -1763,7 +1763,7 @@ export const TEAMS: Team[] = [
     accentColor: "#004D9D",
     crestUrl: "/badges/schalke-04.svg",
     koreanPlayer: "황희찬",
-    tacticalStyle: { lineHeight: -0.6, width: -0.3, fullbackInvert: -0.3, anchorDrop: -0.3, falseNine: -0.2 },
+    tacticalStyle: { lineHeight: -0.6, width: -0.3, wingerTuck: 0.6, fullbackInvert: -0.3, anchorDrop: -0.3, falseNine: -0.2 },
     shortSummary:
       "2부 우승 후 1부로 승격한 첫 시즌. 신규 영입생 케난 카라만·비탈리 베커가 가세했고, 마감일 막판 합류한 황희찬은 카라만과 로테이션한다.",
     tactical: {
@@ -1828,7 +1828,7 @@ export const TEAMS: Team[] = [
       { id: "s04-13", name: "케난 카라만", number: 19 },
       { id: "s04-11", name: "아딜 아우시시", number: 24 },
       { id: "s04-09", name: "무사 실라 / 황희찬", number: 9 },
-    ], { lineHeight: -0.6, width: -0.3, fullbackInvert: -0.3, anchorDrop: -0.3, falseNine: -0.2 }),
+    ], { lineHeight: -0.6, width: -0.3, wingerTuck: 0.6, fullbackInvert: -0.3, anchorDrop: -0.3, falseNine: -0.2 }),
   },
 
   // ───────────────────────── 4-4-2 ─────────────────────────

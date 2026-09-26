@@ -15,29 +15,43 @@ function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value));
 }
 
-type SlotRole = "gk" | "cb" | "wideDefender" | "pivot" | "wideAttacker" | "striker" | "other";
+export type SlotRole =
+  | "gk"
+  | "cb"
+  | "wideDefender"
+  | "pivot"
+  | "wideAttacker"
+  | "striker"
+  | "other";
 
 /**
  * 포지션 라벨이 아니라 템플릿 좌표의 기하학적 특징만으로 슬롯의 역할을 분류한다.
  * 포메이션마다 같은 라벨(RCM 등)이라도 실제 역할이 다르고(예: 4-4-2의 와이드 RCM vs 중앙 RCM),
  * 좌표 기반 분류를 쓰면 포메이션에 상관없이 일관되게 적용할 수 있다.
- * - wideDefender: 좌우로 많이 벌어져 있고(diff>=18) 비소유 시 낮은 위치(y<40) — 풀백/윙백
- * - wideAttacker: 좌우로 많이 벌어져 있고 비소유 시에도 높은 위치(y>=40) — 윙어/와이드 미드필더
- * - pivot: 중앙에 가깝고(diff<18) 소유 시 y가 28~50 사이 — 단일/더블 피봇
- * - striker: 소유 시 y>=84인 최전방 슬롯
+ * - wideDefender: 비소유 시 낮은 위치(y<40)이고 터치라인 쪽으로 크게 벌어진(diff>=18) 슬롯 — 풀백/윙백
+ * - wideAttacker: 소유 시 전진해 있고(y>=60) 중앙을 벗어난(diff>=10) 슬롯 — 윙어/와이드 미드필더/인사이드 포워드
+ * - pivot: 중앙에 가깝고 소유 시 y가 28~50 사이 — 단일/더블 피봇
+ * - striker: 중앙(diff<10)에서 소유 시 y>=84인 최전방 슬롯
  * - cb: 중앙에 가깝고 소유 시 y<28 — 센터백
+ *
+ * 최전방 판정에 폭 조건이 붙는 이유: 높이만 보면 4-3-3의 윙어(y=88)까지 스트라이커가 되어
+ * falseNine이 3명 모두를 밀고 wingerTuck은 받을 슬롯이 없어진다. 최전방 스트라이커는 어느
+ * 포메이션에서도 중앙에서 8칸 안쪽이라, 10칸으로 윙어와 갈라진다.
+ *
+ * 두 와이드 역할이 폭 기준을 따로 쓰는 이유: 하나로 합치면 백3 포메이션이 무너진다.
+ * 3-4-2-1/3-5-2의 좌우 센터백은 중앙에서 15~16칸이라 풀백 기준(18)을 조금만 낮춰도 풀백으로
+ * 잘못 분류되고, 반대로 3-4-2-1의 인사이드 포워드는 15칸뿐이라 18 기준에서는 wideAttacker가
+ * 되지 못해 wingerTuck이 조용히 무음 처리된다. 전진 여부(y>=60)를 먼저 보면 두 무리가 애초에
+ * 섞이지 않으므로, 각자에게 맞는 폭 기준을 쓸 수 있다.
  */
-function classifySlot(slot: PositionTemplate): SlotRole {
+export function classifySlot(slot: PositionTemplate): SlotRole {
   if (slot.positionLabel === "GK") return "gk";
 
   const xDiff = Math.abs(slot.inPossession.x - 50);
-  const isWide = xDiff >= 18;
 
-  if (slot.inPossession.y >= 84) return "striker";
-
-  if (isWide) {
-    return slot.outOfPossession.y < 40 ? "wideDefender" : "wideAttacker";
-  }
+  if (slot.inPossession.y >= 84 && xDiff < 10) return "striker";
+  if (slot.outOfPossession.y < 40 && xDiff >= 18) return "wideDefender";
+  if (slot.inPossession.y >= 60 && xDiff >= 10) return "wideAttacker";
 
   if (slot.inPossession.y < 28) return "cb";
   if (slot.inPossession.y >= 28 && slot.inPossession.y <= 50) return "pivot";
@@ -86,9 +100,10 @@ function applyTacticalStyle(
     x = 50 + (x - 50) * (1 + drop * 0.15);
   } else if (role === "striker" && style.falseNine) {
     const drop = style.falseNine * roleGain;
-    // 템플릿상 최전방은 이미 y 92~95라 앞쪽 여유가 거의 없다. 타겟맨(음수)을 내려올 때와 같은
-    // 폭으로 밀면 골라인 밖에서 잘려 포화되므로, 전진 방향만 이동량을 줄인다.
-    y = y - drop * (drop >= 0 ? 20 : 8);
+    // 내려오는 방향(양수)은 여유가 넉넉하지만, 타겟맨(음수)이 전진할 공간은 템플릿 최전방이
+    // 이미 y 88~95라 몇 칸뿐이다. 고정 배수로 밀면 골라인 밖에서 잘려 값이 달라도 결과가 같아지므로,
+    // 전진은 남은 공간에 비례해 밀어 어떤 값에서도 포화되지 않게 한다.
+    y = drop >= 0 ? y - drop * 20 : y + -drop * (97 - y) * 0.8;
   }
 
   return { x: clamp(x, 3, 97), y: clamp(y, 3, 97) };

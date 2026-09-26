@@ -3,11 +3,14 @@
  *
  * 1) 어떤 팀·국면에서도 선수 토큰이 서로 겹치지 않는다.
  * 2) fullbackInvertLeft/Right를 쓰는 팀은 두 풀백이 실제로 다른 폭으로 배치된다.
+ * 3) 팀이 지정한 역할별 스타일 값은 그 포메이션에 해당 역할 슬롯이 있어야 한다.
  */
 import assert from "node:assert/strict";
 import { PITCH_TEMPLATES } from "../src/data/pitchTemplates";
 import { TEAMS } from "../src/data/teams";
 import { splitNameLines } from "../src/lib/playerLabel";
+import { classifySlot, type SlotRole } from "../src/lib/players";
+import type { TacticalStyle } from "../src/types/football";
 
 /** PitchBoard의 viewBox가 100x150이라, y 1칸은 화면에서 x 1칸의 1.5배로 보인다. */
 const VIEW_Y_SCALE = 1.5;
@@ -93,4 +96,38 @@ for (const team of split) {
   );
 }
 
-console.log(`ok — ${TEAMS.length}팀 ${pairs}쌍 겹침 없음, 좌우 분리 ${split.length}팀 확인`);
+/**
+ * 역할별 스타일 값은 해당 역할로 분류되는 슬롯이 있을 때만 좌표에 반영된다. 슬롯이 없으면
+ * 값을 적어도 아무 일도 일어나지 않는데, 보드만 봐서는 무음인지 알 수 없어 눈치채기 어렵다.
+ * 3-4-2-1의 인사이드 포워드가 와이드 판정을 못 받아 wingerTuck이 죽어 있던 게 실제 사례다.
+ */
+const ROLE_FOR_STYLE_KEY: Partial<Record<keyof TacticalStyle, SlotRole>> = {
+  wingerTuck: "wideAttacker",
+  fullbackInvert: "wideDefender",
+  fullbackInvertLeft: "wideDefender",
+  fullbackInvertRight: "wideDefender",
+  anchorDrop: "pivot",
+  falseNine: "striker",
+};
+
+const deadKeys: string[] = [];
+
+for (const team of TEAMS) {
+  const roles = new Set(PITCH_TEMPLATES[team.primaryFormationId].map(classifySlot));
+  for (const [key, role] of Object.entries(ROLE_FOR_STYLE_KEY)) {
+    if (team.tacticalStyle[key as keyof TacticalStyle] === undefined) continue;
+    if (!roles.has(role)) {
+      deadKeys.push(`${team.id}: ${key}를 지정했지만 ${team.primaryFormationId}에 ${role} 슬롯이 없다`);
+    }
+  }
+}
+
+assert.deepEqual(
+  deadKeys,
+  [],
+  `좌표에 반영되지 않는 스타일 값이 있다:\n  ${deadKeys.join("\n  ")}`,
+);
+
+console.log(
+  `ok — ${TEAMS.length}팀 ${pairs}쌍 겹침 없음, 좌우 분리 ${split.length}팀, 무음 스타일 값 없음`,
+);
