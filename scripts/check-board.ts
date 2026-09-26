@@ -8,18 +8,13 @@
 import assert from "node:assert/strict";
 import { PITCH_TEMPLATES } from "../src/data/pitchTemplates";
 import { TEAMS } from "../src/data/teams";
-import { splitNameLines } from "../src/lib/playerLabel";
-import { classifySlot, type SlotRole } from "../src/lib/players";
+import {
+  VIEW_Y_SCALE,
+  classifySlot,
+  tokenSeparation,
+  type SlotRole,
+} from "../src/lib/players";
 import type { TacticalStyle } from "../src/types/football";
-
-/** PitchBoard의 viewBox가 100x150이라, y 1칸은 화면에서 x 1칸의 1.5배로 보인다. */
-const VIEW_Y_SCALE = 1.5;
-const BASE_TOKEN_DISTANCE = 11;
-
-function labelPadding(name: string): number {
-  const longest = Math.max(...splitNameLines(name).map((line) => line.length));
-  return Math.min(10, Math.max(0, (longest - 4) * 1.1));
-}
 
 let pairs = 0;
 const overlaps: string[] = [];
@@ -50,16 +45,17 @@ for (const team of TEAMS) {
       for (let j = i + 1; j < team.players.length; j += 1) {
         const a = team.players[i];
         const b = team.players[j];
-        const distance = Math.hypot(
-          a[phase].x - b[phase].x,
-          (a[phase].y - b[phase].y) * VIEW_Y_SCALE,
+        // 겹침 판정은 players.ts가 쓰는 함수 그대로여야 한다. 여기에 같은 식을 베껴 두면
+        // 판정 모양이 바뀔 때 이 검사만 옛 기준으로 남는다.
+        const { ratio } = tokenSeparation(
+          { x: a[phase].x, y: a[phase].y * VIEW_Y_SCALE },
+          { x: b[phase].x, y: b[phase].y * VIEW_Y_SCALE },
+          a.name,
+          b.name,
         );
-        const minimum = BASE_TOKEN_DISTANCE + labelPadding(a.name) + labelPadding(b.name);
         pairs += 1;
-        if (distance < minimum - 0.01) {
-          overlaps.push(
-            `${team.id} ${phase}: ${a.name} / ${b.name} (${distance.toFixed(2)} < ${minimum.toFixed(2)})`,
-          );
+        if (ratio < 0.999) {
+          overlaps.push(`${team.id} ${phase}: ${a.name} / ${b.name} (간격비 ${ratio.toFixed(3)})`);
         }
       }
     }

@@ -128,23 +128,62 @@ function applyTacticalStyle(
  * 데이터 좌표계(0~100)의 y 1칸은 화면에서 x 1칸보다 1.5배 길게 그려진다. 토큰 간 거리를 화면에
  * 보이는 그대로 계산하려면 y에 이 배율을 곱해서 비교해야 한다.
  */
-const VIEW_Y_SCALE = 1.5;
-/** 토큰 원(반지름 4.2) + 이름 한 줄 + 포지션 라벨이 차지하는 기본 세로 공간을 덮는 최소 간격. */
+export const VIEW_Y_SCALE = 1.5;
+/** 토큰 원(반지름 4.2) + 이름 한 줄 + 포지션 라벨이 차지하는 기본 가로 공간을 덮는 최소 간격. */
 const BASE_TOKEN_DISTANCE = 11;
 /**
- * 이름표가 길수록(특히 "선수A / 선수B" 로테이션 표기) 좌우로 넓게 퍼져 옆 토큰과 겹치기 쉽다.
- * 이름 문자 수에 비례해 최소 간격에 여유를 더하되, 지나치게 벌어지지 않도록 상한을 둔다.
+ * 세로 값은 실제로 렌더된 토큰을 재서 넣었다(getBBox 기준, 화면 좌표계 단위).
+ * 원 + 등번호 + 이름 한 줄 + 포지션 라벨이 14.7이고, "선수A / 선수B" 표기로 이름이 한 줄
+ * 늘어나면 17.3이 된다.
  */
-function estimateLabelPadding(name: string): number {
-  const longestLine = Math.max(...splitNameLines(name).map((line) => line.length));
-  return clamp((longestLine - 4) * 1.1, 0, 10);
+const TOKEN_HEIGHT = 14.7;
+const EXTRA_LINE_HEIGHT = 2.6;
+/** 두 토큰 사이에 남길 최소 여백. */
+const TOKEN_GAP = 1;
+
+/**
+ * 두 토큰이 화면에서 겹치지 않으려면 떨어져야 하는 거리. 가로와 세로가 다르다.
+ *
+ * 이름표는 글자 수가 늘면 좌우로만 넓어지고 높이는 그대로다. 그래서 한 반지름으로 원을 그려
+ * 판정하면, 가로 속성인 이름 길이가 세로 간격까지 밀어낸다. 위아래로 나란히 선 두 선수를
+ * 이름이 길다는 이유로 20칸 넘게 떼어 놓으면, 눌려 있는 비소유 대형에서는 그 세로 밀림이
+ * 다시 좌우로 번져 수비 블록의 폭이 실제보다 넓어 보인다.
+ *
+ * 그래서 가로는 가장 긴 줄의 글자 수로, 세로는 줄 수로 따로 잡아 타원으로 판정한다.
+ */
+function tokenClearance(name: string): { x: number; y: number } {
+  const lines = splitNameLines(name);
+  const longestLine = Math.max(...lines.map((line) => line.length));
+  return {
+    x: clamp((longestLine - 4) * 1.1, 0, 10),
+    y: (TOKEN_HEIGHT + (lines.length - 1) * EXTRA_LINE_HEIGHT) / 2,
+  };
+}
+
+/**
+ * 두 토큰 사이 간격을 최소 간격으로 나눈 값. 1 미만이면 겹친다.
+ * 좌표는 화면 좌표계(y에 VIEW_Y_SCALE을 이미 곱한 상태)로 받는다.
+ */
+export function tokenSeparation(
+  a: { x: number; y: number },
+  b: { x: number; y: number },
+  nameA: string,
+  nameB: string,
+): { ratio: number; dx: number; dy: number } {
+  const ca = tokenClearance(nameA);
+  const cb = tokenClearance(nameB);
+  const needX = BASE_TOKEN_DISTANCE + ca.x + cb.x;
+  const needY = ca.y + cb.y + TOKEN_GAP;
+  const dx = b.x - a.x;
+  const dy = b.y - a.y;
+  return { ratio: Math.hypot(dx / needX, dy / needY), dx, dy };
 }
 
 /**
  * 전술 스타일 보정을 거친 좌표들이 서로 너무 가까워져 화면에서 토큰이 겹치는 것을 막는다.
  * 겹치는 쌍을 반복적으로 서로 밀어내는 단순한 완화(relaxation) 방식으로, 이미 충분히 떨어진
  * 좌표는 건드리지 않고 최소 간격보다 가까운 경우에만 밀어낸다. 최소 간격은 두 토큰의 이름
- * 길이에 따라 달라진다(estimateLabelPadding).
+ * 모양에 따라 가로/세로가 각각 다르다(tokenSeparation).
  */
 function resolveOverlaps(
   coords: PitchCoordinate[],
@@ -152,7 +191,6 @@ function resolveOverlaps(
   roles: SlotRole[],
 ): PitchCoordinate[] {
   const points = coords.map((c) => ({ x: c.x, y: c.y * VIEW_Y_SCALE }));
-  const paddings = names.map(estimateLabelPadding);
   // 골키퍼는 골문에 묶여 있다. 좌우로 벗어나면 곧바로 어색하므로 x는 완전히 고정하고, 상대 토큰이
   // 가로 몫을 대신 받는다. 세로는 조금만 움직이게 둔다. 완전히 묶으면 중앙 센터백이 겹침을 혼자
   // 받아 좌우 센터백보다 앞으로 튀어나가 백3 스태거가 뒤집히고, 반대로 그냥 풀면 낮은 블록을
@@ -169,16 +207,16 @@ function resolveOverlaps(
     let movedAny = false;
     for (let i = 0; i < points.length; i += 1) {
       for (let j = i + 1; j < points.length; j += 1) {
-        const minDistance = BASE_TOKEN_DISTANCE + paddings[i] + paddings[j];
-        const dx = points[j].x - points[i].x;
-        const dy = points[j].y - points[i].y;
-        const distance = Math.hypot(dx, dy);
+        const { ratio, dx, dy } = tokenSeparation(points[i], points[j], names[i], names[j]);
 
-        if (distance >= minDistance) continue;
+        if (ratio >= 1) continue;
         movedAny = true;
 
-        const push = (minDistance - distance) / 2;
-        const [ux, uy] = distance > 0.001 ? [dx / distance, dy / distance] : [1, 0];
+        // 타원 밖으로 나갈 만큼 떨어뜨리려면 두 토큰을 잇는 벡터를 1/ratio 배로 늘리면 된다.
+        // 완전히 겹쳐 방향이 없을 때만 가로로 떼어 놓는다.
+        const grow = ratio > 0.001 ? 1 / ratio - 1 : 1;
+        const [ux, uy] = ratio > 0.001 ? [dx, dy] : [BASE_TOKEN_DISTANCE, 0];
+        const push = grow / 2;
         // 한쪽이 덜 움직이는 만큼 반대쪽이 더 받아, 두 토큰 사이 간격은 그대로 확보한다.
         const share = (self: boolean, other: boolean, give: number) =>
           (self ? give : 1) + (other ? 1 - give : 0);
