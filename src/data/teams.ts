@@ -1073,10 +1073,10 @@ export const TEAMS: Team[] = [
     tactical: {
       inPossession: {
         summary: "알레그리는 정형화된 조합 패턴보다 선수들이 유기적으로 최적의 위치를 찾도록 자유를 부여하는 방식을 우선한다.",
-        buildUpDescription: "로보트카가 앵커 역할을 하는 가운데 안기사·맥토미니가 박스투박스로 가담하며, 데브라위너 등판 시 하프스페이스에서 스루패스를 공급한다.",
+        buildUpDescription: "로보트카가 앵커 역할을 하는 가운데 앙귀사·맥토미니가 박스투박스로 가담하고, 더 브라위너가 하프스페이스에서 라인을 끊는 스루패스를 공급한다.",
         keyPoints: [
           "선수 개개인의 유기적 위치 선정",
-          "데브라위너 합류 시의 창조적 자유",
+          "더 브라위너의 하프스페이스 창조성",
           "맥토미니의 역할 변화",
         ],
       },
@@ -1087,7 +1087,7 @@ export const TEAMS: Team[] = [
         keyPoints: [
           "4-4-2 압축 블록",
           "전방 2인의 협공 트리거",
-          "데브라위너 등판 여부에 따른 공격 전개 차이",
+          "더 브라위너가 4-4-2로 내려설 때의 수비 부담",
         ],
       },
       keyPlayers: [
@@ -1097,14 +1097,14 @@ export const TEAMS: Team[] = [
           number: 8,
           role: "박스투박스 미드필더",
           description:
-            "로보트카가 앵커로 후방을 고정하는 동안 안기사와 함께 박스투박스로 오르내리며 중원의 활동량을 책임진다. 콘테 시절보다 시작 위치는 깊어졌지만, 뒤에서부터 박스로 뛰어드는 침투 타이밍은 여전히 팀의 주요 득점 루트다.",
+            "로보트카가 앵커로 후방을 고정하는 동안 앙귀사와 함께 박스투박스로 오르내리며 중원의 활동량을 책임진다. 콘테 시절보다 시작 위치는 깊어졌지만, 뒤에서부터 박스로 뛰어드는 침투 타이밍은 여전히 팀의 주요 득점 루트다.",
         },
         {
           playerId: "nap-debruyne",
-          name: "케빈 데브라위너",
+          name: "케빈 더 브라위너",
           number: 11,
-          role: "로테이션 플레이메이커",
-          description: "하프스페이스에서 반 박자 늦게 볼을 받아 라인을 끊는 패스를 공급하는 개인 기량 정점이지만, 붙박이 주전이 아닌 로테이션으로 기용되며 선발 기회를 잡아가는 단계다.",
+          role: "하프스페이스 플레이메이커",
+          description: "하프스페이스에서 반 박자 늦게 볼을 받아 라인을 끊는 패스를 공급하는 개인 기량의 정점으로, 앙귀사와 오른쪽 중원 자리를 나눠 맡는다.",
         },
         {
           playerId: "nap-dilorenzo",
@@ -1115,11 +1115,11 @@ export const TEAMS: Team[] = [
         },
       ],
       tacticalHighlights: [
-        "데브라위너 합류 여부에 따른 공격 전개 차이",
+        "더 브라위너의 하프스페이스 스루패스",
         "맥토미니의 역할 재조정",
         "4-4-2 압축 블록을 통한 실점 관리",
       ],
-      reportSummary: "타이틀을 지킨 스쿼드를 물려받은 알레그리가 수비 균형을 우선하며 안정화를 꾀하는 팀으로, 데브라위너의 통합이 관전 포인트다.",
+      reportSummary: "타이틀을 지킨 스쿼드를 물려받은 알레그리가 수비 균형을 우선하며 안정화를 꾀하는 팀으로, 더 브라위너가 가세한 중원의 균형이 관전 포인트다.",
     },
     players: buildPlayers("4-3-3", [
       { id: "nap-01", name: "알렉스 메렛 / 반야 밀린코비치사비치", number: 1 },
@@ -1128,7 +1128,7 @@ export const TEAMS: Team[] = [
       { id: "nap-05", name: "알레산드로 부온조르노 / 라파 마린", number: 4 },
       { id: "nap-03", name: "마티아스 올리베라", number: 17 },
       { id: "nap-06", name: "스타니슬라프 로보트카", number: 68 },
-      { id: "nap-08", name: "프랑크 앙귀사", number: 99 },
+      { id: "nap-08", name: "케빈 더 브라위너 / 프랑크 앙귀사", number: 11 },
       { id: "nap-10", name: "스콧 맥토미니", number: 8 },
       { id: "nap-07", name: "마테오 폴리타노", number: 21 },
       { id: "nap-11", name: "다비드 네레스 / 노아 랑", number: 7 },
@@ -1456,7 +1456,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "3-4-2-1",
     accentColor: "#8E1F2F",
     crestUrl: "/badges/as-roma.svg",
-    tacticalStyle: { lineHeight: 0.7, width: 0.4, wingerTuck: 0.5, fullbackInvert: -0.6, anchorDrop: 0.2, falseNine: -0.4 },
+    tacticalStyle: { lineHeight: 0.7, width: 0.4, wingerTuck: 0.5, fullbackInvertLeft: 0.35, fullbackInvertRight: -0.6, anchorDrop: 0.2, falseNine: -0.4 },
     shortSummary:
       "2025년 6월 부임한 가스페리니 체제. 3백 중앙의 과감한 전진과 두 명의 세컨드 스트라이커가 핵심이다. 첼리크는 유벤투스로 떠나고 몰리나가 새 윙백으로 합류했다.",
     tactical: {
@@ -1521,7 +1521,7 @@ export const TEAMS: Team[] = [
       { id: "rom-10", name: "파울로 디발라", number: 21 },
       { id: "rom-11", name: "마티아스 소울레 / 호드리구 모라", number: 18 },
       { id: "rom-09", name: "도니얼 말런", number: 14 },
-    ], { lineHeight: 0.7, width: 0.4, wingerTuck: 0.5, fullbackInvert: -0.6, anchorDrop: 0.2, falseNine: -0.4 }),
+    ], { lineHeight: 0.7, width: 0.4, wingerTuck: 0.5, fullbackInvertLeft: 0.35, fullbackInvertRight: -0.6, anchorDrop: 0.2, falseNine: -0.4 }),
   },
   {
     id: "chelsea",
@@ -2149,7 +2149,7 @@ export const TEAMS: Team[] = [
       { id: "fcm-06", name: "크옐 베트옌", number: 29 },
       { id: "fcm-08", name: "필립 빌링", number: 8 },
       { id: "fcm-10", name: "페드로 브라보", number: 19 },
-      { id: "fcm-07", name: "데닐 카스티요", number: 21 },
+      { id: "fcm-07", name: "데닐 카스티요 / 홍현석", number: 21 },
       { id: "fcm-09", name: "조규성", number: 10 },
       { id: "fcm-11", name: "프라이데이 에팀 / 스탠리 이헤아나초", number: 90 },
     ], { lineHeight: 0.4, width: -0.2, fullbackInvert: -0.4, anchorDrop: 0.2, falseNine: 0 }),
