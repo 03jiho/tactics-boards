@@ -2274,7 +2274,7 @@ export const TEAMS: Team[] = [
         },
         {
           playerId: "cel-mcgregor",
-          name: "캘럼 맥그리거",
+          name: "칼럼 맥그리거",
           number: 42,
           role: "더블 피봇 앵커",
           description:
@@ -2297,13 +2297,13 @@ export const TEAMS: Team[] = [
     },
     players: buildPlayers("4-2-3-1", [
       { id: "cel-01", name: "빌랴미 시니살로", number: 1 },
-      { id: "cel-02", name: "콜비 도노반", number: 51 },
-      { id: "cel-04", name: "캐머런 카터빅커스", number: 20 },
-      { id: "cel-05", name: "리엄 스케일스", number: 5 },
-      { id: "cel-03", name: "오스톤 트러스티", number: 6 },
-      { id: "cel-06", name: "캘럼 맥그리거", number: 42 },
+      { id: "cel-02", name: "앨리스테어 존스턴 / 콜비 도노반", number: 2 },
+      { id: "cel-04", name: "캐머런 카터비커스", number: 20 },
+      { id: "cel-05", name: "오스턴 트러스티 / 리암 스케일스", number: 6 },
+      { id: "cel-03", name: "키어런 티어니", number: 63 },
+      { id: "cel-06", name: "칼럼 맥그리거", number: 42 },
       { id: "cel-08", name: "미카 바우어", number: 22 },
-      { id: "cel-07", name: "벤자민 니그렌", number: 8 },
+      { id: "cel-07", name: "베니아민 뉘그렌", number: 8 },
       { id: "cel-10", name: "하이셈 하산", number: 23 },
       { id: "cel-11", name: "양현준", number: 13 },
       { id: "cel-09", name: "카밀로 두란", number: 11 },
