@@ -738,7 +738,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#0057B8",
     crestUrl: "/badges/brighton.png",
-    tacticalStyle: { lineHeight: 0.8, width: -0.25, wingerTuck: -0.2, fullbackInvert: 0.3, anchorDrop: 0.1, falseNine: 0.3 },
+    tacticalStyle: { lineHeight: 0.8, width: -0.25, wingerTuck: -0.2, fullbackInvertLeft: -0.4, fullbackInvertRight: 0.5, anchorDrop: 0.1, falseNine: 0.3 },
     shortSummary:
       "창단 125주년을 맞은 휘르첼러 체제 3년차. 발레바·반 헤케를 대형 이적료로 팔고 체마 안드레스·코스툴라스를 영입했으며, 점유율 리그 2위와 파이널서드 볼 회수 리그 1위를 동시에 기록하는 극단적 압박 팀이다.",
     tactical: {
@@ -812,7 +812,7 @@ export const TEAMS: Team[] = [
       { id: "bha-10", name: "파스칼 그로스", number: 13 },
       { id: "bha-11", name: "막심 더 카위퍼르 / 디에고 고메스", number: 29 },
       { id: "bha-09", name: "카라람포스 코스툴라스", number: 19 },
-    ], { lineHeight: 0.8, width: -0.25, wingerTuck: -0.2, fullbackInvert: 0.3, anchorDrop: 0.1, falseNine: 0.3 }),
+    ], { lineHeight: 0.8, width: -0.25, wingerTuck: -0.2, fullbackInvertLeft: -0.4, fullbackInvertRight: 0.5, anchorDrop: 0.1, falseNine: 0.3 }),
   },
   {
     id: "newcastle-united",
