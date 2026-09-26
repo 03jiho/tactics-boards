@@ -2,6 +2,7 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { getFormationById } from "@/data/formations";
 import { getTeamById, TEAMS } from "@/data/teams";
+import { buildShareDescription } from "@/lib/teamUtils";
 import { TeamHeader } from "@/components/team-detail/TeamHeader";
 import { TacticsSection } from "@/components/team-detail/TacticsSection";
 import { KeyPlayersSection } from "@/components/team-detail/KeyPlayersSection";
@@ -30,6 +31,9 @@ export async function generateMetadata(
   const shareTitle = `${team.name} 전술 분석`;
   const title = `${shareTitle} | Tactics Board`;
   const description = `${team.league} · 감독 ${team.manager} · 주 포메이션 ${team.primaryFormationId}. ${team.shortSummary}`;
+  // 검색엔진용 description은 길어도 되지만, 공유 카드는 두 줄에서 잘린다.
+  // 리그·감독·포메이션은 제목과 본문으로 곧 드러나는 정보라 빼고 요약을 앞에 세운다.
+  const shareDescription = buildShareDescription(team.shortSummary);
   // openGraph/twitter는 부모 값을 병합하지 않고 통째로 대체하므로, 공용 썸네일과
   // summary_large_image 카드 설정을 부모에서 직접 가져와 다시 지정한다.
   const parentMetadata = await parent;
@@ -40,14 +44,19 @@ export async function generateMetadata(
     description,
     openGraph: {
       title: shareTitle,
-      description,
+      description: shareDescription,
       url: `/teams/${team.id}`,
       siteName: "Tactics Board",
       locale: "ko_KR",
       type: "article",
       images,
     },
-    twitter: { card: "summary_large_image", title: shareTitle, description, images },
+    twitter: {
+      card: "summary_large_image",
+      title: shareTitle,
+      description: shareDescription,
+      images,
+    },
   };
 }
 

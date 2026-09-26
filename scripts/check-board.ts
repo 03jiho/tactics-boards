@@ -14,6 +14,7 @@ import {
   tokenSeparation,
   type SlotRole,
 } from "../src/lib/players";
+import { SHARE_DESCRIPTION_BUDGET, buildShareDescription } from "../src/lib/teamUtils";
 import type { TacticalStyle } from "../src/types/football";
 
 let pairs = 0;
@@ -137,6 +138,18 @@ assert.deepEqual(
   deadKeys,
   [],
   `좌표에 반영되지 않는 스타일 값이 있다:\n  ${deadKeys.join("\n  ")}`,
+);
+
+// 공유 카드 설명이 예산을 넘으면 카카오톡에서 문장 중간이 잘린다. 요약을 길게 고쳐 쓴 날
+// 조용히 잘리기 시작하는 걸 막는다.
+const tooLong = TEAMS.map((team) => ({ id: team.id, text: buildShareDescription(team.shortSummary) }))
+  .filter(({ text }) => text.length > SHARE_DESCRIPTION_BUDGET)
+  .map(({ id, text }) => `${id}: ${text.length}자 — ${text}`);
+
+assert.deepEqual(
+  tooLong,
+  [],
+  `공유 카드 설명이 ${SHARE_DESCRIPTION_BUDGET}자를 넘는다:\n  ${tooLong.join("\n  ")}`,
 );
 
 console.log(

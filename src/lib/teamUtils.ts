@@ -44,3 +44,22 @@ export function filterAndSortTeams(
 
   return [...filtered].sort(SORT_COMPARATORS[sortKey]);
 }
+
+/**
+ * 카카오톡 링크 카드는 설명을 두 줄(약 80자)까지만 보여준다. 한 줄 요약 전체를 넣으면
+ * 리그·감독·포메이션만 남고 팀을 구분해 주는 뒷부분이 잘려 나가므로, 예산 안에 들어가는
+ * 문장까지만 담는다. 문장 중간에서 끊지 않아야 "…재편되는 것이 원칙인" 같은 토막이 안 남는다.
+ */
+export const SHARE_DESCRIPTION_BUDGET = 80;
+
+export function buildShareDescription(shortSummary: string): string {
+  const sentences = shortSummary.split(/(?<=\.)\s+/).filter(Boolean);
+  let out = "";
+  for (const sentence of sentences) {
+    const next = out ? `${out} ${sentence}` : sentence;
+    if (next.length > SHARE_DESCRIPTION_BUDGET) break;
+    out = next;
+  }
+  // 첫 문장부터 예산을 넘으면 어쩔 수 없이 그 문장을 그대로 쓴다.
+  return out || (sentences[0] ?? shortSummary);
+}
