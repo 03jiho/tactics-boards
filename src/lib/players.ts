@@ -86,7 +86,9 @@ function applyTacticalStyle(
     x = 50 + (x - 50) * (1 + drop * 0.15);
   } else if (role === "striker" && style.falseNine) {
     const drop = style.falseNine * roleGain;
-    y = y - drop * 20;
+    // 템플릿상 최전방은 이미 y 92~95라 앞쪽 여유가 거의 없다. 타겟맨(음수)을 내려올 때와 같은
+    // 폭으로 밀면 골라인 밖에서 잘려 포화되므로, 전진 방향만 이동량을 줄인다.
+    y = y - drop * (drop >= 0 ? 20 : 8);
   }
 
   return { x: clamp(x, 3, 97), y: clamp(y, 3, 97) };
@@ -115,9 +117,16 @@ function estimateLabelPadding(name: string): number {
  * 좌표는 건드리지 않고 최소 간격보다 가까운 경우에만 밀어낸다. 최소 간격은 두 토큰의 이름
  * 길이에 따라 달라진다(estimateLabelPadding).
  */
-function resolveOverlaps(coords: PitchCoordinate[], names: string[]): PitchCoordinate[] {
+function resolveOverlaps(
+  coords: PitchCoordinate[],
+  names: string[],
+  roles: SlotRole[],
+): PitchCoordinate[] {
   const points = coords.map((c) => ({ x: c.x, y: c.y * VIEW_Y_SCALE }));
   const paddings = names.map(estimateLabelPadding);
+  // 골키퍼는 골문 앞이라는 고정된 자리를 벗어나면 곧바로 어색해 보인다. applyTacticalStyle도
+  // 같은 이유로 x를 건드리지 않으므로, 겹침 해소에서도 움직이지 않게 두고 상대 토큰이 그만큼 더 비킨다.
+  const locked = roles.map((role) => role === "gk");
   const clampPoint = (p: { x: number; y: number }) => {
     p.x = clamp(p.x, 3, 97);
     p.y = clamp(p.y, 3 * VIEW_Y_SCALE, 97 * VIEW_Y_SCALE);
@@ -138,10 +147,13 @@ function resolveOverlaps(coords: PitchCoordinate[], names: string[]): PitchCoord
 
         const push = (minDistance - distance) / 2;
         const [ux, uy] = distance > 0.001 ? [dx / distance, dy / distance] : [1, 0];
-        points[i].x -= ux * push;
-        points[i].y -= uy * push;
-        points[j].x += ux * push;
-        points[j].y += uy * push;
+        // 고정된 쪽의 몫은 반대쪽이 대신 받아 두 토큰 사이 간격은 그대로 확보한다.
+        const pushI = locked[i] ? 0 : locked[j] ? push * 2 : push;
+        const pushJ = locked[j] ? 0 : locked[i] ? push * 2 : push;
+        points[i].x -= ux * pushI;
+        points[i].y -= uy * pushI;
+        points[j].x += ux * pushJ;
+        points[j].y += uy * pushJ;
         // 매 밀어내기 직후 경계로 다시 눌러, 한쪽이 경계에 막힌 만큼 반대쪽이 더 밀리도록 한다.
         clampPoint(points[i]);
         clampPoint(points[j]);
@@ -178,10 +190,12 @@ export function buildPlayers(
   const inPossessionCoords = resolveOverlaps(
     template.map((slot, index) => applyTacticalStyle(slot.inPossession, style, roles[index], "in")),
     names,
+    roles,
   );
   const outOfPossessionCoords = resolveOverlaps(
     template.map((slot, index) => applyTacticalStyle(slot.outOfPossession, style, roles[index], "out")),
     names,
+    roles,
   );
 
   return template.map((slot, index) => ({
