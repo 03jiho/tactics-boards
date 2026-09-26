@@ -1842,7 +1842,7 @@ export const TEAMS: Team[] = [
     accentColor: "#CB3524",
     crestUrl: "/badges/atletico-madrid.svg",
     koreanPlayer: "이강인",
-    tacticalStyle: { lineHeight: -0.5, width: -0.3, wingerTuck: -0.2, fullbackInvert: -0.5, anchorDrop: 0.4, falseNine: 0.6 },
+    tacticalStyle: { lineHeight: -0.5, width: -0.3, wingerTuck: -0.2, fullbackInvert: -0.5, anchorDrop: 0.4, falseNineLeft: 0.8, falseNineRight: 0.5 },
     shortSummary:
       "통산 800경기를 넘긴 시메오네 체제. 기본은 4-4-2 미드블록이고 강팀 원정에서만 3백 카드를 꺼내며, 그리즈만이 떠난 자리에 이강인이 새 창조 자원으로 합류했다.",
     tactical: {
@@ -1910,7 +1910,7 @@ export const TEAMS: Team[] = [
       { id: "atm-11", name: "알렉스 바에나 / 아데몰라 루크먼", number: 10 },
       { id: "atm-09", name: "훌리안 알바레스", number: 19 },
       { id: "atm-10", name: "이강인", number: 7 },
-    ], { lineHeight: -0.5, width: -0.3, wingerTuck: -0.2, fullbackInvert: -0.5, anchorDrop: 0.4, falseNine: 0.6 }),
+    ], { lineHeight: -0.5, width: -0.3, wingerTuck: -0.2, fullbackInvert: -0.5, anchorDrop: 0.4, falseNineLeft: 0.8, falseNineRight: 0.5 }),
   },
 
   // ───────────────────────── 3-5-2 ─────────────────────────
@@ -1923,7 +1923,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "3-5-2",
     accentColor: "#010E80",
     crestUrl: "/badges/inter-milan.svg",
-    tacticalStyle: { lineHeight: 0, width: -0.1, fullbackInvert: -0.5, anchorDrop: 0.5, falseNine: 0.1 },
+    tacticalStyle: { lineHeight: 0, width: -0.1, fullbackInvert: -0.5, anchorDrop: 0.5, falseNineLeft: -0.3, falseNineRight: 0.35 },
     shortSummary:
       "인자기 후임으로 부임해 첫 시즌 스쿠데토를 차지한 키부 체제. 3-5-2 골격은 유지하되 전환 속도와 압박 강도를 끌어올렸다.",
     tactical: {
@@ -1990,7 +1990,7 @@ export const TEAMS: Team[] = [
       { id: "int-07", name: "페데리코 디마르코", number: 32 },
       { id: "int-09", name: "라우타로 마르티네스", number: 10 },
       { id: "int-11", name: "마르쿠스 튀람", number: 9 },
-    ], { lineHeight: 0, width: -0.1, fullbackInvert: -0.5, anchorDrop: 0.5, falseNine: 0.1 }),
+    ], { lineHeight: 0, width: -0.1, fullbackInvert: -0.5, anchorDrop: 0.5, falseNineLeft: -0.3, falseNineRight: 0.35 }),
   },
 
   // ───────────────────────── 5-3-2 ─────────────────────────
@@ -2003,7 +2003,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "5-3-2",
     accentColor: "#005999",
     crestUrl: "/badges/getafe.svg",
-    tacticalStyle: { lineHeight: -0.3, width: -0.4, fullbackInvert: -0.3, anchorDrop: -0.2, falseNine: -0.5 },
+    tacticalStyle: { lineHeight: -0.3, width: -0.4, fullbackInvert: -0.3, anchorDrop: -0.2, falseNineLeft: 0.4, falseNineRight: -0.6 },
     shortSummary:
       "2028년까지 재계약한 보르달라스 체제. 라리가에서 가장 직선적인 축구를 구사하며, 최근 경기는 5-3-2에 가깝다(전통적 정체성은 4-4-2).",
     tactical: {
@@ -2071,7 +2071,7 @@ export const TEAMS: Team[] = [
       { id: "get-07", name: "요한 모히카", number: 22 },
       { id: "get-09", name: "에네스 위날", number: 19 },
       { id: "get-11", name: "마르틴 사트리아노", number: 10 },
-    ], { lineHeight: -0.3, width: -0.4, fullbackInvert: -0.3, anchorDrop: -0.2, falseNine: -0.5 }),
+    ], { lineHeight: -0.3, width: -0.4, fullbackInvert: -0.3, anchorDrop: -0.2, falseNineLeft: 0.4, falseNineRight: -0.6 }),
   },
 
   // ───────────────────────── 4-3-1-2 ─────────────────────────
@@ -2085,7 +2085,7 @@ export const TEAMS: Team[] = [
     accentColor: "#E2001A",
     crestUrl: "/badges/fc-midtjylland.svg",
     koreanPlayer: "조규성·홍현석",
-    tacticalStyle: { lineHeight: 0.4, width: -0.2, fullbackInvert: -0.4, anchorDrop: 0.2, falseNine: 0 },
+    tacticalStyle: { lineHeight: 0.4, width: -0.2, fullbackInvert: -0.4, anchorDrop: 0.2, falseNine: 0, falseNineLeft: -0.45 },
     shortSummary:
       "측면 미드필더 없는 좁은 다이아몬드형 4-3-1-2를 구사하는 7경기 무패팀. 조규성과 홍현석, 두 명의 한국 선수가 함께 뛰는 독특한 스쿼드 구성이 특징이다.",
     tactical: {
@@ -2152,7 +2152,7 @@ export const TEAMS: Team[] = [
       { id: "fcm-07", name: "데닐 카스티요 / 홍현석", number: 21 },
       { id: "fcm-09", name: "조규성", number: 10 },
       { id: "fcm-11", name: "프라이데이 에팀 / 스탠리 이헤아나초", number: 90 },
-    ], { lineHeight: 0.4, width: -0.2, fullbackInvert: -0.4, anchorDrop: 0.2, falseNine: 0 }),
+    ], { lineHeight: 0.4, width: -0.2, fullbackInvert: -0.4, anchorDrop: 0.2, falseNine: 0, falseNineLeft: -0.45 }),
   },
   {
     id: "mainz-05",
@@ -2164,7 +2164,7 @@ export const TEAMS: Team[] = [
     accentColor: "#EA1D25",
     crestUrl: "/badges/mainz-05.svg",
     koreanPlayer: "이재성",
-    tacticalStyle: { lineHeight: 0.4, width: 0.1, fullbackInvert: -0.4, anchorDrop: -0.3, falseNine: 0.2 },
+    tacticalStyle: { lineHeight: 0.4, width: 0.1, fullbackInvert: -0.4, anchorDrop: -0.3, falseNine: 0.2, falseNineLeft: -0.4 },
     shortSummary:
       "2025년 12월 부임한 피셔 체제. 아미리가 중앙 하프스페이스를 이끄는 핵심 자원으로, 이재성은 아미리와 로테이션하는 자리에서 기회를 노린다.",
     tactical: {
@@ -2229,7 +2229,7 @@ export const TEAMS: Team[] = [
       { id: "m05-mwene", name: "필리프 음베네", number: 2 },
       { id: "m05-09", name: "필리프 티츠", number: 9 },
       { id: "m05-11", name: "셰랄도 베커르", number: 23 },
-    ], { lineHeight: 0.4, width: 0.1, fullbackInvert: -0.4, anchorDrop: -0.3, falseNine: 0.2 }),
+    ], { lineHeight: 0.4, width: 0.1, fullbackInvert: -0.4, anchorDrop: -0.3, falseNine: 0.2, falseNineLeft: -0.4 }),
   },
   {
     id: "celtic",

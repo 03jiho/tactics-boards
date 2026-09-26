@@ -75,30 +75,35 @@ assert.deepEqual(
 
 // 좌우를 분리한 팀은 그 두 슬롯이 같은 폭으로 배치되면 안 된다. 나눠 줬는데 결과가 같다면
 // 값이 상쇄됐거나 한쪽이 반영되지 않은 것이므로, 보드에서는 분리한 티가 나지 않는다.
+// 분리한 값이 실제로 두 슬롯을 다르게 놓는지 본다. 비교할 축은 파라미터마다 다르다 —
+// 풀백/윙어는 좁히거나 벌리므로 x, 폴스나인은 내려오거나 뛰어들므로 y가 달라져야 한다.
 const SPLIT_KEYS = [
-  { left: "fullbackInvertLeft", right: "fullbackInvertRight", role: "wideDefender", label: "풀백" },
-  { left: "wingerTuckLeft", right: "wingerTuckRight", role: "wideAttacker", label: "윙어" },
+  { left: "fullbackInvertLeft", right: "fullbackInvertRight", role: "wideDefender", label: "풀백", axis: "x" },
+  { left: "wingerTuckLeft", right: "wingerTuckRight", role: "wideAttacker", label: "윙어", axis: "x" },
+  { left: "falseNineLeft", right: "falseNineRight", role: "striker", label: "최전방", axis: "y" },
 ] as const;
 
 const split = TEAMS.flatMap((team) =>
   SPLIT_KEYS.filter(
     (k) =>
       team.tacticalStyle[k.left] !== undefined || team.tacticalStyle[k.right] !== undefined,
-  ).map((k) => ({ team, role: k.role as SlotRole, label: k.label })),
+  ).map((k) => ({ team, role: k.role as SlotRole, label: k.label, axis: k.axis })),
 );
 
-for (const { team, role, label } of split) {
+for (const { team, role, label, axis } of split) {
   // 슬롯 판정은 players.ts와 같은 함수를 써야 한다. 같은 조건을 여기 베껴 두면
   // 분류 기준이 바뀔 때 이 검사만 조용히 옛 기준으로 남는다.
   const template = PITCH_TEMPLATES[team.primaryFormationId];
   const pair = team.players.filter((_, index) => classifySlot(template[index]) === role);
   assert.equal(pair.length, 2, `${team.id}: 좌우 ${label} 슬롯을 2개 찾지 못했다`);
 
-  const [left, right] = pair.map((p) => Math.abs(p.inPossession.x - 50).toFixed(2));
+  const [left, right] = pair.map((p) =>
+    (axis === "x" ? Math.abs(p.inPossession.x - 50) : p.inPossession.y).toFixed(2),
+  );
   assert.notEqual(
     left,
     right,
-    `${team.id}: 좌우 값을 나눠 줬는데 두 ${label}의 좁힘 폭이 같다`,
+    `${team.id}: 좌우 값을 나눠 줬는데 두 ${label}의 위치가 같다`,
   );
 }
 
@@ -116,6 +121,8 @@ const ROLE_FOR_STYLE_KEY: Partial<Record<keyof TacticalStyle, SlotRole>> = {
   fullbackInvertRight: "wideDefender",
   anchorDrop: "pivot",
   falseNine: "striker",
+  falseNineLeft: "striker",
+  falseNineRight: "striker",
 };
 
 const deadKeys: string[] = [];

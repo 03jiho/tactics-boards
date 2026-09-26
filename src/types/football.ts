@@ -90,8 +90,13 @@ export interface TacticalStyle {
   /**
    * 최전방 공격수가 처지는 정도(폴스나인). 1에 가까울수록 중원까지 깊게 내려와 연계하고,
    * -1에 가까울수록 최전방에 고정된 표적형(타겟맨) 스트라이커. 기본값 0.
+   * 투톱을 쓰는 팀은 두 최전방에 함께 적용되므로, 역할을 나눠 맡는 팀은 아래 두 값으로 덮어쓴다.
    */
   falseNine?: number;
+  /** 왼쪽 최전방만 따로 지정한다. 생략하면 falseNine을 쓴다. 투톱 포메이션에서만 의미가 있다. */
+  falseNineLeft?: number;
+  /** 오른쪽 최전방만 따로 지정한다. 생략하면 falseNine을 쓴다. 투톱 포메이션에서만 의미가 있다. */
+  falseNineRight?: number;
 }
 
 export interface PlayerPosition {

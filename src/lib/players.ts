@@ -103,15 +103,21 @@ function applyTacticalStyle(
     const drop = style.anchorDrop * roleGain;
     y = y - drop * 14;
     x = 50 + (x - 50) * (1 + drop * 0.15);
-  } else if (role === "striker" && style.falseNine && phase === "in") {
+  } else if (role === "striker" && phase === "in") {
     // 폴스나인은 공을 가졌을 때 중원으로 내려와 수적 우위를 만드는 움직임이지, 수비할 때의 자리가
     // 아니다. 비소유 시 최전방은 압박의 첫 줄이라 10번 뒤로 물러나면 오히려 틀린 그림이 된다.
     // 템플릿이 이미 비소유 시 스트라이커를 y 92 -> 55로 내려주므로 따로 더할 것도 없다.
-    const drop = style.falseNine;
-    // 내려오는 방향(양수)은 여유가 넉넉하지만, 타겟맨(음수)이 전진할 공간은 템플릿 최전방이
-    // 이미 y 88~95라 몇 칸뿐이다. 고정 배수로 밀면 골라인 밖에서 잘려 값이 달라도 결과가 같아지므로,
-    // 전진은 남은 공간에 비례해 밀어 어떤 값에서도 포화되지 않게 한다.
-    y = drop >= 0 ? y - drop * 20 : y + -drop * (97 - y) * 0.8;
+    //
+    // 투톱은 거의 언제나 역할을 나눠 맡는다(한 명이 등지고 버티는 동안 다른 한 명이 뒷공간으로).
+    // 풀백/윙어와 같은 방식으로, 템플릿 x가 왼쪽인지 오른쪽인지로 두 최전방을 구분한다.
+    const sideDrop = coord.x >= 50 ? style.falseNineRight : style.falseNineLeft;
+    const drop = sideDrop ?? style.falseNine ?? 0;
+    if (drop) {
+      // 내려오는 방향(양수)은 여유가 넉넉하지만, 타겟맨(음수)이 전진할 공간은 템플릿 최전방이
+      // 이미 y 88~95라 몇 칸뿐이다. 고정 배수로 밀면 골라인 밖에서 잘려 값이 달라도 결과가 같아지므로,
+      // 전진은 남은 공간에 비례해 밀어 어떤 값에서도 포화되지 않게 한다.
+      y = drop > 0 ? y - drop * 20 : y + -drop * (97 - y) * 0.8;
+    }
   }
 
   return { x: clamp(x, 3, 97), y: clamp(y, 3, 97) };
