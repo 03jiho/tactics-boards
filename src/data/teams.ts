@@ -266,7 +266,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#DA291C",
     crestUrl: "/badges/manchester-united.svg",
-    tacticalStyle: { lineHeight: 0.1, width: 0, wingerTuck: 0, fullbackInvert: 0.6, anchorDrop: 0.3, falseNine: 0.6 },
+    tacticalStyle: { lineHeight: 0.1, width: 0, wingerTuck: 0.3, fullbackInvert: 0.6, anchorDrop: 0.3, falseNine: 0.6 },
     shortSummary:
       "2026년 1월 아모림 경질 이후 정식 선임된 캐릭 체제. 3-4-2-1에서 4-2-3-1 기반으로 전환했고, 빌드업 시 3-2-5로 변형한다.",
     tactical: {
@@ -334,7 +334,7 @@ export const TEAMS: Team[] = [
       { id: "mun-10", name: "브루누 페르난데스", number: 8 },
       { id: "mun-11", name: "마커스 래시포드", number: 9 },
       { id: "mun-09", name: "마테우스 쿠냐 / 베냐민 셰슈코", number: 10 },
-    ], { lineHeight: 0.1, width: 0, wingerTuck: 0, fullbackInvert: 0.6, anchorDrop: 0.3, falseNine: 0.6 }),
+    ], { lineHeight: 0.1, width: 0, wingerTuck: 0.3, fullbackInvert: 0.6, anchorDrop: 0.3, falseNine: 0.6 }),
   },
   {
     id: "liverpool",
@@ -502,7 +502,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#FEBE10",
     crestUrl: "/badges/real-madrid.svg",
-    tacticalStyle: { lineHeight: 0.2, width: -0.1, wingerTuck: 0.6, fullbackInvert: -0.3, anchorDrop: 0.4, falseNine: 0 },
+    tacticalStyle: { lineHeight: 0.2, width: -0.1, wingerTuck: 0.6, fullbackInvertLeft: 0.5, fullbackInvertRight: -0.5, anchorDrop: 0.4, falseNine: 0 },
     shortSummary:
       "2026년 6월 두 번째로 부임한 무리뉴 체제. 기존 4-3-3에서 더블 피봇 4-2-3-1로 전환하며 벨링엄의 역할을 전진 배치했다.",
     tactical: {
@@ -567,7 +567,7 @@ export const TEAMS: Team[] = [
       { id: "rma-10", name: "주드 벨링엄", number: 5 },
       { id: "rma-11", name: "비니시우스 주니오르", number: 7 },
       { id: "rma-09", name: "킬리안 음바페", number: 10 },
-    ], { lineHeight: 0.2, width: -0.1, wingerTuck: 0.6, fullbackInvert: -0.3, anchorDrop: 0.4, falseNine: 0 }),
+    ], { lineHeight: 0.2, width: -0.1, wingerTuck: 0.6, fullbackInvertLeft: 0.5, fullbackInvertRight: -0.5, anchorDrop: 0.4, falseNine: 0 }),
   },
   {
     id: "monaco",
@@ -578,7 +578,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#E51A23",
     crestUrl: "/badges/monaco.svg",
-    tacticalStyle: { lineHeight: 0, width: 0.05, wingerTuck: 0.3, fullbackInvert: -0.4, anchorDrop: 0.3, falseNine: 0.1 },
+    tacticalStyle: { lineHeight: 0.1, width: 0.15, wingerTuck: 0.5, fullbackInvert: -0.6, anchorDrop: 0.3, falseNine: -0.2 },
     shortSummary:
       "2026년 7월 부임한 필리페 루이스 체제. 5연승으로 리그 선두를 달리는 강한 시작을 보였고, 브루너 등 신예의 돌파구가 돋보인다.",
     tactical: {
@@ -643,7 +643,7 @@ export const TEAMS: Team[] = [
       { id: "mco-10", name: "알렉산드르 골로빈", number: 10 },
       { id: "mco-11", name: "스타니스 이덤보", number: 17 },
       { id: "mco-09", name: "파리스 브루너", number: 29 },
-    ], { lineHeight: 0, width: 0.05, wingerTuck: 0.3, fullbackInvert: -0.4, anchorDrop: 0.3, falseNine: 0.1 }),
+    ], { lineHeight: 0.1, width: 0.15, wingerTuck: 0.5, fullbackInvert: -0.6, anchorDrop: 0.3, falseNine: -0.2 }),
   },
   {
     id: "aston-villa",
@@ -1220,7 +1220,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#2FAEE0",
     crestUrl: "/badges/marseille.svg",
-    tacticalStyle: { lineHeight: 0.3, width: -0.05, wingerTuck: 0, fullbackInvert: -0.4, anchorDrop: 0.4, falseNine: 0.3 },
+    tacticalStyle: { lineHeight: 0.3, width: -0.05, wingerTuck: -0.2, fullbackInvert: -0.4, anchorDrop: 0.4, falseNine: 0.3 },
     shortSummary:
       "2026년 6월 베예 경질 후 부임한 제네시오 체제. DNCG발 긴축 재정으로 그린우드·팀버·룰리 등 주축이 대거 이탈하며 스쿼드가 크게 재편됐다.",
     tactical: {
@@ -1287,7 +1287,7 @@ export const TEAMS: Team[] = [
       { id: "mar-10", name: "엔젤 고메스", number: 7 },
       { id: "mar-11", name: "이고르 파이샹", number: 14 },
       { id: "mar-09", name: "아민 구이리", number: 9 },
-    ], { lineHeight: 0.3, width: -0.05, wingerTuck: 0, fullbackInvert: -0.4, anchorDrop: 0.4, falseNine: 0.3 }),
+    ], { lineHeight: 0.3, width: -0.05, wingerTuck: -0.2, fullbackInvert: -0.4, anchorDrop: 0.4, falseNine: 0.3 }),
   },
   {
     id: "lafc",
@@ -1456,7 +1456,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "3-4-2-1",
     accentColor: "#8E1F2F",
     crestUrl: "/badges/as-roma.svg",
-    tacticalStyle: { lineHeight: 0.5, width: -0.1, fullbackInvert: -0.5, anchorDrop: 0.3, falseNine: 0.5 },
+    tacticalStyle: { lineHeight: 0.7, width: 0.4, fullbackInvert: -0.6, anchorDrop: 0.2, falseNine: -0.4 },
     shortSummary:
       "2025년 6월 부임한 가스페리니 체제. 3백 중앙의 과감한 전진과 두 명의 세컨드 스트라이커가 핵심이다. 첼리크는 유벤투스로 떠나고 몰리나가 새 윙백으로 합류했다.",
     tactical: {
@@ -1521,7 +1521,7 @@ export const TEAMS: Team[] = [
       { id: "rom-10", name: "파울로 디발라", number: 21 },
       { id: "rom-11", name: "마티아스 소울레 / 호드리구 모라", number: 18 },
       { id: "rom-09", name: "도니얼 말런", number: 14 },
-    ], { lineHeight: 0.5, width: -0.1, fullbackInvert: -0.5, anchorDrop: 0.3, falseNine: 0.5 }),
+    ], { lineHeight: 0.7, width: 0.4, fullbackInvert: -0.6, anchorDrop: 0.2, falseNine: -0.4 }),
   },
   {
     id: "chelsea",
@@ -1608,7 +1608,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#000000",
     crestUrl: "/badges/juventus.svg",
-    tacticalStyle: { lineHeight: 0.5, width: 0.1, fullbackInvert: -0.3, anchorDrop: 0.6, falseNine: 0.2 },
+    tacticalStyle: { lineHeight: 0.5, width: 0.1, wingerTuck: 0.3, fullbackInvert: -0.3, anchorDrop: 0.6, falseNine: 0.2 },
     shortSummary:
       "2025년 10월 부임한 스팔레티 체제. 백4 기반의 4-2-3-1로, 물러서지 않는 높은 라인과 공격적인 오프사이드 트랩이 특징이다.",
     tactical: {
@@ -1675,7 +1675,7 @@ export const TEAMS: Team[] = [
       { id: "juv-10", name: "웨스턴 맥케니 / 테운 코프마이너스", number: 22 },
       { id: "juv-11", name: "케난 이을드즈", number: 10 },
       { id: "juv-09", name: "랑달 콜로 무아니", number: 9 },
-    ], { lineHeight: 0.5, width: 0.1, fullbackInvert: -0.3, anchorDrop: 0.6, falseNine: 0.2 }),
+    ], { lineHeight: 0.5, width: 0.1, wingerTuck: 0.3, fullbackInvert: -0.3, anchorDrop: 0.6, falseNine: 0.2 }),
   },
   {
     id: "borussia-dortmund",
@@ -2241,7 +2241,7 @@ export const TEAMS: Team[] = [
     accentColor: "#018A42",
     crestUrl: "/badges/celtic.svg",
     koreanPlayer: "양현준",
-    tacticalStyle: { lineHeight: 0.6, width: 0.2, wingerTuck: -0.4, fullbackInvert: -0.1, anchorDrop: 0.3, falseNine: 0.5 },
+    tacticalStyle: { lineHeight: 0.5, width: 0.1, wingerTuck: -0.5, fullbackInvert: 0.4, anchorDrop: 0.2, falseNine: 0.1 },
     shortSummary:
       "로저스→낸시→오닐로 이어진 감독 교체 소동 끝에 안정을 찾은 팀. 10명의 여름 영입생을 쓰는 과정에서 양현준의 개인 기량이 공격의 핵심 변수로 꼽힌다.",
     tactical: {
@@ -2307,7 +2307,7 @@ export const TEAMS: Team[] = [
       { id: "cel-10", name: "하이셈 하산", number: 23 },
       { id: "cel-11", name: "양현준", number: 13 },
       { id: "cel-09", name: "카밀로 두란", number: 11 },
-    ], { lineHeight: 0.6, width: 0.2, wingerTuck: -0.4, fullbackInvert: -0.1, anchorDrop: 0.3, falseNine: 0.5 }),
+    ], { lineHeight: 0.5, width: 0.1, wingerTuck: -0.5, fullbackInvert: 0.4, anchorDrop: 0.2, falseNine: 0.1 }),
   },
 ];
 
