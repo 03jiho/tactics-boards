@@ -154,8 +154,11 @@ const TOKEN_GAP = 1;
 function tokenClearance(name: string): { x: number; y: number } {
   const lines = splitNameLines(name);
   const longestLine = Math.max(...lines.map((line) => line.length));
+  // 글자당 실측 폭은 2.24단위이므로 필요한 반폭은 1.12*글자수 - 5.5이고, 아래 식은 그보다 항상
+  // 조금 크다. 상한은 비정상적으로 긴 이름이 들어왔을 때만 걸리라고 둔 안전장치이며, 지금 데이터의
+  // 가장 긴 줄(15자)도 여기 닿지 않는다. 예전 상한 10은 15자 이름을 1.3단위 모자라게 잡았다.
   return {
-    x: clamp((longestLine - 4) * 1.1, 0, 10),
+    x: clamp((longestLine - 4) * 1.1, 0, 14),
     y: (TOKEN_HEIGHT + (lines.length - 1) * EXTRA_LINE_HEIGHT) / 2,
   };
 }
