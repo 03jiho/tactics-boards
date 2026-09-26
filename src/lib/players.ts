@@ -98,8 +98,11 @@ function applyTacticalStyle(
     const drop = style.anchorDrop * roleGain;
     y = y - drop * 14;
     x = 50 + (x - 50) * (1 + drop * 0.15);
-  } else if (role === "striker" && style.falseNine) {
-    const drop = style.falseNine * roleGain;
+  } else if (role === "striker" && style.falseNine && phase === "in") {
+    // 폴스나인은 공을 가졌을 때 중원으로 내려와 수적 우위를 만드는 움직임이지, 수비할 때의 자리가
+    // 아니다. 비소유 시 최전방은 압박의 첫 줄이라 10번 뒤로 물러나면 오히려 틀린 그림이 된다.
+    // 템플릿이 이미 비소유 시 스트라이커를 y 92 -> 55로 내려주므로 따로 더할 것도 없다.
+    const drop = style.falseNine;
     // 내려오는 방향(양수)은 여유가 넉넉하지만, 타겟맨(음수)이 전진할 공간은 템플릿 최전방이
     // 이미 y 88~95라 몇 칸뿐이다. 고정 배수로 밀면 골라인 밖에서 잘려 값이 달라도 결과가 같아지므로,
     // 전진은 남은 공간에 비례해 밀어 어떤 값에서도 포화되지 않게 한다.
@@ -139,9 +142,12 @@ function resolveOverlaps(
 ): PitchCoordinate[] {
   const points = coords.map((c) => ({ x: c.x, y: c.y * VIEW_Y_SCALE }));
   const paddings = names.map(estimateLabelPadding);
-  // 골키퍼는 골문 앞이라는 고정된 자리를 벗어나면 곧바로 어색해 보인다. applyTacticalStyle도
-  // 같은 이유로 x를 건드리지 않으므로, 겹침 해소에서도 움직이지 않게 두고 상대 토큰이 그만큼 더 비킨다.
-  const locked = roles.map((role) => role === "gk");
+  // 골키퍼는 골문에 묶여 있다. 좌우로 벗어나면 곧바로 어색하므로 x는 완전히 고정하고, 상대 토큰이
+  // 가로 몫을 대신 받는다. 세로는 조금만 움직이게 둔다. 완전히 묶으면 중앙 센터백이 겹침을 혼자
+  // 받아 좌우 센터백보다 앞으로 튀어나가 백3 스태거가 뒤집히고, 반대로 그냥 풀면 낮은 블록을
+  // 쓰는 팀에서 골라인까지 밀려 두 국면이 같은 자리에 서 버린다.
+  const GK_Y_GIVE = 0.75;
+  const isGk = roles.map((role) => role === "gk");
   const clampPoint = (p: { x: number; y: number }) => {
     p.x = clamp(p.x, 3, 97);
     p.y = clamp(p.y, 3 * VIEW_Y_SCALE, 97 * VIEW_Y_SCALE);
@@ -162,13 +168,17 @@ function resolveOverlaps(
 
         const push = (minDistance - distance) / 2;
         const [ux, uy] = distance > 0.001 ? [dx / distance, dy / distance] : [1, 0];
-        // 고정된 쪽의 몫은 반대쪽이 대신 받아 두 토큰 사이 간격은 그대로 확보한다.
-        const pushI = locked[i] ? 0 : locked[j] ? push * 2 : push;
-        const pushJ = locked[j] ? 0 : locked[i] ? push * 2 : push;
-        points[i].x -= ux * pushI;
-        points[i].y -= uy * pushI;
-        points[j].x += ux * pushJ;
-        points[j].y += uy * pushJ;
+        // 한쪽이 덜 움직이는 만큼 반대쪽이 더 받아, 두 토큰 사이 간격은 그대로 확보한다.
+        const share = (self: boolean, other: boolean, give: number) =>
+          (self ? give : 1) + (other ? 1 - give : 0);
+        const xI = share(isGk[i], isGk[j], 0);
+        const xJ = share(isGk[j], isGk[i], 0);
+        const yI = share(isGk[i], isGk[j], GK_Y_GIVE);
+        const yJ = share(isGk[j], isGk[i], GK_Y_GIVE);
+        points[i].x -= ux * push * xI;
+        points[j].x += ux * push * xJ;
+        points[i].y -= uy * push * yI;
+        points[j].y += uy * push * yJ;
         // 매 밀어내기 직후 경계로 다시 눌러, 한쪽이 경계에 막힌 만큼 반대쪽이 더 밀리도록 한다.
         clampPoint(points[i]);
         clampPoint(points[j]);
