@@ -940,7 +940,7 @@ export const TEAMS: Team[] = [
           name: "리카르도 칼라피오리",
           number: 33,
           role: "구조적 핵심 풀백",
-          description: "왼쪽 풀백에서 빌드업 시 중앙으로 좁혀 라이스·수비멘디와 더블 피봇을 이루며 팀을 3-2-4-1로 바꾼다.",
+          description: "왼쪽 풀백에서 빌드업 시 중앙으로 좁혀 두 센터백 옆에 서며, 그 앞을 라이스·수비멘디 더블 피봇이 지키는 3-2-4-1로 팀을 바꾼다.",
         },
         {
           playerId: "ars-zubimendi",
@@ -1220,7 +1220,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#2FAEE0",
     crestUrl: "/badges/marseille.svg",
-    tacticalStyle: { lineHeight: 0.3, width: -0.05, wingerTuck: -0.2, fullbackInvert: -0.4, anchorDrop: 0.4, falseNine: 0.3 },
+    tacticalStyle: { lineHeight: 0.3, width: -0.05, wingerTuck: -0.2, fullbackInvertLeft: 0.45, fullbackInvertRight: -0.6, anchorDrop: 0.4, falseNine: 0.3 },
     shortSummary:
       "2026년 6월 베예 경질 후 부임한 제네시오 체제. DNCG발 긴축 재정으로 그린우드·팀버·룰리 등 주축이 대거 이탈하며 스쿼드가 크게 재편됐다.",
     tactical: {
@@ -1287,7 +1287,7 @@ export const TEAMS: Team[] = [
       { id: "mar-10", name: "엔젤 고메스", number: 7 },
       { id: "mar-11", name: "이고르 파이샹", number: 14 },
       { id: "mar-09", name: "아민 구이리", number: 9 },
-    ], { lineHeight: 0.3, width: -0.05, wingerTuck: -0.2, fullbackInvert: -0.4, anchorDrop: 0.4, falseNine: 0.3 }),
+    ], { lineHeight: 0.3, width: -0.05, wingerTuck: -0.2, fullbackInvertLeft: 0.45, fullbackInvertRight: -0.6, anchorDrop: 0.4, falseNine: 0.3 }),
   },
   {
     id: "lafc",
