@@ -91,9 +91,14 @@ function applyTacticalStyle(
       x = 50 + (x - 50) * (1 - invert * 0.35);
       y = y - invert * 10;
     }
-  } else if (role === "wideAttacker" && style.wingerTuck) {
-    const tuck = style.wingerTuck * roleGain;
-    x = 50 + (x - 50) * (1 - tuck * 0.35);
+  } else if (role === "wideAttacker") {
+    // 풀백과 같은 이유로 윙어도 좌우가 갈린다. 한쪽은 터치라인에 붙어 1대1을 걸고 반대쪽은
+    // 안으로 좁혀 슈팅을 노리는 팀이 있어, side별 값이 있으면 그쪽을 먼저 쓴다.
+    const sideTuck = coord.x >= 50 ? style.wingerTuckRight : style.wingerTuckLeft;
+    const tuck = (sideTuck ?? style.wingerTuck ?? 0) * roleGain;
+    if (tuck) {
+      x = 50 + (x - 50) * (1 - tuck * 0.35);
+    }
   } else if (role === "pivot" && style.anchorDrop) {
     const drop = style.anchorDrop * roleGain;
     y = y - drop * 14;

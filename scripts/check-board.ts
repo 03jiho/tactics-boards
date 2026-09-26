@@ -73,26 +73,32 @@ assert.deepEqual(
   `등번호가 중복된 팀이 있다:\n  ${duplicateNumbers.join("\n  ")}`,
 );
 
-// 좌우를 분리한 팀은 두 풀백이 같은 폭으로 좁혀지면 안 된다.
-const split = TEAMS.filter(
-  (team) =>
-    team.tacticalStyle.fullbackInvertLeft !== undefined ||
-    team.tacticalStyle.fullbackInvertRight !== undefined,
+// 좌우를 분리한 팀은 그 두 슬롯이 같은 폭으로 배치되면 안 된다. 나눠 줬는데 결과가 같다면
+// 값이 상쇄됐거나 한쪽이 반영되지 않은 것이므로, 보드에서는 분리한 티가 나지 않는다.
+const SPLIT_KEYS = [
+  { left: "fullbackInvertLeft", right: "fullbackInvertRight", role: "wideDefender", label: "풀백" },
+  { left: "wingerTuckLeft", right: "wingerTuckRight", role: "wideAttacker", label: "윙어" },
+] as const;
+
+const split = TEAMS.flatMap((team) =>
+  SPLIT_KEYS.filter(
+    (k) =>
+      team.tacticalStyle[k.left] !== undefined || team.tacticalStyle[k.right] !== undefined,
+  ).map((k) => ({ team, role: k.role as SlotRole, label: k.label })),
 );
 
-for (const team of split) {
+for (const { team, role, label } of split) {
+  // 슬롯 판정은 players.ts와 같은 함수를 써야 한다. 같은 조건을 여기 베껴 두면
+  // 분류 기준이 바뀔 때 이 검사만 조용히 옛 기준으로 남는다.
   const template = PITCH_TEMPLATES[team.primaryFormationId];
-  const fullbacks = team.players.filter((_, index) => {
-    const slot = template[index];
-    return Math.abs(slot.inPossession.x - 50) >= 18 && slot.outOfPossession.y < 40;
-  });
-  assert.equal(fullbacks.length, 2, `${team.id}: 좌우 풀백 슬롯을 2개 찾지 못했다`);
+  const pair = team.players.filter((_, index) => classifySlot(template[index]) === role);
+  assert.equal(pair.length, 2, `${team.id}: 좌우 ${label} 슬롯을 2개 찾지 못했다`);
 
-  const [left, right] = fullbacks.map((p) => Math.abs(p.inPossession.x - 50).toFixed(2));
+  const [left, right] = pair.map((p) => Math.abs(p.inPossession.x - 50).toFixed(2));
   assert.notEqual(
     left,
     right,
-    `${team.id}: 좌우 값을 나눠 줬는데 두 풀백의 좁힘 폭이 같다`,
+    `${team.id}: 좌우 값을 나눠 줬는데 두 ${label}의 좁힘 폭이 같다`,
   );
 }
 
@@ -103,6 +109,8 @@ for (const team of split) {
  */
 const ROLE_FOR_STYLE_KEY: Partial<Record<keyof TacticalStyle, SlotRole>> = {
   wingerTuck: "wideAttacker",
+  wingerTuckLeft: "wideAttacker",
+  wingerTuckRight: "wideAttacker",
   fullbackInvert: "wideDefender",
   fullbackInvertLeft: "wideDefender",
   fullbackInvertRight: "wideDefender",

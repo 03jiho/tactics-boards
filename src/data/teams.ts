@@ -1608,7 +1608,7 @@ export const TEAMS: Team[] = [
     primaryFormationId: "4-2-3-1",
     accentColor: "#000000",
     crestUrl: "/badges/juventus.svg",
-    tacticalStyle: { lineHeight: 0.5, width: 0.1, wingerTuck: 0.3, fullbackInvert: -0.3, anchorDrop: 0.6, falseNine: 0.2 },
+    tacticalStyle: { lineHeight: 0.5, width: 0.1, wingerTuckLeft: 0.5, wingerTuckRight: -0.4, fullbackInvert: -0.3, anchorDrop: 0.6, falseNine: 0.2 },
     shortSummary:
       "2025년 10월 부임한 스팔레티 체제. 백4 기반의 4-2-3-1로, 물러서지 않는 높은 라인과 공격적인 오프사이드 트랩이 특징이다.",
     tactical: {
@@ -1675,7 +1675,7 @@ export const TEAMS: Team[] = [
       { id: "juv-10", name: "웨스턴 맥케니 / 테운 코프마이너스", number: 22 },
       { id: "juv-11", name: "케난 이을드즈", number: 10 },
       { id: "juv-09", name: "랑달 콜로 무아니", number: 9 },
-    ], { lineHeight: 0.5, width: 0.1, wingerTuck: 0.3, fullbackInvert: -0.3, anchorDrop: 0.6, falseNine: 0.2 }),
+    ], { lineHeight: 0.5, width: 0.1, wingerTuckLeft: 0.5, wingerTuckRight: -0.4, fullbackInvert: -0.3, anchorDrop: 0.6, falseNine: 0.2 }),
   },
   {
     id: "borussia-dortmund",
