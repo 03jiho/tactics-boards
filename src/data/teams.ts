@@ -334,7 +334,7 @@ export const TEAMS: Team[] = [
       { id: "mun-10", name: "브루누 페르난데스", number: 8 },
       { id: "mun-11", name: "마커스 래시포드", number: 9 },
       { id: "mun-09", name: "마테우스 쿠냐 / 베냐민 셰슈코", number: 10 },
-    ], { lineHeight: 0.1, width: 0, wingerTuck: 0.3, fullbackInvert: 0.6, anchorDrop: 0.3, falseNine: 0.6 }, { inPossession: "3-2-5" }),
+    ], { lineHeight: 0.1, width: 0, wingerTuck: 0.3, fullbackInvert: 0.6, anchorDrop: 0.3, falseNine: 0.6 }, { inPossession: "3-2-5", outOfPossession: "4-4-2" }),
   },
   {
     id: "liverpool",
@@ -491,7 +491,7 @@ export const TEAMS: Team[] = [
       { id: "tot-10", name: "사비 시몬스", number: 7 },
       { id: "tot-11", name: "모하메드 쿠두스", number: 20 },
       { id: "tot-09", name: "오마르 마르무시 / 도미닉 솔랑케", number: 22 },
-    ], { lineHeight: 0.75, width: 0.35, wingerTuck: -0.6, fullbackInvert: 0.5, anchorDrop: -0.2, falseNine: 0.3 }),
+    ], { lineHeight: 0.75, width: 0.35, wingerTuck: -0.6, fullbackInvert: 0.5, anchorDrop: -0.2, falseNine: 0.3 }, { inPossession: "2-3-5" }),
   },
   {
     id: "real-madrid",
@@ -727,7 +727,7 @@ export const TEAMS: Team[] = [
       { id: "avl-10", name: "에밀리아노 부엔디아", number: 10 },
       { id: "avl-11", name: "요한 만잠비", number: 44 },
       { id: "avl-09", name: "니콜라 잭슨", number: 11 },
-    ], { lineHeight: 0.5, width: 0.05, wingerTuck: 0.6, fullbackInvert: -0.6, anchorDrop: 0.6, falseNine: -0.3 }),
+    ], { lineHeight: 0.5, width: 0.05, wingerTuck: 0.6, fullbackInvert: -0.6, anchorDrop: 0.6, falseNine: -0.3 }, { outOfPossession: "4-4-2" }),
   },
   {
     id: "brighton",
@@ -898,7 +898,7 @@ export const TEAMS: Team[] = [
       { id: "nwc-10", name: "조 윌록 / 마티아스 페르난데스파르도", number: 28 },
       { id: "nwc-11", name: "하비 반스", number: 11 },
       { id: "nwc-09", name: "요안 위사", number: 9 },
-    ], { lineHeight: 0.3, width: -0.4, wingerTuck: -0.5, fullbackInvert: -0.5, anchorDrop: 0.7, falseNine: -0.1 }),
+    ], { lineHeight: 0.3, width: -0.4, wingerTuck: -0.5, fullbackInvert: -0.5, anchorDrop: 0.7, falseNine: -0.1 }, { outOfPossession: "4-4-2" }),
   },
 
   // ───────────────────────── 4-3-3 ─────────────────────────
@@ -1133,7 +1133,7 @@ export const TEAMS: Team[] = [
       { id: "nap-07", name: "마테오 폴리타노", number: 21 },
       { id: "nap-11", name: "다비드 네레스 / 노아 랑", number: 7 },
       { id: "nap-09", name: "라스무스 호일룬", number: 19 },
-    ], { lineHeight: 0.2, width: 0.1, wingerTuck: -0.2, fullbackInvert: 0, anchorDrop: 0.2, falseNine: 0.1 }),
+    ], { lineHeight: 0.2, width: 0.1, wingerTuck: -0.2, fullbackInvert: 0, anchorDrop: 0.2, falseNine: 0.1 }, { outOfPossession: "4-4-2" }),
   },
   {
     id: "psg",
@@ -1675,7 +1675,7 @@ export const TEAMS: Team[] = [
       { id: "juv-10", name: "웨스턴 맥케니 / 테운 코프마이너스", number: 22 },
       { id: "juv-11", name: "케난 이을드즈", number: 10 },
       { id: "juv-09", name: "랑달 콜로 무아니", number: 9 },
-    ], { lineHeight: 0.5, width: 0.1, wingerTuckLeft: 0.5, wingerTuckRight: -0.4, fullbackInvert: -0.3, anchorDrop: 0.6, falseNine: 0.2 }),
+    ], { lineHeight: 0.5, width: 0.1, wingerTuckLeft: 0.5, wingerTuckRight: -0.4, fullbackInvert: -0.3, anchorDrop: 0.6, falseNine: 0.2 }, { outOfPossession: "4-4-2" }),
   },
   {
     id: "borussia-dortmund",
@@ -1990,7 +1990,7 @@ export const TEAMS: Team[] = [
       { id: "int-07", name: "페데리코 디마르코", number: 32 },
       { id: "int-09", name: "라우타로 마르티네스", number: 10 },
       { id: "int-11", name: "마르쿠스 튀람", number: 9 },
-    ], { lineHeight: 0, width: -0.1, fullbackInvert: -0.5, anchorDrop: 0.5, falseNineLeft: -0.3, falseNineRight: 0.35 }, { inPossession: "3-2-5" }),
+    ], { lineHeight: 0, width: -0.1, fullbackInvert: -0.5, anchorDrop: 0.5, falseNineLeft: -0.3, falseNineRight: 0.35 }, { inPossession: "3-2-5", outOfPossession: "5-3-2" }),
   },
 
   // ───────────────────────── 5-3-2 ─────────────────────────
