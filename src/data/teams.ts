@@ -93,7 +93,7 @@ export const TEAMS: Team[] = [
       { id: "mci-10", name: "라얀 셰르키", number: 10 },
       { id: "mci-11", name: "제레미 도쿠 / 필 포든", number: 11 },
       { id: "mci-09", name: "엘링 홀란", number: 9 },
-    ], { lineHeight: 0.6, width: 0.2, wingerTuck: -0.3, fullbackInvertRight: 0.7, fullbackInvertLeft: -0.5, anchorDrop: 0.3, falseNine: 0.5 }),
+    ], { lineHeight: 0.6, width: 0.2, wingerTuck: -0.3, fullbackInvertRight: 0.7, fullbackInvertLeft: -0.5, anchorDrop: 0.3, falseNine: 0.5 }, { inPossession: "3-2-5" }),
   },
   {
     id: "fc-barcelona",
@@ -334,7 +334,7 @@ export const TEAMS: Team[] = [
       { id: "mun-10", name: "브루누 페르난데스", number: 8 },
       { id: "mun-11", name: "마커스 래시포드", number: 9 },
       { id: "mun-09", name: "마테우스 쿠냐 / 베냐민 셰슈코", number: 10 },
-    ], { lineHeight: 0.1, width: 0, wingerTuck: 0.3, fullbackInvert: 0.6, anchorDrop: 0.3, falseNine: 0.6 }),
+    ], { lineHeight: 0.1, width: 0, wingerTuck: 0.3, fullbackInvert: 0.6, anchorDrop: 0.3, falseNine: 0.6 }, { inPossession: "3-2-5" }),
   },
   {
     id: "liverpool",
@@ -916,7 +916,7 @@ export const TEAMS: Team[] = [
       "2025-26 프리미어리그 우승팀. 칼라피오리의 인버트로 빌드업 시 3-2-4-1로 가변하며, 세트피스 비중이 매우 높다.",
     tactical: {
       inPossession: {
-        summary: "칼라피오리 인버트로 3백을 형성하고, 라이스·수비멘디 더블 피봇이 그 앞을 지키며 3-2-4-1 구조로 하프스페이스를 점유한다.",
+        summary: "팀버르가 안으로 좁혀 살리바·가브리에우와 백3를 만들고, 칼라피오리가 미드필드로 인버트해 수비멘디와 더블 피봇을 이룬다. 수비 부담을 던 라이스는 라인 사이로 올라가 전방 4인에 합류하는 3-2-4-1이 된다.",
         buildUpDescription: "세트피스 비중이 매우 높으며, 낮은 템포의 통제된 점유와 강한 뒷공간 커버가 특징이다.",
         keyPoints: [
           "칼라피오리의 인버트 타이밍",
@@ -940,7 +940,7 @@ export const TEAMS: Team[] = [
           name: "리카르도 칼라피오리",
           number: 33,
           role: "구조적 핵심 풀백",
-          description: "왼쪽 풀백에서 빌드업 시 중앙으로 좁혀 두 센터백 옆에 서며, 그 앞을 라이스·수비멘디 더블 피봇이 지키는 3-2-4-1로 팀을 바꾼다.",
+          description: "왼쪽 풀백에서 빌드업 시 중앙으로 올라와 수비멘디 옆에 서는 인버티드 풀백이다. 뒤가 아니라 앞으로 들어가 두 번째 배급 지점이 되고, 그만큼 라이스가 수비 부담을 덜고 높은 위치로 올라간다.",
         },
         {
           playerId: "ars-zubimendi",
@@ -948,7 +948,7 @@ export const TEAMS: Team[] = [
           number: 36,
           role: "딥라잉 앵커",
           description:
-            "칼라피오리의 인버트로 만들어진 3백 앞에서 볼을 순환시켜, 라이스를 수비 부담에서 풀어주고 더 높은 위치로 올려보내는 피봇이다. 낮은 템포의 통제된 점유를 유지하는 축이자, 한쪽이 막혔을 때 반대편으로 방향을 바꿔주는 출구 역할도 맡는다.",
+            "팀버르가 합류한 백3 앞에서 칼라피오리와 짝을 이뤄 볼을 순환시켜, 라이스를 수비 부담에서 풀어주고 더 높은 위치로 올려보내는 피봇이다. 낮은 템포의 통제된 점유를 유지하는 축이자, 한쪽이 막혔을 때 반대편으로 방향을 바꿔주는 출구 역할도 맡는다.",
         },
         {
           playerId: "ars-saka",
@@ -978,7 +978,7 @@ export const TEAMS: Team[] = [
       { id: "ars-07", name: "부카요 사카", number: 7 },
       { id: "ars-11", name: "크리스토스 촐리스", number: 17 },
       { id: "ars-09", name: "카이 하베르츠 / 빅토르 요케레스", number: 29 },
-    ], { lineHeight: 0.4, width: -0.2, wingerTuck: -0.7, fullbackInvert: 0.7, anchorDrop: 0.5, falseNine: 0.1 }, "3-2-4-1"),
+    ], { lineHeight: 0.4, width: -0.2, wingerTuck: -0.7, fullbackInvert: 0.7, anchorDrop: 0.5, falseNine: 0.1 }, { inPossession: "3-2-4-1" }),
   },
   {
     id: "rb-leipzig",
@@ -1056,7 +1056,7 @@ export const TEAMS: Team[] = [
       { id: "rbl-07", name: "브라얀 그루다 / 요한 바카요코", number: 10 },
       { id: "rbl-11", name: "안토니오 누사", number: 7 },
       { id: "rbl-09", name: "크리스토퍼 은쿤쿠", number: 28 },
-    ], { lineHeight: 0.7, width: 0.25, wingerTuck: 0.4, fullbackInvert: -0.3, anchorDrop: 0.7, falseNine: 0.4 }),
+    ], { lineHeight: 0.7, width: 0.25, wingerTuck: 0.4, fullbackInvert: -0.3, anchorDrop: 0.7, falseNine: 0.4 }, { outOfPossession: "4-1-4-1" }),
   },
   {
     id: "napoli",
@@ -1209,7 +1209,7 @@ export const TEAMS: Team[] = [
       { id: "psg-07", name: "데지레 두에", number: 14 },
       { id: "psg-11", name: "흐비차 크바라츠헬리아", number: 7 },
       { id: "psg-09", name: "우스만 뎀벨레 / 페란 토레스", number: 10 },
-    ], { lineHeight: 0.6, width: 0.15, wingerTuck: 0.6, fullbackInvertLeft: -0.4, fullbackInvertRight: -0.8, anchorDrop: 0.6, falseNine: 0.7 }),
+    ], { lineHeight: 0.6, width: 0.15, wingerTuck: 0.6, fullbackInvertLeft: -0.4, fullbackInvertRight: -0.8, anchorDrop: 0.6, falseNine: 0.7 }, { inPossession: "3-2-5" }),
   },
   {
     id: "marseille",
@@ -1597,7 +1597,7 @@ export const TEAMS: Team[] = [
       { id: "che-10", name: "콜 파머", number: 10 },
       { id: "che-11", name: "모건 로저스", number: 17 },
       { id: "che-09", name: "주앙 페드루", number: 9 },
-    ], { lineHeight: 0.3, width: 0.1, fullbackInvert: -0.6, anchorDrop: 0.3, falseNine: 0.6 }),
+    ], { lineHeight: 0.3, width: 0.1, fullbackInvert: -0.6, anchorDrop: 0.3, falseNine: 0.6 }, { inPossession: "3-2-5" }),
   },
   {
     id: "juventus",
@@ -1990,7 +1990,7 @@ export const TEAMS: Team[] = [
       { id: "int-07", name: "페데리코 디마르코", number: 32 },
       { id: "int-09", name: "라우타로 마르티네스", number: 10 },
       { id: "int-11", name: "마르쿠스 튀람", number: 9 },
-    ], { lineHeight: 0, width: -0.1, fullbackInvert: -0.5, anchorDrop: 0.5, falseNineLeft: -0.3, falseNineRight: 0.35 }),
+    ], { lineHeight: 0, width: -0.1, fullbackInvert: -0.5, anchorDrop: 0.5, falseNineLeft: -0.3, falseNineRight: 0.35 }, { inPossession: "3-2-5" }),
   },
 
   // ───────────────────────── 5-3-2 ─────────────────────────

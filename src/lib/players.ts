@@ -1,9 +1,5 @@
 import { PITCH_TEMPLATES, type PositionTemplate } from "@/data/pitchTemplates";
-import {
-  POSSESSION_SHAPES,
-  possessionShapeKey,
-  type PossessionShapeId,
-} from "@/data/possessionShapes";
+import { SHAPES, shapeKey, type ShapeId } from "@/data/possessionShapes";
 import { splitNameLines } from "@/lib/playerLabel";
 import type { FormationId, PitchCoordinate, PlayerPosition, TacticalStyle } from "@/types/football";
 
@@ -276,7 +272,7 @@ export function buildPlayers(
   formationId: FormationId,
   roster: RosterEntry[],
   style: TacticalStyle = NEUTRAL_STYLE,
-  possessionShape?: PossessionShapeId,
+  shapes: { inPossession?: ShapeId; outOfPossession?: ShapeId } = {},
 ): PlayerPosition[] {
   const template = PITCH_TEMPLATES[formationId];
   if (roster.length !== template.length) {
@@ -288,33 +284,37 @@ export function buildPlayers(
   const roles = template.map(classifySlot);
   const names = roster.map((entry) => entry.name);
 
-  // 소유 시 대형을 따로 적어 둔 팀은 그 좌표에서 출발한다. 역할별 보정(풀백 인버트 등)은
+  // 대형을 따로 적어 둔 국면은 그 좌표에서 출발한다. 역할별 보정(풀백 인버트, 폴스나인 등)은
   // 이미 그 대형이 표현하고 있는 움직임이라 다시 적용하면 서로 싸우므로, 팀 색깔에 해당하는
-  // 라인 높이와 폭만 얹는다.
-  const shape = possessionShape ? POSSESSION_SHAPES[possessionShapeKey(formationId, possessionShape)] : undefined;
-  if (possessionShape && !shape) {
-    throw new Error(`"${formationId}"에 대한 "${possessionShape}" 소유 시 대형 좌표가 없다`);
-  }
-  if (shape && shape.length !== template.length) {
-    throw new Error(
-      `"${formationId}:${possessionShape}" 좌표 수(${shape.length})가 템플릿(${template.length})과 다르다`,
-    );
-  }
+  // 라인 높이와 폭만 얹는다. 그래서 적어 둔 좌표에는 그 팀의 역할별 움직임이 반영돼 있어야 한다.
+  const resolveShape = (id: ShapeId | undefined): PitchCoordinate[] | undefined => {
+    if (!id) return undefined;
+    const coords = SHAPES[shapeKey(formationId, id)];
+    if (!coords) throw new Error(`"${formationId}"에 대한 "${id}" 대형 좌표가 없다`);
+    if (coords.length !== template.length) {
+      throw new Error(`"${formationId}:${id}" 좌표 수(${coords.length})가 템플릿(${template.length})과 다르다`);
+    }
+    return coords;
+  };
 
-  const inPossessionCoords = resolveOverlaps(
-    template.map((slot, index) =>
-      shape
-        ? applyGlobalStyle(shape[index], style, roles[index], "in")
-        : applyTacticalStyle(slot.inPossession, style, roles[index], "in"),
-    ),
-    names,
-    roles,
-  );
-  const outOfPossessionCoords = resolveOverlaps(
-    template.map((slot, index) => applyTacticalStyle(slot.outOfPossession, style, roles[index], "out")),
-    names,
-    roles,
-  );
+  const build = (phase: "in" | "out", shape: PitchCoordinate[] | undefined) =>
+    resolveOverlaps(
+      template.map((slot, index) =>
+        shape
+          ? applyGlobalStyle(shape[index], style, roles[index], phase)
+          : applyTacticalStyle(
+              phase === "in" ? slot.inPossession : slot.outOfPossession,
+              style,
+              roles[index],
+              phase,
+            ),
+      ),
+      names,
+      roles,
+    );
+
+  const inPossessionCoords = build("in", resolveShape(shapes.inPossession));
+  const outOfPossessionCoords = build("out", resolveShape(shapes.outOfPossession));
 
   return template.map((slot, index) => ({
     playerId: roster[index].id,
