@@ -978,7 +978,7 @@ export const TEAMS: Team[] = [
       { id: "ars-07", name: "부카요 사카", number: 7 },
       { id: "ars-11", name: "크리스토스 촐리스", number: 17 },
       { id: "ars-09", name: "카이 하베르츠 / 빅토르 요케레스", number: 29 },
-    ], { lineHeight: 0.4, width: -0.2, wingerTuck: -0.7, fullbackInvert: 0.7, anchorDrop: 0.5, falseNine: 0.1 }),
+    ], { lineHeight: 0.4, width: -0.2, wingerTuck: -0.7, fullbackInvert: 0.7, anchorDrop: 0.5, falseNine: 0.1 }, "3-2-4-1"),
   },
   {
     id: "rb-leipzig",

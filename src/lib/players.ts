@@ -1,4 +1,9 @@
 import { PITCH_TEMPLATES, type PositionTemplate } from "@/data/pitchTemplates";
+import {
+  POSSESSION_SHAPES,
+  possessionShapeKey,
+  type PossessionShapeId,
+} from "@/data/possessionShapes";
 import { splitNameLines } from "@/lib/playerLabel";
 import type { FormationId, PitchCoordinate, PlayerPosition, TacticalStyle } from "@/types/football";
 
@@ -66,7 +71,11 @@ export function classifySlot(slot: PositionTemplate): SlotRole {
  *   풀백/윙백, 피봇, 스트라이커)에 따라 추가로 적용되는 역할별 보정. 비소유 시에는 40% 강도로만
  *   반영해, 소유/비소유 두 국면이 팀마다 다르게 보이도록 한다.
  */
-function applyTacticalStyle(
+/**
+ * 모든 슬롯에 공통으로 걸리는 라인 높이와 폭만 적용한다. 소유 시 대형을 직접 적어 둔 팀은
+ * 역할별 보정 없이 이것만 얹어, 적어 둔 구조는 그대로 두고 팀 색깔만 반영한다.
+ */
+function applyGlobalStyle(
   coord: PitchCoordinate,
   style: TacticalStyle,
   role: SlotRole,
@@ -77,8 +86,21 @@ function applyTacticalStyle(
   const heightGain = phase === "out" ? 9 : 4.5;
   const widthGain = phase === "out" ? 0.22 : 0.12;
 
-  let y = clamp(coord.y + style.lineHeight * heightGain * depthWeight, 3, 97);
-  let x = isGoalkeeper ? coord.x : 50 + (coord.x - 50) * (1 + style.width * widthGain);
+  return {
+    x: isGoalkeeper ? coord.x : clamp(50 + (coord.x - 50) * (1 + style.width * widthGain), 3, 97),
+    y: clamp(coord.y + style.lineHeight * heightGain * depthWeight, 3, 97),
+  };
+}
+
+function applyTacticalStyle(
+  coord: PitchCoordinate,
+  style: TacticalStyle,
+  role: SlotRole,
+  phase: "in" | "out",
+): PitchCoordinate {
+  const base = applyGlobalStyle(coord, style, role, phase);
+  let x = base.x;
+  let y = base.y;
 
   const roleGain = phase === "in" ? 1 : 0.4;
 
@@ -254,6 +276,7 @@ export function buildPlayers(
   formationId: FormationId,
   roster: RosterEntry[],
   style: TacticalStyle = NEUTRAL_STYLE,
+  possessionShape?: PossessionShapeId,
 ): PlayerPosition[] {
   const template = PITCH_TEMPLATES[formationId];
   if (roster.length !== template.length) {
@@ -264,8 +287,26 @@ export function buildPlayers(
 
   const roles = template.map(classifySlot);
   const names = roster.map((entry) => entry.name);
+
+  // 소유 시 대형을 따로 적어 둔 팀은 그 좌표에서 출발한다. 역할별 보정(풀백 인버트 등)은
+  // 이미 그 대형이 표현하고 있는 움직임이라 다시 적용하면 서로 싸우므로, 팀 색깔에 해당하는
+  // 라인 높이와 폭만 얹는다.
+  const shape = possessionShape ? POSSESSION_SHAPES[possessionShapeKey(formationId, possessionShape)] : undefined;
+  if (possessionShape && !shape) {
+    throw new Error(`"${formationId}"에 대한 "${possessionShape}" 소유 시 대형 좌표가 없다`);
+  }
+  if (shape && shape.length !== template.length) {
+    throw new Error(
+      `"${formationId}:${possessionShape}" 좌표 수(${shape.length})가 템플릿(${template.length})과 다르다`,
+    );
+  }
+
   const inPossessionCoords = resolveOverlaps(
-    template.map((slot, index) => applyTacticalStyle(slot.inPossession, style, roles[index], "in")),
+    template.map((slot, index) =>
+      shape
+        ? applyGlobalStyle(shape[index], style, roles[index], "in")
+        : applyTacticalStyle(slot.inPossession, style, roles[index], "in"),
+    ),
     names,
     roles,
   );
